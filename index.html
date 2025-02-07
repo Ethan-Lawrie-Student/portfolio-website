@@ -11,8 +11,9 @@
 </head>
 <body>
 
-    <header>
+    <header >
         <nav>
+            
             <ul>
                 <li><a href="#intro">About Me</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -28,13 +29,44 @@
 
 
 
-
+<!-- 
     <section id="intro">
         I am Ethan
         <div>
             TIMELINE
         </div>
-    </section>
+    </section> -->
+
+    <section id="intro">
+        <h1>My Timeline</h1>
+        <div class="timeline-box">
+         
+          <div class="timeline-dates">
+            
+            <div class="timeline-date" data-date="2021" data-info="Completed an artificial intelligence Tensorflow course in Udemy, which sparked my intrest in deep learning and AI.">
+              2021
+            </div>
+            <div class="timeline-date" data-date="2022" data-info="Saw the potential in the transformer architecture technologies, such as the diffusion ai image generators and the gpt-3 transformer model. This lead me to invest in NVDIA, which increased massively in value over the next few years.">
+              2022
+            </div>
+            <div class="timeline-date" data-date="2023" data-info="Started Word Lawrie with a team of four while doing Year 12 at school.">
+                2023
+              </div>
+            
+            
+          </div>
+      
+          <div class="timeline-detail">
+            <h3 id="curDate" cur-date="1900"></h3>
+            <p>Select a date from the left to see more information here.</p>
+          </div>
+        </div>
+      </section>
+      
+
+
+
+
 
     <section id="skills">
         <h1>Skills</h1>
@@ -71,7 +103,12 @@
         <h2>contact</h2>
         <p>linkedin and box for sending email to me</p>
     </section>
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <div id="custom-cursor"></div>
     <script src="main.js"></script>
+
+
 </body>
 </html>

@@ -24,9 +24,11 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    cursor: url('assets/images/cursor.png'), auto;
-    
+    cursor: url('assets/images/right-arrow.png'), auto;
+        
 }
+
+
 
 
 
@@ -37,7 +39,7 @@ body::before {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(250, 243, 217, 0.589); 
+    background: rgba(250, 243, 217, 0.258); 
     z-index: -1; 
     pointer-events: none; 
 }
@@ -46,16 +48,22 @@ header {
     background-color: #1d3d46; 
     color: #faf3d9;
     font-size: x-large;
-    padding: 5px 20px;
+    padding: 0px 20px;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5159203423;
     box-shadow: 0 2px 4px rgba(250, 243, 217, 0.589);
-    
+    transition: padding 0.3s ease-in-out;
+  }
+
+  header:hover{
+    padding: 10px;
   }
   
   nav ul {
+    margin-block-start: 5px;
+    margin-block-end: 5px;
     display: flex;
     list-style: none;
   }
@@ -91,3 +99,93 @@ header {
   .button:hover {
     background-color: #de585b;
   }
+
+
+  #intro {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: #1d3d46;
+    position: relative;
+  }
+
+  #intro h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+
+
+.timeline-box {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;          
+    border: 1px solid #faf3d9;  
+    border-radius: 8px;
+    overflow: hidden;            
+    border: solid 2px #1d3d46;
+    background-color: rgba(250, 243, 217, 1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .timeline-dates {
+    width: 30%;                 
+    max-height: 400px;           
+    overflow-y: auto;           
+    background-color: rgba(29, 61, 70, 0.9);
+    color: #faf3d9;       
+    padding: 10px;
+    position: relative;
+  }
+
+  .timeline-indicator {
+    position: absolute;
+    top: 50%;
+    left:0;
+    width: 100%;
+  }
+
+
+  .timeline-date {
+    padding: 10px;
+    border-bottom: 1px solid rgba(250, 243, 217, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 400;
+  }
+  
+  .timeline-date:last-child {
+    border-bottom: none;
+  }
+  
+  .timeline-date:hover {
+    background-color: rgba(252, 151, 126, 1);
+    color: rgba(29, 61, 70, 0.9);
+    font-weight: 600;
+    font-size: 1.5em;
+}
+  
+  
+  .timeline-detail {
+    width: 70%;                
+    padding: 20px;
+    background-color: rgba(250, 243, 217, 1);
+    color: rgba(29, 61, 70, 0.9);
+    max-height: 400px;     
+    overflow-y: hidden;
+    box-sizing: border-box;
+    
+  }
+
+  .timeline-detail h3 {
+    margin: 5px;
+    font-size: 3em;
+    font-weight: 800;
+  }
+  
