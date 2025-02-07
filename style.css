@@ -1,0 +1,93 @@
+
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+body {
+    background: url('assets/images/marble.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    
+    
+    font-family: "Spline Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    cursor: url('assets/images/cursor.png'), auto;
+    
+}
+
+
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(250, 243, 217, 0.589); 
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+header {
+    background-color: #1d3d46; 
+    color: #faf3d9;
+    font-size: x-large;
+    padding: 5px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5159203423;
+    box-shadow: 0 2px 4px rgba(250, 243, 217, 0.589);
+    
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav li a {
+    color: #faf3d9;
+    padding: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-size: large;
+    font-weight: 400;
+    transition: font-size 0.3s ease-in-out;
+    /* transition: font-weight 0.6s ease-in-out; */
+  }
+  
+  
+  nav li a:hover {
+    font-weight: 600;
+    font-size: 1.1em;
+    /* transform: scale(1.1); */
+    color: #fc977e; 
+  }
+  
+
+  .button {
+    background-color: #fc977e;
+    color: #1d3d46; 
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #de585b;
+  }
