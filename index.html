@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="style.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300..700&family=Suwannaphum:wght@100;300;400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Candal&family=Comfortaa:wght@300..700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Text:ital@0;1&family=Domine:wght@400..700&family=Encode+Sans+SC:wght@100..900&family=Kumar+One&family=Playwrite+AU+NSW:wght@100..400&family=Quintessential&family=Radley:ital@0;1&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Spline+Sans:wght@300..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"></head>
+<body id="the-body">
 
     <header >
         <nav>
@@ -24,91 +25,220 @@
     </header>
 
 
-    <canvas id="3canvas"></canvas>
 
 
-
-
-<!-- 
-    <section id="intro">
-        I am Ethan
-        <div>
-            TIMELINE
+  <section id="hero">
+    <div id="word-map">
+        <div class="bars-container">
+            <div class="bar top-bar">Ethan Lawrie</div>
+            <div class="bar bottom-bar">Software Engineer</div>
+            <div class="scroll-indicator">▼ Scroll Down</div>
         </div>
-    </section> -->
+    </div>
+    
+  </section>
 
-    <section id="intro">
-        <h1>My Timeline</h1>
+
+
+
+       <section id="intro" class="full-width-section">
+        <div class="content-container">
+            <!-- About Me Card -->
+        <section id="about">
+            <!-- Quick Synopsis -->
+            <div class="about-synopsis">
+              <h2 class="synopsis-heading">Welcome to my Portfolio!</h2>
+              <p class="synopsis-text">
+                I'm Ethan Lawrie – a passionate and innovative Software Engineer with expertise in data solutions, game development, AI, and web technologies. I'm continuously evolving and striving to make an impact.
+              </p>
+            </div>
+          
+            <!-- Detailed About Me Card -->
+            <div class="about-card">
+              <div class="about-image">
+                <img src="assets/images/ethan.jpg" alt="Picture of Me">
+              </div>
+              <div class="about-info">
+                <h2>About Me</h2>
+                <ul>
+                  <li><strong>1+ years</strong> of experience as a Data Solutions Engineer working on software and online services</li>
+                  <li><strong>2+ years</strong> of experience as a Games Developer working on games such as Word Lawrie</li>
+                  <li>Student pursuing a Bachelor of Computer Science (Advanced) at the University of Adelaide</li>
+                  <li>Passionate about AI, Web Development, and Data Science</li>
+                  <li>Involved in volunteer community roles</li>
+                  <li>Always learning and exploring new technologies</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+      
+        <!-- Timeline Section -->
+        <h2 class="timeline-heading">My Timeline</h2>
         <div class="timeline-box">
-         
           <div class="timeline-dates">
-            
-            <div class="timeline-date" data-date="2021" data-info="Completed an artificial intelligence Tensorflow course in Udemy, which sparked my intrest in deep learning and AI.">
+            <div class="timeline-date" data-date="2021" data-info="Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.">
               2021
             </div>
-            <div class="timeline-date" data-date="2022" data-info="Saw the potential in the transformer architecture technologies, such as the diffusion ai image generators and the gpt-3 transformer model. This lead me to invest in NVDIA, which increased massively in value over the next few years.">
+            <div class="timeline-date" data-date="2022" data-info="Explored the potential of transformer architecture technologies and invested in NVIDIA, with substantial growth.">
               2022
             </div>
-            <div class="timeline-date" data-date="2023" data-info="Started Word Lawrie with a team of four while doing Year 12 at school.">
-                2023
-              </div>
-            
-            
+            <div class="timeline-date" data-date="2023" data-info="Launched Word Lawrie with a team of four while completing Year 12 at school.">
+              2023
+            </div>
           </div>
-      
           <div class="timeline-detail">
             <h3 id="curDate" cur-date="1900"></h3>
-            <p>Select a date from the left to see more information here.</p>
+            <p id="dateText">Select a date from the left to see more information here.</p>
+          </div>
+        </div>
+        </div>
+        
+      </section>
+
+
+      <section class="page-break">
+        
+      </section>
+      
+      
+
+      <section id="skills" class="full-width-section">
+        <div class="content-container">
+            <h2 class="section-heading">My Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <img src="assets/icons/microsoft-power-platform-icons.png" alt="PowerAppsIcon">
+            <p>Power Apps</p>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/6132222.png" alt="C++">
+            <p>C++</p>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/7690595.png" alt="Algorithms">
+            <p>Algorithms</p>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/unity-icon-1998x2048-c6v0ej9o.png" alt="unity">
+            <p>Unity</p>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/png-clipart-c-programming-language-logo-microsoft-visual-studio-net-framework-javascript-icon-purple-logo-removebg-preview.png" alt="C#">
+            <p>C#</p>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/pythoned.png" alt="Python">
+            <p>Python</p>
+          </div>
+          <div class="skill-item">
+            <img src="assets/icons/microsoft_azure.svg_.png" alt="Azure">
+            <p>Microsoft Azure</p>
+          </div>
+
+          <div class="skill-item">
+            <img src="assets/icons/amazon-web-services.png" alt="AWS">
+            <p>Amazon Web Services</p>
+          </div>
+
+          <div class="skill-item">
+            <img src="assets/icons/Microsoft_365_Copilot_Icon.svg.png" alt="Copilot">
+            <p>Microsoft Copilot</p>
+          </div>
+
+          
+        </div>
+        </div>
+        
+      </section>
+      
+
+      <section class="page-break">
+
+      </section>
+      <section id="experience" class="full-width-section">
+        <div class="content-container">
+          <h2 class="section-heading">Experience</h2>
+          
+          <div class="experience-item" id="data-engineer">
+            <div class="experience-header">
+              <img src="assets/images/CMV.png" alt="Company Logo" class="company-logo">
+              <h3>Data Solutions Engineer</h3>
+            </div>
+            <p>
+              Over 1+ years of experience working on software and online services at CMV Group. I helped build scalable systems and innovative solutions.
+            </p>
+            <div class="experience-gallery">
+                <div class="gallery-item">
+                  <img src="assets/images/cmv_group_cover.jpg" alt="Project 1">
+                </div>
+                <div class="gallery-item">
+                  <img src="assets/images/truck1.jpg" alt="Project 2">
+                </div>
+                <div class="gallery-item">
+                  <img src="assets/images/hq720.jpg" alt="Project 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/page_1_thumb_large.png" alt="Project 3">
+                  </div>
+              </div>
+          </div>
+          
+
+          <section id="game-section">
+            <div class="game-details">
+              <div class="game-info">
+                <h2 class="game-title"><pre class="game-title">Word   Lawrie </pre></h2>
+                <p class="game-description">
+                  Experience an innovative and interactive gaming experience. Discover Word Lawrie—crafted with passion and technical expertise.
+                </p>
+              </div>
+              <div class="phone-wrapper">
+                <div class="game-prompt">Try out the game below ▼</div>
+                <div class="phone-container">
+                    <div class="phone-frame">
+                      <div class="game-inner">
+                        <iframe src="/NonSitelock/index.html" frameborder="0"></iframe>
+                      </div>
+                      <div class="phone-overlay"></div>
+                    </div>
+                  </div>
+                 
+              </div>
+            </div>
+          </section>
+          
+          
+              
+              
           </div>
         </div>
       </section>
       
-
-
-
-
-
-    <section id="skills">
-        <h1>Skills</h1>
-        <p>Skills that I have: Algorithms, Databases, Power Apps, C++, Unity</p>
-    </section>
-
-
-    <section id="experience">
-        <h1>Experience</h1>
-        <p>I have 1+ years of experience in data solutions engineering / software engineering </p>
-    
-        <div class="exp" id="data_eng">
-            <h2>
-                Data Solutions Engineer
-            </h2>
-            <p>
-                Images and maybe car and text
-            </p>
-        </div>
-
-
-
-        <div class="exp" id="word_lawrie">
-            <h2>
-                Data Solutions Engineer
-            </h2>
-            <p>
-                Images and maybe car and text
-            </p>
-        </div>
-    </section>
+      
+   
     
     <section id="contacting">
         <h2>contact</h2>
         <p>linkedin and box for sending email to me</p>
     </section>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.173.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.173.0/examples/jsm/"
+          }
+        }
+      </script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
     <div id="custom-cursor"></div>
     <script src="main.js"></script>
+    <script type="module" src="3d.js"></script>
+    
 
+    
 
 </body>
 </html>
