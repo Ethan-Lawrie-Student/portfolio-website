@@ -3,6 +3,12 @@
 
 document.addEventListener("DOMContentLoaded", function() {
 
+  const toggle = document.querySelector(".dropdown-toggle");
+  const navLinks = document.querySelector(".nav-links");
+
+  toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
 
   function resizeUnityCanvas() {
     var canvas = document.getElementById("unity-canvas");
@@ -88,13 +94,82 @@ document.addEventListener("DOMContentLoaded", function() {
   
 
 const descriptiveWords = [
-  "Innovative", "Analytical", "Creative", "Driven", "Passionate", "Resourceful",
-  "Versatile", "Collaborative", "Visionary", "Dedicated", "Strategic", "Dynamic",
-  "Curious", "Intuitive", "Adaptive", "Proactive", "Methodical", "Detail-Oriented",
-  "Resilient", "Tech-Savvy", "Efficient", "Inspirational", "Ambitious", "Cutting-Edge",
-  "Forward-Thinking", "Agile", "Modern", "Futuristic", "Scalable", "C++", "AI",
-  "TensorFlow", "Algorithms", "Unity", "Machine Learning", "Data-Driven", "Robust",
-  "Optimized", "Architect", "Leader"
+  "C++",
+  "Java",
+  "Python",
+  "Word Lawrie",
+  "JavaScript",
+  "HTML",
+  "CSS",
+  "C#",
+  "Unity",
+  "Android",
+  "iOS",
+  
+  
+  "Algorithms",
+  "Data Structures",
+  "Compiler",
+  "Debugger",
+  "Framework",
+  "IDE",
+  "Git",
+  "Docker",
+  
+  "Cloud",
+  "AWS",
+  "Azure",
+  
+  "Linux",
+  
+  "Database",
+  "SQL",
+  
+  
+  "Machine Learning",
+  "Deep Learning",
+  "Neural Networks",
+  "API",
+  "SDK",
+ 
+  "DevOps",
+  "Automation",
+  
+  "Networking",
+  "Cybersecurity",
+  "System Architecture",
+  "Data Science",
+  "Analytics",
+  "Version Control",
+  "Containerization",
+  "Virtualization",
+  "Simulation",
+  "Testing",
+  "Optimization",
+  
+  "Prototyping",
+  "Design Patterns",
+  "Scripting",
+  
+  
+  "Function",
+  "Class",
+  "Object",
+  "Variable",
+  "Loop",
+  "Recursion",
+  "Stack",
+  "Queue",
+  "Heap",
+  "Binary Tree",
+  "Graph",
+  "Array",
+  "Linked List",
+  "Hash Table",
+  
+  "Plugin",
+  "Service",
+  
 ];
 
 
@@ -134,13 +209,11 @@ function intersectsHero(candidateRect, heroRect) {
 }
 
 function spawnWord() {
-  
   const word = descriptiveWords[Math.floor(Math.random() * descriptiveWords.length)];
-  
   const font = fonts[Math.floor(Math.random() * fonts.length)];
-  const fontSize = Math.random() * 40 + 20; 
+  const fontSize = Math.random() * 40 + 20;
 
-  
+  // Create a temporary element to measure the text size
   const temp = document.createElement("span");
   temp.style.fontFamily = font;
   temp.style.fontSize = fontSize + "px";
@@ -153,26 +226,28 @@ function spawnWord() {
   const textHeight = temp.offsetHeight;
   document.body.removeChild(temp);
 
-  
-  const containerWidth = container.offsetWidth;
-  const containerHeight = container.offsetHeight;
-  
+  // Use clientWidth/clientHeight for inner content dimensions
+  const containerWidth = container.clientWidth;
+  const containerHeight = container.clientHeight;
+
   const heroRect = getHeroRect();
 
-  
   let posX, posY;
   const maxAttempts = 50;
   let candidateRect;
   let valid = false;
   for (let i = 0; i < maxAttempts; i++) {
+    // Calculate a random position that guarantees the word fits entirely
     posX = Math.random() * (containerWidth - textWidth);
     posY = Math.random() * (containerHeight - textHeight);
+
     candidateRect = {
       left: posX,
       top: posY,
       right: posX + textWidth,
       bottom: posY + textHeight
     };
+
     if (heroRect && intersectsHero(candidateRect, heroRect)) {
       continue;
     } else {
@@ -180,13 +255,12 @@ function spawnWord() {
       break;
     }
   }
-  
+
   if (!valid) {
     posX = Math.random() * (containerWidth - textWidth);
     posY = Math.random() * (containerHeight - textHeight);
   }
 
-  
   const wordElem = document.createElement("span");
   wordElem.classList.add("word");
   wordElem.style.fontFamily = font;
@@ -195,19 +269,18 @@ function spawnWord() {
   wordElem.style.top = posY + "px";
   container.appendChild(wordElem);
 
-  
   gsap.to(wordElem, {
     duration: 2,
     text: { value: word },
     ease: "none"
   });
-  
+
   gsap.to(wordElem, {
     duration: 0.5,
     opacity: 1,
     delay: 0.5
   });
-  
+
   gsap.to(wordElem, {
     duration: 1,
     opacity: 0,
@@ -219,7 +292,7 @@ function spawnWord() {
 }
 
 
-setInterval(spawnWord, 1500);
+setInterval(spawnWord, 1100);
 
 
 
