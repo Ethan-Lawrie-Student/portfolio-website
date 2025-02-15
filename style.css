@@ -876,3 +876,116 @@ header {
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+
+
+/* Contact Section */
+#contact {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #1d3d46;  /* Cream background */
+  color: #1d3d46;           /* Navy text */
+}
+
+/* Floating Contact Box */
+.contact-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #faf3d9;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+/* Heading */
+.contact-box h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px 15px;
+  border: 1px solid #1d3d46;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Spline Sans', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #fc977e;
+  box-shadow: 0 0 5px rgba(252, 151, 126, 0.5);
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #1d3d46;
+  color: #faf3d9;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #fc977e;
+  transform: scale(1.05);
+}
+
+/* Loading Indicator */
+#form-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.spinner {
+  border: 4px solid #1d3d46;
+  border-top: 4px solid #fc977e;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Response Message */
+.form-response {
+  font-family: 'Spline Sans', sans-serif;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  color: #1d3d46;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+
+@media (max-width: 767px) {
+  .grecaptcha-badge,
+  .rc-anchor {
+    display: none !important;
+  }
+}

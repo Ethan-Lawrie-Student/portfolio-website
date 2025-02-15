@@ -264,22 +264,64 @@ setInterval(spawnWord, 1500);
         item.classList.add("active");
       });
     });
-
-
-
-    
+    const form = document.getElementById("contact-form");
+    const responseMsg = document.getElementById("form-response");
+    const loadingMsg = document.getElementById("form-loading");
+    const submitButton = form.querySelector("button");
+  
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      
+      submitButton.disabled = true;
+      
+      loadingMsg.style.display = "flex";
+  
+      try {
+        
+        
+        const token = await grecaptcha.enterprise.execute("6LeZZdQqAAAAAK11RLs8Hoa7UH4aw1E5Gh4NXZvE", { action: 'submit' });
+        
+        
+  
+        
+        const formData = {
+          name: form.name.value,
+          _replyto: form._replyto.value,
+          subject: form.subject.value,
+          message: form.message.value,
+          gCaptchaResponse: token,  
+        };
+  
+        
+        const url = form.action;
+  
+        const res = await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(formData),
+        });
+  
+        const data = await res.json();
+        
+        
+        gsap.to(form, { duration: 0.5, opacity: 0, onComplete: () => form.style.display = "none" });
+        
+        loadingMsg.style.display = "none";
+        gsap.to(responseMsg, { duration: 0.5, opacity: 1, delay: 0.5 });
+      } catch (err) {
+        console.error("Submission error:", err);
+        alert("There was an error submitting the form. Please try again.");
+        
+        submitButton.disabled = false;
+        loadingMsg.style.display = "none";
+      }
+    });
   });
   
   
  
   
-
-
-
-
-
-
-
 
 
 

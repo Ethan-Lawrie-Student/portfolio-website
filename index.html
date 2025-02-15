@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Lawrie</title>
     <link rel="stylesheet" href="style.css"/>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeZZdQqAAAAAK11RLs8Hoa7UH4aw1E5Gh4NXZvE"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,11 +81,15 @@
             <div class="timeline-date" data-date="2021" data-info="Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.">
               2021
             </div>
-            <div class="timeline-date" data-date="2022" data-info="Explored the potential of transformer architecture technologies and invested in NVIDIA, with substantial growth.">
-              2022
-            </div>
+
             <div class="timeline-date" data-date="2023" data-info="Launched Word Lawrie with a team of four while completing Year 12 at school.">
               2023
+            </div>
+            <div class="timeline-date" data-date="2024" data-info="Started doing a Bachelor of Computer Science (Advanced) at the University of Adelaide, and started as a Data Solutions Engineer at CMV Group">
+                2024
+            </div>
+            <div class="timeline-date" data-date="2025" data-info="Placed 2nd amongst 38 teams in an IMC-sponsored competitive programming competition.">
+                2025
             </div>
           </div>
           <div class="timeline-detail">
@@ -189,7 +195,7 @@
               <div class="game-info">
                 <h2 class="game-title"><pre class="game-title">Word   Lawrie </pre></h2>
                 <p class="game-description">
-                  Experience an innovative and interactive gaming experience. Discover Word Lawrie—crafted with passion and technical expertise.
+                  I worked as the lead game developer, as well as other roles for Word Lawrie. I programmed the game in Unity, using the C# language. The game was intially developed for mobile devices, but was later sold to CoolMathsGames.com for their website. Word Lawrie is a game inspired by the newspaper word game 'Word Ladder', but it innovates on the concept by allowing the user to (in certain modes) change more than one letter at a time when submitting a word. A playable version of the game is available alongside.
                 </p>
               </div>
               <div class="phone-wrapper">
@@ -216,11 +222,32 @@
       
       
    
-    
-    <section id="contacting">
-        <h2>contact</h2>
-        <p>linkedin and box for sending email to me</p>
-    </section>
+      
+      <section id="contact">
+        <div class="contact-box">
+          <h2>Contact Me</h2>
+          <form id="contact-form" class="contact-form" action="https://script.google.com/macros/s/AKfycbwQ0QrSI_4D-vCeGU5IpZ0JWdL6Mo36LG1MYnGNwNGFERnyQA1PnPCxVc_Bk0N0leuI/exec" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <input type="text" name="subject" placeholder="Subject" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <!-- <div class="g-recaptcha" data-sitekey="6LeZZdQqAAAAAK11RLs8Hoa7UH4aw1E5Gh4NXZvE"></div> -->
+            <button type="submit">Send Message</button>
+          </form>
+          <div id="form-loading" style="display: none;">
+            <div class="spinner"></div>
+            <span>Loading...</span>
+          </div>
+          <div id="form-response" class="form-response" style="display: none;">Thank you for your message!</div>
+        </div>
+      </section>
+      
+      
+      
+
+
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
