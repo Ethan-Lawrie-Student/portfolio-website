@@ -4,118 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Lawrie</title>
-    <link rel="stylesheet" href="style.css"/>
-    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeZZdQqAAAAAK11RLs8Hoa7UH4aw1E5Gh4NXZvE"></script>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Candal&family=Comfortaa:wght@300..700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Text:ital@0;1&family=Domine:wght@400..700&family=Encode+Sans+SC:wght@100..900&family=Kumar+One&family=Playwrite+AU+NSW:wght@100..400&family=Quintessential&family=Radley:ital@0;1&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Spline+Sans:wght@300..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet"></head>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Candal&family=Comfortaa:wght@300..700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Text:ital@0;1&family=Domine:wght@400..700&family=Encode+Sans+SC:wght@100..900&family=Kumar+One&family=Playwrite+AU+NSW:wght@100..400&family=Quintessential&family=Radley:ital@0;1&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Spline+Sans:wght@300..700&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+</head>
 <body id="the-body">
+    <!-- Custom cursor removed -->
 
-  <header>
-    <div class="header-content">
-      <div class="logo-container">
-        <div class="logo">
-          <span class="logo-text">Ethan Lawrie</span>
+    <header class="main-header" aria-label="Main Navigation">
+        <div class="header-container">
+            <div class="logo">
+                <a href="#" class="logo-link">
+                    <span class="logo-text">EL</span>
+                </a>
+            </div>
+            
+            <nav class="main-nav" aria-label="Primary Navigation">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" type="button">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="#intro" class="nav-link active">About</a></li>
+                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                    <li class="nav-item"><a href="#experience" class="nav-link">Experience</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item highlight">
+                        <a href="https://au.linkedin.com/in/ethan-lawrie-99084a301" target="_blank" class="nav-link cta">
+                            <span>LinkedIn</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <button class="dropdown-toggle" aria-label="Toggle Navigation">▼</button>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="#intro">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  
-  
-  
-  
-  
-  
+    </header>
 
-
-
-
-  <section id="hero">
-    <div id="word-map">
-        <div class="bars-container">
-            <div class="bar top-bar">Ethan Lawrie</div>
-            <div class="bar bottom-bar">Software Engineer</div>
-            <div class="scroll-indicator">▼ Scroll Down</div>
+    <section id="hero">
+        <canvas id="background-canvas"></canvas>
+        <div id="word-map">
+            <div class="bars-container">
+                <div class="bar top-bar name-bar"></div>
+                <div class="bar bottom-bar title-bar" id="title-bar">Software Engineer</div>
+                <div class="scroll-indicator">▼ Scroll Down</div>
+            </div>
         </div>
-    </div>
-    
-  </section>
+    </section>
 
-
-
-
-       <section id="intro" class="full-width-section">
+    <section id="intro" class="full-width-section">
         <div class="content-container">
+            <!-- About Me Card -->
         <section id="about">
+            <!-- Quick Synopsis -->
             <div class="about-synopsis">
-              <h2 class="synopsis-heading">Welcome to my Portfolio!</h2>
+              <h2 class="synopsis-heading is-visible">Welcome to my Portfolio!</h2>
               <p class="synopsis-text">
                 I'm Ethan Lawrie – a passionate and innovative Software Engineer with expertise in data solutions, game development, AI, and web technologies. I'm continuously evolving and striving to make an impact.
               </p>
             </div>
-          
+            <!-- Detailed About Me Card -->
             <div class="about-card">
-              <div class="about-image">
+              <!-- <div class="about-image">
                 <img src="assets/images/ethan.jpg" alt="Picture of Me">
-              </div>
+              </div> -->
               <div class="about-info">
-                <h2>About Me</h2>
-                <ul>
-                  <li><strong>1+ years</strong> of experience as a Data Solutions Engineer working on software and online services</li>
-                  <li><strong>2+ years</strong> of experience as a Games Developer working on games such as Word Lawrie</li>
-                  <li>Student pursuing a Bachelor of Computer Science (Advanced) at the University of Adelaide</li>
-                  <li>Passionate about AI, Web Development, and Data Science</li>
-                  <li>Involved in volunteer community roles</li>
-                  <li>Always learning and exploring new technologies</li>
-                </ul>
+                <div class="about-header">
+                  <h2>About Me</h2>
+                  <img class="about-info-photo" src="assets/images/ethan.jpg" alt="Ethan Lawrie"> <!-- NEW Small Photo -->
+                </div>
+                <div class="about-content">
+                  <p class="about-intro-paragraph">
+                    Driven by a passion for crafting elegant and impactful software solutions, I thrive on challenges at the intersection of data, AI, and user-centric design. My journey is one of continuous learning and a commitment to making a difference through technology.
+                  </p>
+
+                  <div class="about-subsection">
+                    <h3 class="subsection-title">
+                      <img src="assets/icons/experience_icon.png" alt="" class="subsection-icon"> <!-- Placeholder Icon -->
+                      Experience &amp; Expertise
+                    </h3>
+                    <ul>
+                      <li><strong>1+ years</strong> of experience as a Data Solutions Engineer working on software and online services</li>
+                      <li><strong>2+ years</strong> of experience as a Games Developer working on games such as Word Lawrie</li>
+                    </ul>
+                  </div>
+
+                  <div class="about-subsection">
+                    <h3 class="subsection-title">
+                      <img src="assets/icons/education_icon.png" alt="" class="subsection-icon"> <!-- Placeholder Icon -->
+                      Education &amp; Growth
+                    </h3>
+                    <ul>
+                      <li>Student pursuing a Bachelor of Computer Science (Advanced) at the University of Adelaide</li>
+                      <li>Always learning and exploring new technologies</li>
+                    </ul>
+                  </div>
+
+                  <div class="about-subsection">
+                    <h3 class="subsection-title">
+                      <img src="assets/icons/passion_icon.png" alt="" class="subsection-icon"> <!-- Placeholder Icon -->
+                      Passions &amp; Community
+                    </h3>
+                    <ul>
+                      <li>Passionate about AI, Web Development, and Data Science</li>
+                      <li>Involved in volunteer community roles</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
-      
-        <h2 class="timeline-heading">My Timeline</h2>
-        <div class="timeline-box">
-          <div class="timeline-dates">
-            <div class="timeline-date" data-date="2021" data-info="Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.">
-              2021
+        <!-- Timeline Section -->
+        <h2 class="timeline-heading">My Journey Timeline</h2>
+        <div class="dial-timeline-container">
+          <div class="dial-timeline">
+            <div class="dial-outer-ring"></div>
+            <div class="dial-inner-circle">
+              <div class="dial-center-piece">
+                <div class="dial-year-display">
+                  <span id="dial-year">2021</span>
+                </div>
+              </div>
             </div>
-
-            <div class="timeline-date" data-date="2023" data-info="Launched Word Lawrie with a team of four while completing Year 12 at school.">
-              2023
+            
+            <!-- Dial tick marks and years -->
+            <div class="dial-tick major-tick active" data-year="2021" data-info="Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.">
+              <div class="tick-marker"></div>
+              <span class="tick-label">2021</span>
             </div>
-            <div class="timeline-date" data-date="2024" data-info="Started doing a Bachelor of Computer Science (Advanced) at the University of Adelaide, and started as a Data Solutions Engineer at CMV Group">
-                2024
+            
+            <div class="dial-tick major-tick" data-year="2022" data-info="Explored the potential of transformer architecture technologies and invested in NVIDIA, with substantial growth.">
+              <div class="tick-marker"></div>
+              <span class="tick-label">2022</span>
             </div>
-            <div class="timeline-date" data-date="2025" data-info="Placed 2nd amongst 38 teams in an IMC-sponsored competitive programming competition.">
-                2025
+            
+            <div class="dial-tick major-tick" data-year="2023" data-info="Launched Word Lawrie with a team of four while completing Year 12 at school.">
+              <div class="tick-marker"></div>
+              <span class="tick-label">2023</span>
+            </div>
+            
+            <!-- Minor ticks for decoration -->
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            <div class="dial-tick minor-tick"></div>
+            
+            <!-- Dial handle/pointer -->
+            <div class="dial-handle">
+              <div class="dial-pointer"></div>
             </div>
           </div>
-          <div class="timeline-detail">
-            <h3 id="curDate" cur-date="1900"></h3>
-            <p id="dateText">Select a date from the left to see more information here.</p>
+          
+          <!-- Timeline detail card -->
+          <div class="timeline-detail is-visible">
+            <div class="detail-header">
+              <div class="detail-year" id="detail-year">2021</div>
+              <div class="detail-indicator">
+                <div class="indicator-light"></div>
+                <span>Selected</span>
+              </div>
+            </div>
+            <p id="detail-text">Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.</p>
           </div>
         </div>
         </div>
-        
       </section>
 
 
       <section class="page-break">
-        
       </section>
-      
-      
+
+
 
       <section id="skills" class="full-width-section">
         <div class="content-container">
@@ -160,27 +227,23 @@
             <p>Microsoft Copilot</p>
           </div>
 
-          
         </div>
         </div>
-        
       </section>
-      
+
 
       <section class="page-break">
-
       </section>
       <section id="experience" class="full-width-section">
         <div class="content-container">
           <h2 class="section-heading">Experience</h2>
-          
-          <div class="experience-item" id="data-engineer">
+          <div class="experience-item">
             <div class="experience-header">
               <img src="assets/images/CMV.png" alt="Company Logo" class="company-logo">
               <h3>Data Solutions Engineer</h3>
             </div>
             <p>
-              Over 1+ years of experience working on software and online services at CMV Group. I worked as a Data Solutions Engineer, involving fixing and maintaining existing systems at the company throughout their various different locations (car and truck workshops, dealerships and farms). I also worked as a part of the Tech Debt program, migrating the company's more legacy systems to newer, easier to maintain platforms like the Microsoft Power Platform. I gained experience in working through agile frameworks and methodologies, and worked on various software using a variety of different programming languages and tech stacks. 
+              Over 1+ years of experience working on software and online services at CMV Group. I helped build scalable systems and innovative solutions.
             </p>
             <div class="experience-gallery">
                 <div class="gallery-item">
@@ -197,14 +260,13 @@
                   </div>
               </div>
           </div>
-          
 
           <section id="game-section">
             <div class="game-details">
               <div class="game-info">
-                <h2 class="game-title"><pre class="game-title">Word   Lawrie </pre></h2>
+                <h2 class="game-title">Word   Lawrie </h2>
                 <p class="game-description">
-                  I worked as the lead game developer, as well as other roles for Word Lawrie. I programmed the game in Unity, using the C# language. The game was intially developed for mobile devices, but was later sold to CoolMathsGames.com for their website. Word Lawrie is a game inspired by the newspaper word game 'Word Ladder', but it innovates on the concept by allowing the user to (in certain modes) change more than one letter at a time when submitting a word. A playable version of the game is available alongside.
+                  Experience an innovative and interactive gaming experience. Discover Word Lawrie—crafted with passion and technical expertise.
                 </p>
               </div>
               <div class="phone-wrapper">
@@ -212,24 +274,18 @@
                 <div class="phone-container">
                     <div class="phone-frame">
                       <div class="game-inner">
-                        <iframe src="/NonSitelock/index.html" frameborder="0"></iframe>
+                        <iframe src="/NonSitelock/index.html" title="Word Lawrie Game"></iframe>
                       </div>
                       <div class="phone-overlay"></div>
                     </div>
                   </div>
-                 
               </div>
             </div>
           </section>
-          
-          
-              
-              
           </div>
-        </div>
       </section>
-      
-      
+
+
    
       
       <section id="contact">
@@ -253,19 +309,10 @@
             <pre class="linkedTitle">↓  Reach out to me on LinkedIn  ↓ </pre>
             <a href="https://au.linkedin.com/in/ethan-lawrie-99084a301" target="_blank">
               <img src="assets/icons/LinkedIn_Logo_2013.svg.png" alt="LinkedIn" class="linkedin-icon">
-            </a>
-          </div>
+                </a>
+            </div>
         </div>
-      </section>
-      
-      
-      
-      
-
-
-
-
-    
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script type="importmap">
@@ -277,12 +324,8 @@
         }
       </script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
-    <div id="custom-cursor"></div>
+    <!-- Custom cursor removed -->
     <script src="main.js"></script>
     <script type="module" src="3d.js"></script>
-    
-
-    
-
 </body>
 </html>
