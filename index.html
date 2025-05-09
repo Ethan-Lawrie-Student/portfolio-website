@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ethan Lawrie</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fixes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,224 +40,682 @@
                             <span>LinkedIn</span>
                         </a>
                     </li>
-                </ul>
-            </nav>
+              </ul>
+        </nav>
         </div>
     </header>
 
-    <section id="hero">
+  <section id="hero">
         <canvas id="background-canvas"></canvas>
-        <div id="word-map">
-            <div class="bars-container">
-                <div class="bar top-bar name-bar"></div>
-                <div class="bar bottom-bar title-bar" id="title-bar">Software Engineer</div>
-                <div class="scroll-indicator">▼ Scroll Down</div>
-            </div>
+    <div id="word-map">
+        <div class="bars-container">
+            <div class="bar top-bar name-bar"></div>
+            <div class="bar bottom-bar title-bar" id="title-bar">Software Engineer</div>
+            <div class="scroll-indicator">▼ Scroll Down</div>
         </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="intro" class="full-width-section">
+       <section id="intro" class="full-width-section">
         <div class="content-container">
-            <!-- About Me Card -->
+            <!-- About Me Section -->
         <section id="about">
-            <!-- Quick Synopsis -->
-            <div class="about-synopsis">
-              <h2 class="synopsis-heading is-visible">Welcome to my Portfolio!</h2>
-              <p class="synopsis-text">
-                I'm Ethan Lawrie – a passionate and innovative Software Engineer with expertise in data solutions, game development, AI, and web technologies. I'm continuously evolving and striving to make an impact.
-              </p>
+                <h2 class="section-heading glitch-effect" data-text="Who I Am">Who I Am</h2>
+                
+                <div class="profile-wrapper">
+                    <div class="profile-backdrop"></div>
+                    
+                    <div class="ide-container">
+                        <div class="ide-header">
+                            <div class="ide-buttons">
+                                <span class="ide-btn close"></span>
+                                <span class="ide-btn minimize"></span>
+                                <span class="ide-btn maximize"></span>
+                            </div>
+                            <div class="ide-title">ethan@lawrie ~ developer_profile</div>
+                            <div class="ide-actions">
+                                <div class="ide-tabs">
+                                    <button type="button" class="ide-tab active" data-tab="terminal">Terminal</button>
+                                    <button type="button" class="ide-tab" data-tab="expertise">Expertise</button>
+                                    <button type="button" class="ide-tab" data-tab="education">Education</button>
+                                    <button type="button" class="ide-tab" data-tab="personal">Personal</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ide-content">
+                            <!-- Terminal Tab (Initially Visible) -->
+                            <div class="ide-panel active" id="terminal-panel">
+                                <div class="terminal-content">
+                                    <div class="terminal-line"><span class="prompt">$</span> <span class="command">fetch-profile</span> --user="Ethan Lawrie"</div>
+                                    <div class="terminal-line output"><span class="highlight">Loading profile data...</span></div>
+                                    <div class="terminal-output">
+                                        <div class="terminal-profile-data">
+                                            <div class="terminal-photo-container">
+                                                <img class="terminal-photo" src="assets/images/ethan.jpg" alt="Ethan Lawrie">
+                                                <div class="terminal-photo-glitch"></div>
+                                            </div>
+                                            <div class="terminal-bio">
+                                                <p class="typed-text">Computer Science (Advanced) student and Data Solutions Engineer passionate about game development, competitive programming, and building elegant solutions at the intersection of data, AI, and user-centric design.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-line"><span class="prompt">$</span> <span class="command">get-stats</span> --comprehensive</div>
+                                    <div class="terminal-line output">
+                                        <div class="terminal-stats">
+                                            <div class="stat-item">
+                                                <div class="stat-progress" data-value="1"></div>
+                                                <div class="stat-details">
+                                                    <div class="stat-value">1+ YRS</div>
+                                                    <div class="stat-label">Data Engineering</div>
+                                                </div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-progress" data-value="2"></div>
+                                                <div class="stat-details">
+                                                    <div class="stat-value">2+ YRS</div>
+                                                    <div class="stat-label">Game Development</div>
+                                                </div>
+                                            </div>
+                                            <div class="stat-item">
+                                                <div class="stat-progress" data-value="100"></div>
+                                                <div class="stat-details">
+                                                    <div class="stat-value">6.625</div>
+                                                    <div class="stat-label">GPA (CompSci)</div>
+                                                </div>
+                                            </div>
             </div>
-            <!-- Detailed About Me Card -->
-            <div class="about-card">
-              <!-- <div class="about-image">
-                <img src="assets/images/ethan.jpg" alt="Picture of Me">
-              </div> -->
-              <div class="about-info">
-                <div class="about-header">
-                  <h2>About Me</h2>
-                  <img class="about-info-photo" src="assets/images/ethan.jpg" alt="Ethan Lawrie"> <!-- NEW Small Photo -->
                 </div>
-                <div class="about-content">
-                  <p class="about-intro-paragraph">
-                    Driven by a passion for crafting elegant and impactful software solutions, I thrive on challenges at the intersection of data, AI, and user-centric design. My journey is one of continuous learning and a commitment to making a difference through technology.
-                  </p>
-
-                  <div class="about-subsection">
-                    <h3 class="subsection-title">
-                      <img src="assets/icons/experience_icon.png" alt="" class="subsection-icon"> <!-- Placeholder Icon -->
-                      Experience &amp; Expertise
-                    </h3>
-                    <ul>
-                      <li><strong>1+ years</strong> of experience as a Data Solutions Engineer working on software and online services</li>
-                      <li><strong>2+ years</strong> of experience as a Games Developer working on games such as Word Lawrie</li>
+                                    <div class="terminal-line"><span class="prompt">$</span> <span class="command">list-achievements</span></div>
+                                    <div class="terminal-line output">
+                                        <ul class="achievement-list">
+                                            <li>• 1500% boost in share-registry process throughput @ CMV Group</li>
+                                            <li>• Licensed Word Lawrie game to CoolMathGames (7000% MAU increase)</li>
+                                            <li>• Advanced tier in Ravi's Study Program (top ~22%)</li>
+                                            <li>• 2nd place in Jane Street ETC 2025 (16 teams)</li>
+                                            <li>• 2nd place in RSP × CPC programming contest (38 teams)</li>
                     </ul>
+                                    </div>
+                                    <div class="terminal-line"><span class="prompt">$</span> <span class="command">get-contact</span></div>
+                                    <div class="terminal-line output">
+                                        <div class="contact-info">
+                                            <span>Email: available on request</span>
+                                            <span>LinkedIn: <a href="https://linkedin.com/in/ethan-lawrie" target="_blank" class="terminal-link">linkedin.com/in/ethan-lawrie</a></span>
+                                            <span>Web: <a href="https://ethanlawrie.com" target="_blank" class="terminal-link">ethanlawrie.com</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Expertise Panel -->
+                            <div class="ide-panel" id="expertise-panel">
+                                <div class="expertise-grid">
+                                    <div class="expertise-card">
+                                        <div class="expertise-icon">
+                                            <div class="expertise-icon-glow"></div>
+                                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                                <path fill="currentColor" d="M12 3C16.42 3 20 6.58 20 11C20 15.42 16.42 19 12 19C7.58 19 4 15.42 4 11C4 6.58 7.58 3 12 3M12 1C6.48 1 2 5.48 2 11C2 16.52 6.48 21 12 21C17.52 21 22 16.52 22 11C22 5.48 17.52 1 12 1M11 7H13V13H11V7M11 15H13V17H11V15Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="expertise-content">
+                                            <h4>Data Solutions</h4>
+                                            <p>Modernizing legacy systems with Power Platform &amp; Azure Functions. Boosted share-registry process throughput by 1500%.</p>
+                                            <div class="expertise-meter">
+                                                <div class="meter-fill" data-level="90"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-particles"></div>
+                                    </div>
+                                    
+                                    <div class="expertise-card">
+                                        <div class="expertise-icon">
+                                            <div class="expertise-icon-glow"></div>
+                                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                                <path fill="currentColor" d="M21,16V4H3V16H21M21,2A2,2 0 0,1 23,4V16A2,2 0 0,1 21,18H14V20H16V22H8V20H10V18H3A2,2 0 0,1 1,16V4A2,2 0 0,1 3,2H21M5,6H14V11H5V6M15,6H19V8H15V6M19,9V14H15V9H19M5,12H9V14H5V12M10,12H14V14H10V12Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="expertise-content">
+                                            <h4>Game Development</h4>
+                                            <p>Creating and shipping games like Word Lawrie (licensed to CoolMathGames) and developing Lexicol, a PC roguelike deck-builder.</p>
+                                            <div class="expertise-meter">
+                                                <div class="meter-fill" data-level="85"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-particles"></div>
+                                    </div>
+                                    
+                                    <div class="expertise-card">
+                                        <div class="expertise-icon">
+                                            <div class="expertise-icon-glow"></div>
+                                            <svg viewBox="0 0 24 24" width="32" height="32">
+                                                <path fill="currentColor" d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M7,5A2,2 0 0,0 5,7A2,2 0 0,0 7,9A2,2 0 0,0 9,7A2,2 0 0,0 7,5M17,15A2,2 0 0,0 15,17A2,2 0 0,0 17,19A2,2 0 0,0 19,17A2,2 0 0,0 17,15Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="expertise-content">
+                                            <h4>Competitive Programming</h4>
+                                            <p>Advanced tier in Ravi's Study Program (top ~22%), with multiple 2nd place competition wins including Jane Street ETC 2025.</p>
+                                            <div class="expertise-meter">
+                                                <div class="meter-fill" data-level="88"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-particles"></div>
+                                    </div>
+                                </div>
                   </div>
 
-                  <div class="about-subsection">
-                    <h3 class="subsection-title">
-                      <img src="assets/icons/education_icon.png" alt="" class="subsection-icon"> <!-- Placeholder Icon -->
-                      Education &amp; Growth
-                    </h3>
-                    <ul>
-                      <li>Student pursuing a Bachelor of Computer Science (Advanced) at the University of Adelaide</li>
-                      <li>Always learning and exploring new technologies</li>
-                    </ul>
+                            <!-- Education Panel -->
+                            <div class="ide-panel" id="education-panel">
+                                <div class="education-timeline">
+                                    <div class="education-node">
+                                        <div class="node-marker">
+                                            <span>Now</span>
+                                        </div>
+                                        <div class="education-item">
+                                            <div class="education-year">2024-2026 (expected)</div>
+                                            <div class="education-details">
+                                                <h4>Bachelor of Computer Science (Advanced)</h4>
+                                                <div class="education-institution">University of Adelaide</div>
+                                                <p>AI major with a current GPA of 6.625. Focusing on algorithms, data structures, and systems design with specialized work in artificial intelligence applications.</p>
+                                            </div>
+                                        </div>
                   </div>
 
-                  <div class="about-subsection">
-                    <h3 class="subsection-title">
-                      <img src="assets/icons/passion_icon.png" alt="" class="subsection-icon"> <!-- Placeholder Icon -->
-                      Passions &amp; Community
-                    </h3>
-                    <ul>
-                      <li>Passionate about AI, Web Development, and Data Science</li>
-                      <li>Involved in volunteer community roles</li>
-                    </ul>
+                                    <div class="education-node">
+                                        <div class="node-marker">
+                                            <span>2023</span>
+                                        </div>
+                                        <div class="education-item">
+                                            <div class="education-details">
+                                                <h4>Year 12 Completion</h4>
+                                                <div class="education-institution">Cedar College</div>
+                                                <p>Achieved an ATAR of 99.00 and completed secondary education with excellence in mathematics and computing subjects.</p>
+                                            </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-        <!-- Timeline Section -->
-        <h2 class="timeline-heading">My Journey Timeline</h2>
-        <div class="dial-timeline-container">
-          <div class="dial-timeline">
-            <div class="dial-outer-ring"></div>
-            <div class="dial-inner-circle">
-              <div class="dial-center-piece">
-                <div class="dial-year-display">
-                  <span id="dial-year">2021</span>
-                </div>
-              </div>
+                            
+                            <!-- Personal Panel -->
+                            <div class="ide-panel" id="personal-panel">
+                                <div class="personal-content">
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span class="file-name">personal.json</span>
+                                        </div>
+                                        <pre class="json-code">
+{
+  "quote": "Live every week like it's Shark Week",
+  "big_goals": {
+    "2025": [
+      "Land a SWE internship at a top tech/trading firm",
+      "Ship &amp; market PC roguelike 'Lexicol'"
+    ]
+  },
+  "interests": [
+    "Roguelikes &amp; deck-builders (Slay the Spire, Balatro)",
+    "VR &amp; AR (Meta Quest 3 user)",
+    "Game design &amp; development",
+    "Artificial Intelligence &amp; NLP",
+    "Competitive programming",
+    "Vietnamese language study"
+  ],
+  "design_preferences": [
+    "Retro-brutalist UI",
+    "Terminal aesthetics",
+    "Minimalist layouts"
+  ],
+  "location": "Adelaide, South Australia (UTC +9:30)"
+}</pre>
+                                    </div>
+                                    
+                                    <div class="interest-cloud">
+                                        <div class="interest-tag size-xl">Roguelikes &amp; Deck-builders</div>
+                                        <div class="interest-tag size-lg">Game Development</div>
+                                        <div class="interest-tag size-md">VR &amp; AR</div>
+                                        <div class="interest-tag size-lg">Competitive Programming</div>
+                                        <div class="interest-tag size-sm">Automation</div>
+                                        <div class="interest-tag size-xs">Vietnamese</div>
             </div>
-            
-            <!-- Dial tick marks and years -->
-            <div class="dial-tick major-tick active" data-year="2021" data-info="Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.">
-              <div class="tick-marker"></div>
-              <span class="tick-label">2021</span>
             </div>
-            
-            <div class="dial-tick major-tick" data-year="2022" data-info="Explored the potential of transformer architecture technologies and invested in NVIDIA, with substantial growth.">
-              <div class="tick-marker"></div>
-              <span class="tick-label">2022</span>
-            </div>
-            
-            <div class="dial-tick major-tick" data-year="2023" data-info="Launched Word Lawrie with a team of four while completing Year 12 at school.">
-              <div class="tick-marker"></div>
-              <span class="tick-label">2023</span>
-            </div>
-            
-            <!-- Minor ticks for decoration -->
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            <div class="dial-tick minor-tick"></div>
-            
-            <!-- Dial handle/pointer -->
-            <div class="dial-handle">
-              <div class="dial-pointer"></div>
             </div>
           </div>
-          
-          <!-- Timeline detail card -->
-          <div class="timeline-detail is-visible">
-            <div class="detail-header">
-              <div class="detail-year" id="detail-year">2021</div>
-              <div class="detail-indicator">
-                <div class="indicator-light"></div>
-                <span>Selected</span>
-              </div>
-            </div>
-            <p id="detail-text">Completed an artificial intelligence Tensorflow course on Udemy, sparking my interest in deep learning and AI.</p>
+                        <div class="ide-statusbar">
+                            <div class="status-item">Status: Online</div>
+                            <div class="status-item">v1.0.2</div>
+                            <div class="status-item">©2024</div>
           </div>
         </div>
         </div>
       </section>
-
+        </div>
+    </section>
 
       <section class="page-break">
       </section>
 
-
-
       <section id="skills" class="full-width-section">
         <div class="content-container">
-            <h2 class="section-heading">My Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-item">
-            <img src="assets/icons/microsoft-power-platform-icons.png" alt="PowerAppsIcon">
-            <p>Power Apps</p>
+            <h2 class="section-heading">Technical Arsenal</h2>
+            
+            <div class="skills-wrapper">
+                <!-- Categories navigation -->
+                <div class="skills-categories">
+                    <button class="category-btn active" type="button" data-category="programming">Programming</button>
+                    <button class="category-btn" type="button" data-category="tools">Tools &amp; Platforms</button>
+                    <button class="category-btn" type="button" data-category="other">Concepts &amp; Methodologies</button>
+                </div>
+                
+                <!-- Skills Container -->
+                <div class="skills-container">
+                    <!-- Programming Skills -->
+                    <div class="skills-category active" id="programming-skills">
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
+                                <img src="assets/icons/pythoned.png" alt="Python">
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Python</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 95%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Data Science</span>
+                                    <span>ML</span>
+                                </div>
+                            </div>
           </div>
-          <div class="skill-item">
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
             <img src="assets/icons/6132222.png" alt="C++">
-            <p>C++</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>C++</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Systems</span>
+                                    <span>Performance</span>
           </div>
-          <div class="skill-item">
-            <img src="assets/icons/7690595.png" alt="Algorithms">
-            <p>Algorithms</p>
           </div>
-          <div class="skill-item">
-            <img src="assets/icons/unity-icon-1998x2048-c6v0ej9o.png" alt="unity">
-            <p>Unity</p>
           </div>
-          <div class="skill-item">
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
             <img src="assets/icons/png-clipart-c-programming-language-logo-microsoft-visual-studio-net-framework-javascript-icon-purple-logo-removebg-preview.png" alt="C#">
-            <p>C#</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>C#</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Game Dev</span>
+                                    <span>.NET</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools & Platforms -->
+                    <div class="skills-category" id="tools-skills">
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
+                                <img src="assets/icons/microsoft-power-platform-icons.png" alt="Power Apps">
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Power Apps</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 90%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Business Apps</span>
+                                    <span>Automation</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
+                                <img src="assets/icons/unity-icon-1998x2048-c6v0ej9o.png" alt="Unity">
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Unity</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 92%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Game Dev</span>
+                                    <span>AR/VR</span>
+                                </div>
           </div>
-          <div class="skill-item">
-            <img src="assets/icons/pythoned.png" alt="Python">
-            <p>Python</p>
           </div>
-          <div class="skill-item">
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
             <img src="assets/icons/microsoft_azure.svg_.png" alt="Azure">
-            <p>Microsoft Azure</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Microsoft Azure</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 88%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Cloud</span>
+                                    <span>DevOps</span>
+                                </div>
+                            </div>
           </div>
 
-          <div class="skill-item">
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
             <img src="assets/icons/amazon-web-services.png" alt="AWS">
-            <p>Amazon Web Services</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>AWS</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 80%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Cloud</span>
+                                    <span>Serverless</span>
+                                </div>
+                            </div>
           </div>
 
-          <div class="skill-item">
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
             <img src="assets/icons/Microsoft_365_Copilot_Icon.svg.png" alt="Copilot">
-            <p>Microsoft Copilot</p>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Microsoft Copilot</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 85%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>AI</span>
+                                    <span>Productivity</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Concepts & Methodologies -->
+                    <div class="skills-category" id="other-skills">
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
+                                <img src="assets/icons/7690595.png" alt="Algorithms">
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Algorithms</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 93%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Problem Solving</span>
+                                    <span>Optimization</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
+                                <span class="concept-icon">AI</span>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Artificial Intelligence</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 87%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Machine Learning</span>
+                                    <span>Neural Networks</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon-wrapper">
+                                <span class="concept-icon">DX</span>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Developer Experience</h3>
+                                <div class="skill-bar">
+                                    <div class="skill-level" style="width: 82%;"></div>
+                                </div>
+                                <div class="skill-tags">
+                                    <span>Usability</span>
+                                    <span>Documentation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
           </div>
 
+            <!-- Skills Description -->
+            <div class="skills-description">
+                <p>My technical journey spans diverse areas of software development, with expertise in multiple programming languages, cloud platforms, and development methodologies. I continuously expand my knowledge, embracing emerging technologies and industry best practices.</p>
         </div>
         </div>
       </section>
-
 
       <section class="page-break">
       </section>
       <section id="experience" class="full-width-section">
         <div class="content-container">
           <h2 class="section-heading">Experience</h2>
-          <div class="experience-item">
-            <div class="experience-header">
-              <img src="assets/images/CMV.png" alt="Company Logo" class="company-logo">
-              <h3>Data Solutions Engineer</h3>
+          
+          <!-- Completely Revamped Data Solutions Engineer Section -->
+          <div class="data-engineer-container">
+            <div class="de-header">
+              <div class="de-title-group">
+                <span class="de-badge">APR 2024 - PRESENT</span>
+                <h3 class="de-title">Data Solutions Engineer</h3>
+                <div class="de-company">
+                  <img src="assets/images/CMV.png" alt="CMV Group Logo" class="de-company-logo">
+                  <a href="https://www.cmvgroup.com.au/" target="_blank" class="de-company-link">CMV Group</a>
+                </div>
+              </div>
+              <div class="de-stat-card">
+                <div class="de-stat-value">1500<span>%</span></div>
+                <div class="de-stat-label">Process Throughput Improvement</div>
+                <div class="de-stat-graph">
+                  <div class="de-graph-bar"></div>
+                  <div class="de-graph-bar"></div>
+                  <div class="de-graph-bar"></div>
+                  <div class="de-graph-bar"></div>
+                  <div class="de-graph-bar highlighted"></div>
+                </div>
+              </div>
             </div>
-            <p>
-              Over 1+ years of experience working on software and online services at CMV Group. I helped build scalable systems and innovative solutions.
-            </p>
-            <div class="experience-gallery">
-                <div class="gallery-item">
-                  <img src="assets/images/cmv_group_cover.jpg" alt="Project 1">
+            
+            <div class="de-content">
+              <div class="de-panels">
+                <div class="de-panel-tabs">
+                  <button type="button" class="de-tab active" data-panel="overview">Overview</button>
+                  <button type="button" class="de-tab" data-panel="projects">Projects</button>
+                  <button type="button" class="de-tab" data-panel="tech">Tech Stack</button>
                 </div>
-                <div class="gallery-item">
-                  <img src="assets/images/truck1.jpg" alt="Project 2">
+                
+                <div class="de-panel-container">
+                  <!-- Overview Panel -->
+                  <div class="de-panel active" id="overview-panel">
+                    <div class="de-overview">
+                      <p class="de-description">Modernizing legacy systems with Power Platform &amp; Azure Functions at CMV Group. Spearheading data integration projects that streamline operations and enhance decision-making capabilities across multiple business units.</p>
+                      
+                      <div class="de-media-gallery">
+                        <div class="de-featured-image">
+                          <img src="assets/images/cmv_group_cover.jpg" alt="CMV Group Headquarters" class="current-slide">
+                          <div class="de-image-overlay">
+                            <div class="de-image-caption">CMV Group Headquarters</div>
+                          </div>
+                        </div>
+                        <div class="de-thumbnail-strip">
+                          <div class="de-thumbnail active" data-image="assets/images/cmv_group_cover.jpg" data-caption="CMV Group Headquarters">
+                            <img src="assets/images/cmv_group_cover.jpg" alt="CMV Group">
+                          </div>
+                          <div class="de-thumbnail" data-image="assets/images/truck1.jpg" data-caption="Fleet Management Systems">
+                            <img src="assets/images/truck1.jpg" alt="Truck">
+                          </div>
+                          <div class="de-thumbnail" data-image="assets/images/hq720.jpg" data-caption="Data Visualization Project">
+                            <img src="assets/images/hq720.jpg" alt="Data Visualization">
+                          </div>
+                          <div class="de-thumbnail" data-image="assets/images/page_1_thumb_large.png" data-caption="Enterprise Architecture">
+                            <img src="assets/images/page_1_thumb_large.png" alt="Enterprise Architecture">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Projects Panel -->
+                  <div class="de-panel" id="projects-panel">
+                    <div class="de-projects">
+                      <div class="de-project-card">
+                        <div class="de-project-icon">
+                          <svg viewBox="0 0 24 24" width="32" height="32">
+                            <path fill="currentColor" d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V9.21L13,12.58V19.29L19,15.91Z" />
+                          </svg>
+                        </div>
+                        <div class="de-project-content">
+                          <h4>Share Registry Optimization</h4>
+                          <p>Automated share registry processes with Power Automate, resulting in <strong>1500% throughput improvement</strong>. Implemented cloud-based workflow automation for previously manual processes.</p>
+                          <div class="de-project-metrics">
+                            <div class="de-metric">
+                              <span class="de-metric-value">1500%</span>
+                              <span class="de-metric-label">Efficiency Gain</span>
+                            </div>
+                            <div class="de-metric">
+                              <span class="de-metric-value">4</span>
+                              <span class="de-metric-label">Workflows</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="de-project-card">
+                        <div class="de-project-icon">
+                          <svg viewBox="0 0 24 24" width="32" height="32">
+                            <path fill="currentColor" d="M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M3,19V6H11V19H3M21,19H13V6H21V19M14,9.5H20V11H14V9.5M14,12H20V13.5H14V12M14,14.5H20V16H14V14.5Z" />
+                          </svg>
+                        </div>
+                        <div class="de-project-content">
+                          <h4>Azure Data Integration</h4>
+                          <p>Implemented serverless data pipelines using Azure Functions to connect legacy systems. Created APIs to bridge disconnected data sources and provide real-time insights.</p>
+                          <div class="de-project-metrics">
+                            <div class="de-metric">
+                              <span class="de-metric-value">12</span>
+                              <span class="de-metric-label">APIs Created</span>
+                            </div>
+                            <div class="de-metric">
+                              <span class="de-metric-value">5</span>
+                              <span class="de-metric-label">Systems Integrated</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="de-project-card">
+                        <div class="de-project-icon">
+                          <svg viewBox="0 0 24 24" width="32" height="32">
+                            <path fill="currentColor" d="M3,1H19A1,1 0 0,1 20,2V6A1,1 0 0,1 19,7H3A1,1 0 0,1 2,6V2A1,1 0 0,1 3,1M3,9H19A1,1 0 0,1 20,10V10.67L17.5,9.56L11,12.44L4.5,9.56L2,10.67V10A1,1 0 0,1 3,9M3,14.7V22H19V14.7L17.5,15.33L11,12.44L4.5,15.33L3,14.7Z" />
+                          </svg>
+                        </div>
+                        <div class="de-project-content">
+                          <h4>Power BI Dashboards</h4>
+                          <p>Created interactive business intelligence dashboards for executive decision-making. Visualized KPIs and metrics that drove operational improvements across departments.</p>
+                          <div class="de-project-metrics">
+                            <div class="de-metric">
+                              <span class="de-metric-value">8</span>
+                              <span class="de-metric-label">Dashboards</span>
+                            </div>
+                            <div class="de-metric">
+                              <span class="de-metric-value">45+</span>
+                              <span class="de-metric-label">KPIs Tracked</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Tech Stack Panel -->
+                  <div class="de-panel" id="tech-panel">
+                    <div class="de-tech-stack">
+                      <div class="de-tech-groups">
+                        <div class="de-tech-group">
+                          <h4 class="de-tech-group-title">Development</h4>
+                          <div class="de-tech-items">
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon power-platform"></div>
+                              <span>Power Platform</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon azure"></div>
+                              <span>Azure Functions</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon javascript"></div>
+                              <span>JavaScript</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon python"></div>
+                              <span>Python</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="de-tech-group">
+                          <h4 class="de-tech-group-title">Data &amp; Analysis</h4>
+                          <div class="de-tech-items">
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon powerbi"></div>
+                              <span>Power BI</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon sql"></div>
+                              <span>SQL</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon excel"></div>
+                              <span>Excel</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="de-tech-group">
+                          <h4 class="de-tech-group-title">Process</h4>
+                          <div class="de-tech-items">
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon agile"></div>
+                              <span>Agile</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon api"></div>
+                              <span>API Development</span>
+                            </div>
+                            <div class="de-tech-item">
+                              <div class="de-tech-icon automation"></div>
+                              <span>Process Automation</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="gallery-item">
-                  <img src="assets/images/hq720.jpg" alt="Project 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/page_1_thumb_large.png" alt="Project 3">
                   </div>
               </div>
           </div>
@@ -284,9 +743,6 @@
           </section>
           </div>
       </section>
-
-
-   
       
       <section id="contact">
         <div class="contact-box">
@@ -326,6 +782,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/TextPlugin.min.js"></script>
     <!-- Custom cursor removed -->
     <script src="main.js"></script>
+    <script src="data-engineer.js"></script>
     <script type="module" src="3d.js"></script>
 </body>
 </html>

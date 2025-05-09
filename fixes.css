@@ -1,0 +1,1011 @@
+/* fixes.css - Override styles to fix scrolling and cropping issues */
+
+/* Fix IDE content panel scrolling */
+.ide-container {
+  width: 100%;
+  min-height: 600px;
+  max-height: none;
+  background-color: var(--dark-navy);
+  border-radius: 8px;
+  overflow: hidden; /* Change back to hidden for proper containment */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+}
+
+.ide-content {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  background-color: #1d3d46;
+}
+
+.ide-panel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 25px;
+  overflow-y: auto !important; /* Force vertical scrolling */
+}
+
+.ide-panel.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+  overflow-y: auto !important;
+}
+
+/* Custom scrollbar styling */
+.ide-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ide-panel::-webkit-scrollbar-track {
+  background: rgba(37, 80, 90, 0.3);
+  border-radius: 4px;
+}
+
+.ide-panel::-webkit-scrollbar-thumb {
+  background: #fc977e;
+  border-radius: 4px;
+}
+
+.ide-panel::-webkit-scrollbar-thumb:hover {
+  background: #de585b;
+}
+
+/* Firefox scrollbar */
+.ide-panel {
+  scrollbar-width: thin;
+  scrollbar-color: #fc977e rgba(37, 80, 90, 0.3);
+}
+
+/* Fix for experience section cropping */
+.experience-showcase {
+  overflow: visible;
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+/* Fix for the key projects section being cut off */
+.key-achievements {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 30px; /* Add padding at the bottom */
+}
+
+/* Fix achievement cards */
+.achievement-cards {
+  margin-bottom: 30px; /* Increased from 20px */
+  padding-bottom: 20px;
+}
+
+/* Add more height to experience content grid */
+.experience-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 30px;
+  overflow: visible;
+  min-height: 500px; /* Ensure minimum height */
+  padding-bottom: 60px;
+}
+
+/* Fix skills tags layout */
+.experience-skills {
+  padding: 0 30px 30px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Fix gallery container to ensure it displays correctly */
+.experience-gallery-container {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden; /* Keep overflow hidden for the container */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  height: auto; /* Auto height */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.experience-gallery {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Increased fixed height */
+  overflow: hidden;
+}
+
+/* Ensure gallery images are properly sized and centered */
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover ensures the image fills the container */
+  object-position: center; /* Center the image */
+}
+
+/* Improve gallery controls placement */
+.gallery-control {
+  z-index: 20;
+  background: rgba(29, 61, 70, 0.8); /* Make controls more visible */
+}
+
+/* Remove shadow effect from skills on hover */
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: none !important; /* Remove shadow effect */
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+  color: #1d3d46;
+  font-weight: bold;
+  box-shadow: none !important; /* Remove shadow effect */
+}
+
+/* Override any potential shadows in the skill section */
+#skills .skill-card:hover,
+#skills .skill-item:hover,
+.skills-wrapper .skill-card:hover,
+.skills-wrapper .skill-item:hover {
+  box-shadow: none !important;
+}
+
+/* Fix the gallery dots container */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(29, 61, 70, 0.9);
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure active slide is visible */
+.gallery-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateX(30px);
+  pointer-events: none;
+}
+
+.gallery-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* Fix container sizing for all sections */
+.content-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+/* Make page-break sections taller for better separation */
+.page-break {
+  height: 120px;
+}
+
+/* Interest tag size classes */
+.interest-tag.size-xl {
+  font-size: 1.4rem;
+}
+
+.interest-tag.size-lg {
+  font-size: 1.3rem;
+}
+
+.interest-tag.size-md {
+  font-size: 1.2rem;
+}
+
+.interest-tag.size-sm {
+  font-size: 1.1rem;
+}
+
+.interest-tag.size-xs {
+  font-size: 0.9rem;
+}
+
+/* Fix footer spacing */
+#contact {
+  padding-top: 80px;
+}
+
+/* Ensure full height for experience showcase */
+.full-width-section {
+  padding-bottom: 120px;
+}
+
+/* Specific fix for the experience showcase section */
+#experience .content-container {
+  padding-bottom: 150px;
+}
+
+/* Add more spacing below achievement cards */
+.achievement-card {
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  padding: 18px; /* Increase padding */
+  border-left: 3px solid var(--primary-color);
+}
+
+/* Ensure we show the Key Projects header */
+.key-achievements h4 {
+  margin-bottom: 25px;
+  font-size: 1.5rem;
+  color: #faf3d9;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.key-achievements h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, #fc977e, transparent);
+}
+
+/* Fix gallery display to ensure it's contained properly */
+.experience-description {
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  min-height: 400px;
+  padding-bottom: 60px;
+}
+
+/* Make the experience section scroll container taller */
+#experience {
+  padding-bottom: 150px;
+}
+
+/* Fix skill level bars in skills section to override inline styles */
+.skill-level {
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #fc977e, #de585b);
+  position: relative;
+  transform-origin: left;
+}
+
+/* Fix Python skill width */
+#programming-skills .skill-card:nth-child(1) .skill-level {
+  width: 95% !important;
+}
+
+/* Fix C++ skill width */
+#programming-skills .skill-card:nth-child(2) .skill-level {
+  width: 85% !important;
+}
+
+/* Fix C# skill width */
+#programming-skills .skill-card:nth-child(3) .skill-level {
+  width: 90% !important;
+}
+
+/* Tools skills */
+#tools-skills .skill-card:nth-child(1) .skill-level {
+  width: 90% !important;
+}
+
+#tools-skills .skill-card:nth-child(2) .skill-level {
+  width: 92% !important;
+}
+
+#tools-skills .skill-card:nth-child(3) .skill-level {
+  width: 88% !important;
+}
+
+#tools-skills .skill-card:nth-child(4) .skill-level {
+  width: 80% !important;
+}
+
+#tools-skills .skill-card:nth-child(5) .skill-level {
+  width: 85% !important;
+}
+
+/* Other skills */
+#other-skills .skill-card:nth-child(1) .skill-level {
+  width: 93% !important;
+}
+
+#other-skills .skill-card:nth-child(2) .skill-level {
+  width: 87% !important;
+}
+
+#other-skills .skill-card:nth-child(3) .skill-level {
+  width: 82% !important;
+}
+
+/* Data Engineer Section - Complete Redesign */
+.data-engineer-container {
+  margin: 50px 0 100px;
+  background: linear-gradient(145deg, rgba(20, 35, 45, 0.95) 0%, rgba(22, 42, 55, 0.95) 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.data-engineer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(to right, rgba(46, 142, 173, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 142, 173, 0.07) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header Section */
+.de-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 35px 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  background: rgba(18, 30, 40, 0.9);
+}
+
+.de-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.de-badge {
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(252, 151, 126, 0.2);
+  color: #fc977e;
+  padding: 5px 12px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  display: inline-block;
+  align-self: flex-start;
+  letter-spacing: 1px;
+}
+
+.de-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: #faf3d9;
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+
+.de-company {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.de-company-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  margin-right: 10px;
+  object-fit: contain;
+  background: white;
+  padding: 3px;
+}
+
+.de-company-link {
+  color: rgba(250, 243, 217, 0.8);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.de-company-link:hover {
+  color: #fc977e;
+}
+
+/* Stat Card */
+.de-stat-card {
+  background: rgba(46, 142, 173, 0.15);
+  border: 1px solid rgba(46, 142, 173, 0.3);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 240px;
+}
+
+.de-stat-value {
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #fc977e;
+  margin-bottom: 5px;
+  line-height: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.de-stat-value span {
+  font-size: 1.8rem;
+  margin-left: 3px;
+  margin-top: 5px;
+}
+
+.de-stat-label {
+  font-size: 0.95rem;
+  color: rgba(250, 243, 217, 0.8);
+  margin-bottom: 20px;
+}
+
+.de-stat-graph {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  width: 100%;
+  height: 40px;
+}
+
+.de-graph-bar {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  height: 30%;
+  transition: all 0.3s ease;
+}
+
+.de-graph-bar:nth-child(2) {
+  height: 40%;
+}
+
+.de-graph-bar:nth-child(3) {
+  height: 50%;
+}
+
+.de-graph-bar:nth-child(4) {
+  height: 70%;
+}
+
+.de-graph-bar.highlighted {
+  height: 100%;
+  background: #fc977e;
+  position: relative;
+}
+
+.de-graph-bar.highlighted::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fc977e;
+  box-shadow: 0 0 15px #fc977e;
+}
+
+/* Content area */
+.de-content {
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Panel navigation */
+.de-panels {
+  display: flex;
+  flex-direction: column;
+}
+
+.de-panel-tabs {
+  display: flex;
+  background: rgba(29, 61, 70, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0 40px;
+}
+
+.de-tab {
+  background: none;
+  border: none;
+  color: rgba(250, 243, 217, 0.6);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 15px 25px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.de-tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: #fc977e;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  border-radius: 3px 3px 0 0;
+}
+
+.de-tab:hover::before {
+  width: 30%;
+}
+
+.de-tab.active::before {
+  width: 60%;
+}
+
+.de-tab.active {
+  color: #fc977e;
+}
+
+.de-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+  background: #fc977e;
+  border-radius: 3px 3px 0 0;
+}
+
+.de-tab:hover {
+  color: rgba(250, 243, 217, 0.9);
+}
+
+.de-panel-container {
+  padding: 40px;
+}
+
+/* Panels */
+.de-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.de-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+/* Overview Panel */
+.de-overview {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.de-description {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: rgba(250, 243, 217, 0.9);
+  margin-bottom: 30px;
+}
+
+.de-media-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.de-featured-image {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.de-featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.de-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 60px 20px 20px;
+  z-index: 1;
+}
+
+.de-image-caption {
+  color: #faf3d9;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.de-thumbnail-strip {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(252, 151, 126, 0.5) rgba(29, 61, 70, 0.3);
+}
+
+.de-thumbnail-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.de-thumbnail-strip::-webkit-scrollbar-track {
+  background: rgba(29, 61, 70, 0.3);
+  border-radius: 3px;
+}
+
+.de-thumbnail-strip::-webkit-scrollbar-thumb {
+  background: rgba(252, 151, 126, 0.5);
+  border-radius: 3px;
+}
+
+.de-thumbnail {
+  min-width: 120px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.de-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.de-thumbnail::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.de-thumbnail:hover::after {
+  opacity: 0.3;
+}
+
+.de-thumbnail:hover {
+  transform: translateY(-3px);
+  border-color: rgba(252, 151, 126, 0.5);
+}
+
+.de-thumbnail.active {
+  border-color: #fc977e;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(252, 151, 126, 0.3);
+}
+
+.de-thumbnail.active::after {
+  opacity: 0;
+}
+
+/* Projects Panel */
+.de-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.de-project-card {
+  display: flex;
+  background: rgba(29, 61, 70, 0.4);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.de-project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(29, 61, 70, 0.5);
+}
+
+.de-project-icon {
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(252, 151, 126, 0.15);
+  color: #fc977e;
+  padding: 25px 15px;
+}
+
+.de-project-content {
+  padding: 25px;
+  flex: 1;
+}
+
+.de-project-content h4 {
+  font-size: 1.3rem;
+  color: #faf3d9;
+  margin: 0 0 10px;
+}
+
+.de-project-content p {
+  font-size: 1rem;
+  color: rgba(250, 243, 217, 0.8);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.de-project-metrics {
+  display: flex;
+  gap: 20px;
+}
+
+.de-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(29, 61, 70, 0.5);
+  padding: 10px 20px;
+  border-radius: 8px;
+  min-width: 100px;
+}
+
+.de-metric-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fc977e;
+}
+
+.de-metric-label {
+  font-size: 0.8rem;
+  color: rgba(250, 243, 217, 0.7);
+  text-align: center;
+}
+
+/* Tech Stack Panel */
+.de-tech-stack {
+  padding: 10px;
+}
+
+.de-tech-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.de-tech-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.de-tech-group-title {
+  font-size: 1.2rem;
+  color: #faf3d9;
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.de-tech-group-title::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #fc977e;
+  border-radius: 1.5px;
+}
+
+.de-tech-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.de-tech-item {
+  display: flex;
+  align-items: center;
+  background: rgba(29, 61, 70, 0.5);
+  border-radius: 8px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.de-tech-item:hover {
+  transform: translateY(-3px);
+  background: rgba(29, 61, 70, 0.7);
+}
+
+.de-tech-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.de-tech-icon.power-platform {
+  background-color: #742774;
+  border-radius: 4px;
+}
+
+.de-tech-icon.azure {
+  background-color: #0078D4;
+  border-radius: 4px;
+}
+
+.de-tech-icon.javascript {
+  background-color: #F7DF1E;
+  border-radius: 4px;
+}
+
+.de-tech-icon.python {
+  background-color: #306998;
+  border-radius: 4px;
+}
+
+.de-tech-icon.powerbi {
+  background-color: #F2C811;
+  border-radius: 4px;
+}
+
+.de-tech-icon.sql {
+  background-color: #2D79C7;
+  border-radius: 4px;
+}
+
+.de-tech-icon.excel {
+  background-color: #217346;
+  border-radius: 4px;
+}
+
+.de-tech-icon.agile {
+  background-color: #6DA4C8;
+  border-radius: 4px;
+}
+
+.de-tech-icon.api {
+  background-color: #5C5C5C;
+  border-radius: 4px;
+}
+
+.de-tech-icon.automation {
+  background-color: #FF8000;
+  border-radius: 4px;
+}
+
+.de-tech-item span {
+  font-size: 0.95rem;
+  color: rgba(250, 243, 217, 0.9);
+  white-space: nowrap;
+}
+
+/* Responsive adaptations */
+@media (max-width: 992px) {
+  .de-header {
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  .de-stat-card {
+    margin-top: 30px;
+    width: 100%;
+  }
+  
+  .de-panel-tabs {
+    padding: 0 30px;
+  }
+  
+  .de-panel-container {
+    padding: 30px;
+  }
+  
+  .de-featured-image {
+    height: 350px;
+  }
+  
+  .de-project-metrics {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .de-tech-groups {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .de-tab {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+  
+  .de-featured-image {
+    height: 280px;
+  }
+}
+
+@media (max-width: 576px) {
+  .de-project-card {
+    flex-direction: column;
+  }
+  
+  .de-project-icon {
+    min-width: 100%;
+    padding: 15px;
+  }
+  
+  .de-featured-image {
+    height: 220px;
+  }
+  
+  .de-tab {
+    padding: 12px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .de-panel-tabs {
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .de-panel-container {
+    padding: 25px 15px;
+  }
+} 

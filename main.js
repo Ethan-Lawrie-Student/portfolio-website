@@ -597,33 +597,6 @@ document.addEventListener("DOMContentLoaded", function() {
   window.addEventListener("resize", resizeUnityCanvas);
   resizeUnityCanvas();
 
-
-  
-  const gallery = document.querySelector('.experience-gallery');
-
-  
-  
-  gallery.innerHTML += gallery.innerHTML;
-
-  
-  const scrollSpeed = 1; 
-
-  function autoScrollGallery() {
-    
-    gallery.scrollLeft += scrollSpeed;
-    
-    
-    if (gallery.scrollLeft >= gallery.scrollWidth / 2) {
-      gallery.scrollLeft = 0;
-    }
-    
-    requestAnimationFrame(autoScrollGallery);
-  }
-  
-  autoScrollGallery();
-
-
-
   gsap.registerPlugin(TextPlugin);
   gsap.registerPlugin(ScrollTrigger);
 
@@ -647,7 +620,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Set initial states for animation
   gsap.set(".scroll-indicator", { autoAlpha: 0});
-
 
   // Create animation timeline
   const heroTl = gsap.timeline({ defaults: { ease: "power2.out" } });
@@ -681,7 +653,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, "-=0.2");
   
-
   // --- General Scroll-Triggered Animations ---
 
   // Function to create a fade-in and slide-up animation
@@ -941,28 +912,29 @@ document.addEventListener("DOMContentLoaded", function() {
     // }
   }
 
-  // --- Timeline Dial Functionality ---
-  const dialTicks = document.querySelectorAll('.dial-tick.major-tick');
-  const dialHandle = document.querySelector('.dial-handle');
-  const dialYearDisplay = document.getElementById('dial-year');
-  const detailYear = document.getElementById('detail-year');
-  const detailText = document.getElementById('detail-text');
-  const dialTimelineDetail = document.querySelector('.timeline-detail');
-
-  // Define rotation angles for each year position
-  const yearPositions = {
-    '2021': 210,
-    '2022': 270,
-    '2023': 330
+  // --- Safe Timeline Functionality ---
+  const timelineNumbers = document.querySelectorAll('.dial-numbers .number');
+  const dialArrow = document.querySelector('.dial-arrow');
+  const eventYear = document.querySelector('.event-year');
+  const eventDescription = document.querySelector('.event-description p');
+  
+  // Define positions for the dial arrow
+  const arrowPositions = {
+    '2021': 0,    // Top position (0 degrees)
+    '2022': 90,   // Right position (90 degrees)
+    '2023': 180   // Bottom position (180 degrees)
   };
   
-  // Initialize dial to 2021 position
-  dialHandle.style.transform = `translate(-50%, -50%) rotate(${yearPositions['2021']}deg)`;
+  // Initialize to first year
+  if (timelineNumbers && timelineNumbers.length > 0) {
+    const initialYear = timelineNumbers[0].getAttribute('data-year');
+    dialArrow.style.transform = `translateX(-50%) rotate(${arrowPositions[initialYear]}deg)`;
+  }
   
-  // Add click handlers to dial ticks
-  if (dialTicks) {
-    dialTicks.forEach(tick => {
-      tick.addEventListener('click', function() {
+  // Add click handlers for each year
+  if (timelineNumbers && dialArrow) {
+    timelineNumbers.forEach(number => {
+      number.addEventListener('click', function() {
         const year = this.getAttribute('data-year');
         const info = this.getAttribute('data-info');
         
@@ -971,88 +943,35 @@ document.addEventListener("DOMContentLoaded", function() {
           return;
         }
         
-        // Update active tick
-        dialTicks.forEach(t => t.classList.remove('active'));
+        // Deactivate all numbers
+        timelineNumbers.forEach(n => n.classList.remove('active'));
+        
+        // Activate clicked number
         this.classList.add('active');
         
-        // Update central year display
-        dialYearDisplay.textContent = year;
+        // Play click sound
+        playClickSound();
         
-        // Rotate dial handle to point to selected year
-        dialHandle.style.transform = `translate(-50%, -50%) rotate(${yearPositions[year]}deg)`;
+        // Animate the dial rotation
+        animateDialRotation(arrowPositions[year]);
         
-        // Add "clicking" sound effect
-        playDialClickSound();
-        
-        // Show detail with slight rotation animation for mechanical feel
-        animateDialTurn(yearPositions[year]);
-        
-        // Update detail card
-        updateDetailCard(year, info);
+        // Update the event information with subtle animation
+        updateEventInfo(year, info);
       });
     });
   }
   
-  // Function to update the detail card
-  function updateDetailCard(year, info) {
-    // If card is already visible, fade it out first
-    if (dialTimelineDetail.classList.contains('is-visible')) {
-      dialTimelineDetail.classList.remove('is-visible');
-      
-      // Wait for fade-out animation to complete
-      setTimeout(() => {
-        detailYear.textContent = year;
-        detailText.textContent = info;
-        dialTimelineDetail.classList.add('is-visible');
-      }, 300);
-    } else {
-      // Otherwise, update and show immediately
-      detailYear.textContent = year;
-      detailText.textContent = info;
-      dialTimelineDetail.classList.add('is-visible');
-    }
-  }
-  
-  // Function to add mechanical dial turn animation
-  function animateDialTurn(targetAngle) {
-    // Get the outer ring for subtle animation
-    const outerRing = document.querySelector('.dial-outer-ring');
-    
-    // Add subtle shake animation
-    gsap.to(outerRing, {
-      rotateZ: -2,
-      duration: 0.1,
-      ease: "power1.out",
-      onComplete: () => {
-        gsap.to(outerRing, {
-          rotateZ: 1,
-          duration: 0.1,
-          ease: "power1.inOut",
-          onComplete: () => {
-            gsap.to(outerRing, {
-              rotateZ: 0,
-              duration: 0.2,
-              ease: "power3.out"
-            });
-          }
-        });
-      }
-    });
-  }
-  
-  // Function to play a click sound (simulated mechanical click)
-  function playDialClickSound() {
-    // Create oscillator for a quick click sound
+  // Function to play mechanical click sound
+  function playClickSound() {
     try {
       const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       const oscillator = audioCtx.createOscillator();
       const gainNode = audioCtx.createGain();
       
       oscillator.type = 'triangle';
-      oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.1);
+      oscillator.frequency.value = 600;
       
-      gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+      gainNode.gain.setValueAtTime(0.2, audioCtx.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
       
       oscillator.connect(gainNode);
@@ -1061,70 +980,801 @@ document.addEventListener("DOMContentLoaded", function() {
       oscillator.start();
       oscillator.stop(audioCtx.currentTime + 0.1);
     } catch (e) {
-      // If Web Audio API not supported, silently fail
-      console.log("Audio not supported");
+      // Audio not supported - silent fail
     }
   }
-
-  // Add hover effect to make dial feel more interactive
-  const dialTimeline = document.querySelector('.dial-timeline');
-  if (dialTimeline) {
-    dialTimeline.addEventListener('mousemove', function(e) {
-      const bounds = this.getBoundingClientRect();
-      const centerX = bounds.width / 2;
-      const centerY = bounds.height / 2;
-      const mouseX = e.clientX - bounds.left;
-      const mouseY = e.clientY - bounds.top;
-      
-      // Calculate angle from center to mouse position
-      const angleX = (mouseX - centerX) / 20;
-      const angleY = (mouseY - centerY) / 20;
-      
-      // Apply subtle tilt effect based on mouse position
-      this.style.transform = `rotateY(${angleX}deg) rotateX(${-angleY}deg)`;
+  
+  // Function to animate the dial rotation with bounce effect
+  function animateDialRotation(targetAngle) {
+    // Create GSAP animation with bounce effect
+    gsap.to(dialArrow, {
+      rotation: targetAngle, 
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      transformOrigin: "bottom center",
+      onUpdate: function() {
+        dialArrow.style.transform = `translateX(-50%) rotate(${this.targets()[0].rotation}deg)`;
+      }
     });
     
-    dialTimeline.addEventListener('mouseleave', function() {
-      // Reset transform on mouse leave
-      this.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    // Add subtle shake to the vault
+    const vaultDial = document.querySelector('.vault-dial');
+    if (vaultDial) {
+      gsap.to(vaultDial, {
+        rotation: -2,
+        duration: 0.1,
+        ease: "power1.inOut",
+        onComplete: () => {
+          gsap.to(vaultDial, {
+            rotation: 2,
+            duration: 0.1,
+            ease: "power1.inOut",
+            onComplete: () => {
+              gsap.to(vaultDial, {
+                rotation: 0,
+                duration: 0.3,
+                ease: "elastic.out(1, 0.3)"
+              });
+            }
+          });
+        }
+      });
+    }
+  }
+  
+  // Function to update event info
+  function updateEventInfo(year, info) {
+    // Fade out
+    gsap.to([eventYear, eventDescription], {
+      opacity: 0,
+      y: -10,
+      duration: 0.2,
+      stagger: 0.05,
+      onComplete: () => {
+        // Update content
+        eventYear.textContent = year;
+        eventDescription.textContent = info;
+        
+        // Fade in with small delay
+        gsap.to([eventYear, eventDescription], {
+          opacity: 1,
+          y: 0,
+          duration: 0.3,
+          stagger: 0.1,
+          delay: 0.1
+        });
+      }
     });
+  }
+  
+  // Add interactivity for the vault dial
+  const vaultDial = document.querySelector('.vault-dial');
+  if (vaultDial) {
+    vaultDial.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      
+      const tiltX = ((mouseX - centerX) / centerX) * 5;
+      const tiltY = ((mouseY - centerY) / centerY) * 5;
+      
+      this.style.transform = `perspective(1000px) rotateX(${-tiltY}deg) rotateY(${tiltX}deg) scale(1.02)`;
+    });
+    
+    vaultDial.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+    });
+  }
+
+  // --- Skills Section Functionality ---
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  const skillsCategories = document.querySelectorAll('.skills-category');
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  // Initialize skill cards animation
+  function initSkillCards() {
+    // Create an intersection observer to trigger animations when in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          // Stagger animation of skill level bars
+          const skillLevel = entry.target.querySelector('.skill-level');
+          if (skillLevel) {
+            skillLevel.style.transitionDelay = `${Math.random() * 0.3}s`;
+          }
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    // Observe all skill cards
+    skillCards.forEach(card => {
+      observer.observe(card);
+    });
+  }
+  
+  // Category switching functionality
+  if (categoryButtons && categoryButtons.length > 0) {
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and add to clicked button
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Hide all skill categories
+        skillsCategories.forEach(category => {
+          category.classList.remove('active');
+        });
+        
+        // Show selected category
+        const categoryId = `${button.dataset.category}-skills`;
+        const selectedCategory = document.getElementById(categoryId);
+        if (selectedCategory) {
+          selectedCategory.classList.add('active');
+          
+          // Reset animations for newly visible skill cards
+          const visibleCards = selectedCategory.querySelectorAll('.skill-card');
+          visibleCards.forEach(card => {
+            card.classList.remove('animate');
+            setTimeout(() => {
+              card.classList.add('animate');
+            }, 50);
+          });
+        }
+      });
+    });
+  }
+  
+  // Initialize skills section
+  initSkillCards();
+
+  // --- Advanced Timeline Functionality ---
+  const timelineMarkers = document.querySelectorAll('.timeline-marker');
+  const timelineContents = document.querySelectorAll('.timeline-content');
+  const timelinePrev = document.getElementById('timeline-prev');
+  const timelineNext = document.getElementById('timeline-next');
+  const activeYearDisplay = document.getElementById('active-year');
+  const progressBar = document.getElementById('timeline-progress');
+  
+  // Map of years to their positions in the timeline (percentage)
+  const yearPositions = {
+    '2011': 0,
+    '2017': 20,
+    '2021': 40,
+    '2022': 60,
+    '2023': 80, 
+    '2024': 100
+  };
+  
+  // Array of years for easier navigation
+  const years = Object.keys(yearPositions);
+  let currentYearIndex = years.length - 1; // Start with the latest year (2024)
+  
+  // Initialize timeline
+  function initTimeline() {
+    // Set initial active year
+    updateTimelineState(years[currentYearIndex]);
+    
+    // Add click events to markers
+    timelineMarkers.forEach(marker => {
+      const year = marker.getAttribute('data-year');
+      
+      marker.addEventListener('click', () => {
+        const clickedYearIndex = years.indexOf(year);
+        currentYearIndex = clickedYearIndex;
+        updateTimelineState(year);
+      });
+    });
+    
+    // Add navigation button events
+    if (timelinePrev) {
+      timelinePrev.addEventListener('click', navigatePrevYear);
+    }
+    
+    if (timelineNext) {
+      timelineNext.addEventListener('click', navigateNextYear);
+    }
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (isTimelineInView()) {
+        if (e.key === 'ArrowLeft') {
+          navigatePrevYear();
+        } else if (e.key === 'ArrowRight') {
+          navigateNextYear();
+        }
+      }
+    });
+    
+    // Check if timeline is in viewport for keyboard navigation
+    function isTimelineInView() {
+      const timeline = document.querySelector('.advanced-timeline');
+      if (!timeline) return false;
+      
+      const rect = timeline.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+  }
+  
+  // Navigate to previous year
+  function navigatePrevYear() {
+    if (currentYearIndex > 0) {
+      currentYearIndex--;
+      updateTimelineState(years[currentYearIndex]);
+    }
+  }
+  
+  // Navigate to next year
+  function navigateNextYear() {
+    if (currentYearIndex < years.length - 1) {
+      currentYearIndex++;
+      updateTimelineState(years[currentYearIndex]);
+    }
+  }
+  
+  // Update timeline state based on selected year
+  function updateTimelineState(year) {
+    // Update year indicator with animation
+    const yearIndicator = document.querySelector('.year-indicator');
+    yearIndicator.classList.add('changing');
+    
+    setTimeout(() => {
+      activeYearDisplay.textContent = year;
+      yearIndicator.classList.remove('changing');
+    }, 300);
+    
+    // Update progress bar
+    if (progressBar) {
+      progressBar.style.width = `${yearPositions[year]}%`;
+    }
+    
+    // Update active marker
+    timelineMarkers.forEach(marker => {
+      const markerYear = marker.getAttribute('data-year');
+      if (markerYear === year) {
+        marker.classList.add('active');
+    } else {
+        marker.classList.remove('active');
+      }
+    });
+    
+    // Update active content
+    timelineContents.forEach(content => {
+      const contentYear = content.getAttribute('data-year');
+      
+      if (contentYear === year) {
+        content.classList.add('active');
+      } else {
+        content.classList.remove('active');
+      }
+    });
+    
+    // Add animation to active card
+    const activeCard = document.querySelector(`.timeline-content[data-year="${year}"] .timeline-card`);
+    if (activeCard) {
+      activeCard.classList.add('animate-card');
+      setTimeout(() => {
+        activeCard.classList.remove('animate-card');
+      }, 1000);
+    }
+  }
+  
+  // Initialize timeline if elements exist
+  if (timelineMarkers.length > 0 && timelineContents.length > 0) {
+    initTimeline();
+  }
+
+  // --- Profile Tab System ---
+  const profileTabButtons = document.querySelectorAll('.profile-tab');
+  const profileTabPanels = document.querySelectorAll('.tab-panel');
+  
+  // Initialize profile tabs
+  function initProfileTabs() {
+    profileTabButtons.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-tab');
+        
+        // Skip if already active
+        if (tab.classList.contains('active')) {
+          return;
+        }
+        
+        // Update active state for tabs
+        profileTabButtons.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Hide all panels with animation
+        profileTabPanels.forEach(panel => {
+          if (panel.classList.contains('active')) {
+            // Fade out
+            gsap.to(panel, {
+              opacity: 0,
+              y: 20,
+              duration: 0.3,
+              onComplete: () => {
+                panel.classList.remove('active');
+                
+                // Show the target panel
+                const targetPanel = document.getElementById(`${targetTab}-panel`);
+                if (targetPanel) {
+                  targetPanel.classList.add('active');
+                  // Fade in
+                  gsap.fromTo(targetPanel, 
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }
+                  );
+                }
+              }
+            });
+          }
+        });
+      });
+    });
+    
+    // Initialize expertise cards animation
+    animateProfileElements();
+  }
+  
+  // Add scroll animation for profile elements
+  function animateProfileElements() {
+    // Expertise cards
+    const expertiseCards = document.querySelectorAll('.expertise-card');
+    gsap.from(expertiseCards, {
+      opacity: 0,
+      y: 30,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: '.expertise-grid',
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+    
+    // Education items
+    const educationItems = document.querySelectorAll('.education-item');
+    gsap.from(educationItems, {
+      opacity: 0,
+      x: -50,
+      stagger: 0.2,
+      duration: 0.7,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: '#education-panel',
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+    
+    // Interest tags
+    const interestTags = document.querySelectorAll('.interests-tags span');
+    gsap.from(interestTags, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.05,
+      duration: 0.4,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: '.interests-tags',
+        start: "top 85%",
+        toggleActions: "play none none none"
+      }
+    });
+    
+    // Profile photo animation
+    gsap.from('.profile-photo-container', {
+      opacity: 0,
+      rotation: -15,
+    scale: 0.7,
+      duration: 1,
+      ease: "elastic.out(1, 0.5)",
+      scrollTrigger: {
+        trigger: '.profile-header',
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+    
+    // Stats counter animation
+    const statValues = document.querySelectorAll('.stat-value');
+    statValues.forEach(statValue => {
+      const targetText = statValue.textContent;
+      if (targetText.match(/\d+\+/)) {
+        const numValue = parseInt(targetText);
+        gsap.fromTo(statValue, 
+          { textContent: "0" },
+          { 
+            duration: 1.5,
+            textContent: numValue,
+            snap: { textContent: 1 },
+            stagger: 0.25,
+            ease: "power2.out",
+    onComplete: () => {
+              statValue.textContent = `${numValue}+`;
+            },
+            scrollTrigger: {
+              trigger: '.profile-stats',
+              start: "top 80%",
+              toggleActions: "play none none none"
+            }
+          }
+        );
+    }
+  });
+}
+
+  // Profile hover effects
+  function initProfileHoverEffects() {
+    // Stats items glow effect
+    document.querySelectorAll('.stat-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        gsap.to(item, { 
+          y: -10,
+          boxShadow: "0 15px 30px rgba(0, 0, 0, 0.15)",
+          duration: 0.3,
+          ease: "power2.out"
+        });
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        gsap.to(item, { 
+          y: 0,
+          boxShadow: "0 5px 15px rgba(0, 0, 0, 0.05)",
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      });
+    });
+    
+    // Expertise cards hover effect with slight 3D rotation
+    document.querySelectorAll('.expertise-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateY = ((x - centerX) / centerX) * 5;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        
+        gsap.to(card, {
+          rotateX,
+          rotateY,
+          transformPerspective: 1000,
+          ease: "power1.out",
+          duration: 0.5
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          y: 0,
+          duration: 0.7,
+          ease: "elastic.out(1, 0.5)"
+        });
+      });
+    });
+  }
+  
+  // Initialize the profile tab system if elements exist
+  if (profileTabButtons.length > 0 && profileTabPanels.length > 0) {
+    initProfileTabs();
+    initProfileHoverEffects();
+  }
+
+  // Terminal typing animation
+  function simulateTyping() {
+    const terminalLines = document.querySelectorAll('.terminal-line');
+    
+    terminalLines.forEach((line, index) => {
+      setTimeout(() => {
+        line.classList.add('typed');
+      }, index * 500);
+    });
+  }
+  
+  // Initialize terminal animations
+  function initTerminal() {
+    setTimeout(simulateTyping, 800);
+    
+    // Set progress for stat circles with animation
+    const progressCircles = document.querySelectorAll('.stat-progress');
+    progressCircles.forEach((circle, index) => {
+      setTimeout(() => {
+        circle.classList.add('animate');
+      }, 1500 + (index * 300));
+    });
+  }
+  
+  // Call initialization once DOM is loaded
+  window.addEventListener('load', initTerminal);
+  
+  // Add particle effects to expertise cards
+  function addParticleEffects() {
+    const expertiseCards = document.querySelectorAll('.expertise-card');
+    
+    expertiseCards.forEach(card => {
+      const particles = card.querySelector('.card-particles');
+      if (particles) {
+        // Create floating particles
+        for (let i = 0; i < 3; i++) {
+          const particle = document.createElement('span');
+          particle.classList.add('floating-particle');
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          particle.style.animationDelay = `${Math.random() * 3}s`;
+          particles.appendChild(particle);
+        }
+      }
+    });
+  }
+  
+  // Initialize particle effects
+  window.addEventListener('load', addParticleEffects);
+
+  // Profile IDE Tabs
+  function setupIDETabs() {
+    const ideTabs = document.querySelectorAll('.ide-tab');
+    const idePanels = document.querySelectorAll('.ide-panel');
+
+    ideTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetTab = tab.dataset.tab;
+            
+            // Update active tab
+            ideTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Update active panel
+            idePanels.forEach(panel => {
+                panel.classList.remove('active');
+                if (panel.id === `${targetTab}-panel`) {
+                    panel.classList.add('active');
+                }
+            });
+        });
+    });
+  }
+
+  // Initialize stat progress circles
+  function initStatProgress() {
+    const statProgressElements = document.querySelectorAll('.stat-progress');
+    
+    statProgressElements.forEach(element => {
+        const value = parseInt(element.dataset.value);
+        const maxValue = value >= 100 ? 100 : value;
+        const percentage = (maxValue / 100) * 100;
+        element.style.setProperty('--progress', `${percentage}%`);
+    });
+  }
+
+  // Initialize expertise meters
+  function initExpertiseMeters() {
+    const meterElements = document.querySelectorAll('.meter-fill');
+    
+    meterElements.forEach(meter => {
+        const level = parseInt(meter.dataset.level);
+        meter.style.width = `${level}%`;
+    });
+  }
+
+  // Terminal typing effect
+  function setupTypedEffect() {
+    const typedElement = document.querySelector('.typed-text');
+    if (!typedElement) return;
+    
+    const text = typedElement.textContent;
+    typedElement.textContent = '';
+    typedElement.style.borderRight = '2px solid var(--primary-color)';
+    
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            typedElement.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 30);
+        } else {
+            typedElement.style.borderRight = 'none';
+        }
+    }
+    
+    setTimeout(typeWriter, 1000);
+  }
+
+  // Initialize about section components
+  function initAboutSection() {
+    setupIDETabs();
+    initStatProgress();
+    initExpertiseMeters();
+    setupTypedEffect();
+  }
+
+  // Initialize all components when DOM is loaded
+  initAboutSection();
+
+  // Initialize Experience Gallery functionality
+  function initExperienceGallery() {
+    console.log('Initializing experience gallery...');
+    const galleries = document.querySelectorAll('.experience-gallery-container');
+    
+    galleries.forEach(gallery => {
+      const slides = gallery.querySelectorAll('.gallery-slide');
+      const dots = gallery.querySelectorAll('.dot');
+      const prevBtn = gallery.querySelector('.gallery-control.prev');
+      const nextBtn = gallery.querySelector('.gallery-control.next');
+      let currentIndex = 0;
+      
+      // Function to show a specific slide
+      function showSlide(index) {
+        // Check bounds
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        
+        // Update current index
+        currentIndex = index;
+        
+        // Hide all slides and update dots
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('active', i === index);
+        });
+        
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      }
+      
+      // Set up event listeners for controls
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          showSlide(currentIndex - 1);
+        });
+      }
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          showSlide(currentIndex + 1);
+        });
+      }
+      
+      // Set up event listeners for dots
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          showSlide(i);
+        });
+      });
+      
+      // Auto-rotate slides every 5 seconds
+      let slideInterval = setInterval(() => {
+        showSlide(currentIndex + 1);
+      }, 5000);
+      
+      // Pause rotation on hover
+      gallery.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+      
+      gallery.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(() => {
+          showSlide(currentIndex + 1);
+        }, 5000);
+      });
+      
+      // Initialize with first slide
+      showSlide(0);
+    });
+  }
+
+  // Call gallery initialization function when the DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, initializing features...');
+    
+    // Initialize the experience gallery
+    initExperienceGallery();
+    
+    // Initialize data engineer section
+    initDataEngineerSection();
+    
+    // Run any other initializations here
+  });
+
+  // Also call it immediately to ensure it works
+  initExperienceGallery();
+  initDataEngineerSection();
+
+  // Data Engineer Section - Tab Switching & Thumbnail Gallery
+  function initDataEngineerSection() {
+    console.log('Initializing data engineer section...');
+    // Tab switching functionality
+    const deTabs = document.querySelectorAll('.de-tab');
+    const dePanels = document.querySelectorAll('.de-panel');
+    
+    if (deTabs.length === 0 || dePanels.length === 0) {
+      console.log('Data Engineer tabs or panels not found');
+      return;
+    }
+    
+    console.log(`Found ${deTabs.length} tabs and ${dePanels.length} panels`);
+    
+    deTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetPanel = tab.getAttribute('data-panel');
+        console.log(`Tab clicked: ${targetPanel}`);
+        
+        // Skip if already active
+        if (tab.classList.contains('active')) {
+          return;
+        }
+        
+        // Update active tab
+        deTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        
+        // Show the corresponding panel
+        dePanels.forEach(panel => {
+          panel.classList.remove('active');
+          
+          if (panel.id === `${targetPanel}-panel`) {
+            panel.classList.add('active');
+          }
+        });
+      });
+    });
+    
+    // Thumbnail gallery functionality
+    const thumbnails = document.querySelectorAll('.de-thumbnail');
+    const featuredImage = document.querySelector('.de-featured-image img');
+    const imageCaption = document.querySelector('.de-image-caption');
+    
+    if (thumbnails.length > 0 && featuredImage && imageCaption) {
+      console.log(`Found ${thumbnails.length} thumbnails`);
+      
+      thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+          // Skip if already active
+          if (thumbnail.classList.contains('active')) {
+            return;
+          }
+          
+          // Get the image source and caption
+          const imageSrc = thumbnail.getAttribute('data-image');
+          const caption = thumbnail.getAttribute('data-caption');
+          
+          // Update active thumbnail
+          thumbnails.forEach(t => t.classList.remove('active'));
+          thumbnail.classList.add('active');
+          
+          // Fade out current image
+          featuredImage.style.opacity = '0';
+          setTimeout(() => {
+            // Update featured image source and caption
+            featuredImage.src = imageSrc;
+            imageCaption.textContent = caption;
+            
+            // Fade in new image
+            featuredImage.style.opacity = '1';
+          }, 300);
+        });
+      });
+    }
   }
 });
   
   
  
   
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-            
-
-
-          
-
-  
-
-          
-
-
-
-
-
-
-
-
-
 
 
 
