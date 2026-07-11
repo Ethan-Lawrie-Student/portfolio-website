@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1c3d46"/>
+  <path d="M48 48H1152M48 582H1152" stroke="#fdefd4" stroke-width="2" opacity=".8"/>
+  <text x="48" y="82" fill="#91c3ce" font-family="monospace" font-size="18" letter-spacing="3">SOFTWARE ENGINEER / ADELAIDE</text>
+  <text x="44" y="268" fill="#fdefd4" font-family="Arial, sans-serif" font-size="168" font-weight="700" letter-spacing="-10">ETHAN</text>
+  <text x="78" y="420" fill="#fdefd4" font-family="Arial, sans-serif" font-size="168" font-weight="700" letter-spacing="-10">LAWRIE<tspan fill="#fc967d">.</tspan></text>
+  <path d="M778 247V345" stroke="#fc967d" stroke-width="10"/>
+  <text x="810" y="264" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">Developer tooling, cloud systems,</text>
+  <text x="810" y="293" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">and shipped products -</text>
+  <text x="810" y="322" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">from production telemetry</text>
+  <text x="810" y="351" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">to independent games.</text>
+  <text x="48" y="560" fill="#fdefd4" font-family="monospace" font-size="17" letter-spacing="1">DEVELOPER TOOLING · CLOUD SYSTEMS · SHIPPED PRODUCTS</text>
+</svg>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Azure CLI Telemetry — Ethan Lawrie</title>
+  <meta name="description" content="A public-safe case study of Ethan Lawrie's observability work for AI-assisted Azure CLI workflows.">
+  <link rel="canonical" href="https://www.ethanlawrie.com/work/azure-cli-telemetry.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Azure CLI Telemetry — Ethan Lawrie">
+  <meta property="og:description" content="Making AI-assisted CLI workflows observable with Python, OpenTelemetry, and Grafana.">
+  <meta property="og:image" content="https://www.ethanlawrie.com/assets/meta/social-preview.png">
+  <meta name="theme-color" content="#1c3d46">
+  <link rel="icon" href="../assets/meta/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=20260710-11">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header" data-site-header>
+    <div class="shell header-inner">
+      <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
+      <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
+        <a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="case-main" tabindex="-1">
+    <header class="case-hero shell">
+      <p class="case-kicker">Case study 02 · Developer tooling</p>
+      <h1>Observability for AI-assisted CLI workflows</h1>
+      <p class="case-deck">A telemetry pipeline that turned request latency, token usage, response quality, and service health into useful engineering signals.</p>
+      <dl class="case-meta">
+        <div><dt>Organization</dt><dd>Microsoft</dd></div>
+        <div><dt>Role</dt><dd>Software Engineering Intern</dd></div>
+        <div><dt>Period</dt><dd>Dec 2025 — Feb 2026</dd></div>
+        <div><dt>Stack</dt><dd>Python, OTEL, Grafana</dd></div>
+      </dl>
+    </header>
+
+    <div class="case-media case-media-rust">
+      <div class="shell diagram-shell">
+        <svg class="system-diagram" viewBox="0 0 1200 560" role="img" aria-labelledby="azure-diagram-title azure-diagram-desc">
+          <title id="azure-diagram-title">Public-safe telemetry architecture</title>
+          <desc id="azure-diagram-desc">AI-assisted command line requests emit OpenTelemetry signals that are collected and displayed as operational dashboards.</desc>
+          <defs>
+            <marker id="arrow-rust" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#242322"/></marker>
+          </defs>
+          <text x="40" y="52" class="diagram-label" fill="#242322">TELEMETRY FLOW / PUBLIC-SAFE VIEW</text>
+          <g fill="#fdefd4" stroke="#242322" stroke-width="2">
+            <rect x="40" y="135" width="245" height="185" rx="4"/>
+            <rect x="335" y="135" width="270" height="185" rx="4"/>
+            <rect x="655" y="135" width="220" height="185" rx="4"/>
+            <rect x="925" y="135" width="235" height="185" rx="4"/>
+            <rect x="335" y="405" width="825" height="105" rx="8" fill="#1c3d46"/>
+          </g>
+          <g fill="#242322">
+            <text x="68" y="180" class="diagram-title">AI-assisted workflow</text>
+            <text x="68" y="218" class="diagram-note">Command + response lifecycle</text>
+            <text x="68" y="250" class="diagram-note">User-facing execution path</text>
+            <text x="363" y="180" class="diagram-title">Python instrumentation</text>
+            <text x="363" y="218" class="diagram-note">Request latency</text>
+            <text x="363" y="250" class="diagram-note">LLM token usage</text>
+            <text x="363" y="282" class="diagram-note">Response quality</text>
+            <text x="683" y="180" class="diagram-title">OpenTelemetry</text>
+            <text x="683" y="218" class="diagram-note">Structured signals</text>
+            <text x="683" y="250" class="diagram-note">Collection pipeline</text>
+            <text x="953" y="180" class="diagram-title">Grafana dashboards</text>
+            <text x="953" y="218" class="diagram-note">Service health</text>
+            <text x="953" y="250" class="diagram-note">Bottleneck investigation</text>
+          </g>
+          <g stroke="#242322" stroke-width="2.5" marker-end="url(#arrow-rust)">
+            <line x1="285" y1="228" x2="320" y2="228"/>
+            <line x1="605" y1="228" x2="640" y2="228"/>
+            <line x1="875" y1="228" x2="910" y2="228"/>
+            <line x1="1043" y1="320" x2="1043" y2="388"/>
+          </g>
+          <g fill="#fdefd4">
+            <text x="365" y="442" class="diagram-label">ENGINEERING DECISIONS</text>
+            <text x="365" y="481" class="diagram-note">Cost visibility</text>
+            <text x="550" y="481" class="diagram-note">Model efficiency</text>
+            <text x="755" y="481" class="diagram-note">Bottlenecks</text>
+            <text x="930" y="481" class="diagram-note">Service health</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="shell case-content">
+      <section class="case-section" aria-labelledby="problem-title"><h2 id="problem-title">Problem</h2><div class="case-section-copy"><p>AI-assisted command-line workflows introduce new operational questions: where time is spent, how model usage affects cost, whether responses remain useful, and where failures or bottlenecks occur. Those questions require consistent telemetry rather than isolated logs.</p></div></section>
+      <section class="case-section" aria-labelledby="approach-title"><h2 id="approach-title">Approach</h2><div class="case-section-copy"><p>I engineered a Python telemetry pipeline around OpenTelemetry and instrumented the request lifecycle with the signals the team needed: request latency, LLM token usage, response quality, and system-performance data. Grafana dashboards turned those signals into a real-time operational view.</p></div></section>
+      <section class="case-section" aria-labelledby="decisions-title"><h2 id="decisions-title">Key decisions</h2><div class="case-section-copy"><ul class="decision-list"><li>Use OpenTelemetry as the instrumentation model so signals follow a consistent observability standard.</li><li>Measure both system performance and AI-specific behavior instead of treating the model call as a black box.</li><li>Design dashboards around investigation tasks—cost, model efficiency, bottlenecks, and service health—rather than raw event volume.</li></ul></div></section>
+      <section class="case-section" aria-labelledby="result-title"><h2 id="result-title">Result</h2><div class="case-section-copy"><p>The engineering team gained a granular, real-time view of AI-assisted workflows. The resulting telemetry and dashboards supported faster bottleneck identification and data-informed work on cost, model efficiency, and service health.</p><p>This case study intentionally excludes internal architecture, source code, identifiers, and company-confidential metrics.</p></div></section>
+      <section class="case-section" aria-labelledby="technology-title"><h2 id="technology-title">Technologies</h2><div class="case-section-copy"><ul class="technology-list" aria-label="Technologies used"><li>Python</li><li>OpenTelemetry</li><li>Grafana</li><li>Azure CLI</li><li>Observability</li></ul></div></section>
+      <nav class="case-next" aria-label="Next case study"><p class="eyebrow">Next case study</p><a href="cmv-incident-reporting.html">Incident reporting across forms, APIs, and data <span aria-hidden="true">→</span></a></nav>
+    </div>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Designed and built in Adelaide.</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
+  <script src="../main.js?v=20260710-4" defer></script>
+</body>
+</html>
