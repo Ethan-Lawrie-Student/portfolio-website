@@ -1,13 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#1c3d46"/>
-  <path d="M48 48H1152M48 582H1152" stroke="#fdefd4" stroke-width="2" opacity=".8"/>
-  <text x="48" y="82" fill="#91c3ce" font-family="monospace" font-size="18" letter-spacing="3">SOFTWARE ENGINEER / ADELAIDE</text>
-  <text x="44" y="268" fill="#fdefd4" font-family="Arial, sans-serif" font-size="168" font-weight="700" letter-spacing="-10">ETHAN</text>
-  <text x="78" y="420" fill="#fdefd4" font-family="Arial, sans-serif" font-size="168" font-weight="700" letter-spacing="-10">LAWRIE<tspan fill="#fc967d">.</tspan></text>
-  <path d="M778 247V345" stroke="#fc967d" stroke-width="10"/>
-  <text x="810" y="264" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">Developer tooling, cloud systems,</text>
-  <text x="810" y="293" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">and shipped products -</text>
-  <text x="810" y="322" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">from production telemetry</text>
-  <text x="810" y="351" fill="#fdefd4" font-family="Arial, sans-serif" font-size="23" font-weight="700">to independent games.</text>
-  <text x="48" y="560" fill="#fdefd4" font-family="monospace" font-size="17" letter-spacing="1">DEVELOPER TOOLING · CLOUD SYSTEMS · SHIPPED PRODUCTS</text>
+  <rect width="1200" height="630" fill="#fdefd4"/>
+  <rect width="72" height="630" fill="#1c3d46"/>
+  <rect x="72" width="18" height="160" fill="#fc967d"/>
+
+  <path d="M120 64H1144M120 458H1144M120 520H1144M120 582H1144" stroke="#242322" stroke-width="2"/>
+  <text x="120" y="48" fill="#242322" font-family="'IBM Plex Mono', Consolas, monospace" font-size="18" letter-spacing="2.5">SOFTWARE ENGINEER</text>
+
+  <text x="112" y="245" fill="#242322" font-family="'IBM Plex Sans Condensed', 'Arial Narrow', Arial, sans-serif" font-size="168" font-weight="700" letter-spacing="-8">ETHAN</text>
+  <text x="112" y="397" fill="#242322" font-family="'IBM Plex Sans Condensed', 'Arial Narrow', Arial, sans-serif" font-size="168" font-weight="700" letter-spacing="-8">LAWRIE</text>
+  <rect x="775" y="367" width="24" height="24" fill="#fc967d"/>
+
+  <rect x="988" y="112" width="156" height="156" fill="#1c3d46"/>
+  <rect x="988" y="286" width="156" height="106" fill="#fc967d"/>
+
+  <text x="120" y="496" fill="#1c3d46" font-family="'IBM Plex Mono', Consolas, monospace" font-size="16" letter-spacing="2">CLOUD / TOOLING</text>
+  <text x="360" y="498" fill="#242322" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="26" font-weight="600">AZURE CLI COPILOT / CMV GROUP</text>
+  <text x="120" y="558" fill="#1c3d46" font-family="'IBM Plex Mono', Consolas, monospace" font-size="16" letter-spacing="2">SHIPPED PRODUCT</text>
+  <text x="360" y="560" fill="#242322" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="26" font-weight="600">WORD LAWRIE</text>
 </svg>

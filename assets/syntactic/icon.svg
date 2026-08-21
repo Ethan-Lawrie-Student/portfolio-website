@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Syntactic icon</title>
+  <desc id="desc">A central salmon square connected to four ink nodes.</desc>
+  <g fill="#242322">
+    <rect x="116" y="8" width="24" height="54"/>
+    <rect x="116" y="194" width="24" height="54"/>
+    <rect x="8" y="116" width="54" height="24"/>
+    <rect x="194" y="116" width="54" height="24"/>
+    <rect x="42" y="42" width="172" height="172"/>
+  </g>
+  <rect x="60" y="60" width="136" height="136" fill="#fc967d"/>
+</svg>

@@ -1,4 +1,5 @@
 from pathlib import Path
+from shutil import copyfile
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT, TA_RIGHT
@@ -45,42 +46,42 @@ def styles():
             "Contact",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.8,
-            leading=11.5,
+            fontSize=9.2,
+            leading=12,
             textColor=CREAM,
         ),
         "section": ParagraphStyle(
             "Section",
             parent=base["Heading2"],
             fontName="Helvetica-Bold",
-            fontSize=13.5,
-            leading=15,
+            fontSize=14,
+            leading=15.5,
             textColor=TEAL,
-            spaceBefore=7,
-            spaceAfter=3,
+            spaceBefore=8,
+            spaceAfter=3.5,
         ),
         "title": ParagraphStyle(
             "Title",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=10,
-            leading=11.2,
+            fontSize=10.4,
+            leading=11.8,
             textColor=CHARCOAL,
         ),
         "subtitle": ParagraphStyle(
             "Subtitle",
             parent=base["Normal"],
             fontName="Helvetica-Oblique",
-            fontSize=8.7,
-            leading=10.2,
+            fontSize=9.1,
+            leading=10.8,
             textColor=MUTED,
         ),
         "date": ParagraphStyle(
             "Date",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=8.5,
-            leading=10.2,
+            fontSize=8.9,
+            leading=10.8,
             textColor=MUTED,
             alignment=TA_RIGHT,
         ),
@@ -88,29 +89,29 @@ def styles():
             "Body",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.4,
-            leading=10.2,
+            fontSize=8.9,
+            leading=10.8,
             textColor=CHARCOAL,
         ),
         "bullet": ParagraphStyle(
             "Bullet",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.25,
-            leading=10.15,
+            fontSize=8.75,
+            leading=10.8,
             leftIndent=9,
             firstLineIndent=-7,
             textColor=CHARCOAL,
-            spaceBefore=1.8,
+            spaceBefore=2,
         ),
         "skills": ParagraphStyle(
             "Skills",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.25,
-            leading=10.2,
+            fontSize=8.7,
+            leading=10.8,
             textColor=CHARCOAL,
-            spaceAfter=1.4,
+            spaceAfter=1.6,
         ),
     }
 
@@ -150,9 +151,9 @@ def entry(style, organization, role, location, period, bullets):
             ]
         )
     )
-    content = [heading, Spacer(1, 2)]
+    content = [heading, Spacer(1, 2.5)]
     content.extend(Paragraph(f"- {bullet}", style["bullet"]) for bullet in bullets)
-    content.append(Spacer(1, 4))
+    content.append(Spacer(1, 5))
     return KeepTogether(content)
 
 
@@ -162,7 +163,7 @@ def build_story():
 
     name = Paragraph("Ethan Lawrie", style["name"])
     links = Paragraph(
-        'Adelaide, SA, Australia<br/>'
+        'Adelaide, SA, Australia  |  Australian citizen<br/>'
         '<link href="https://www.linkedin.com/in/ethan-lawrie" color="#FDEFD4">linkedin.com/in/ethan-lawrie</link>'
         '  |  <link href="https://www.ethanlawrie.com" color="#FDEFD4">ethanlawrie.com</link>',
         style["contact"],
@@ -186,20 +187,6 @@ def build_story():
     )
     story.extend([header, Spacer(1, 5)])
 
-    story.append(section_heading("Education", style["section"]))
-    story.append(
-        entry(
-            style,
-            "University of Adelaide",
-            "Bachelor of Computer Science (Advanced)(Honours), Major in Artificial Intelligence",
-            "Adelaide, SA",
-            "2024 - Expected 2027",
-            [
-                "GPA: 6.5/7.0. Coursework includes Data Structures and Algorithms, Systems Programming, Computer Systems, Object-Oriented Programming, and Software Design."
-            ],
-        )
-    )
-
     story.append(section_heading("Experience", style["section"]))
     story.append(
         entry(
@@ -209,10 +196,10 @@ def build_story():
             "Adelaide, SA",
             "Apr 2024 - Present",
             [
-                "Developing an AI document-to-audio workflow that orchestrates content ingestion, LLM summarisation, and text-to-speech generation for concise executive briefings.",
-                "Built a retrieval-augmented Outlook email-drafting add-in using prior mailbox context and an Azure Functions backend.",
-                "Architected an incident-reporting platform using Plumsail SharePoint forms, JavaScript, Azure Functions REST APIs, SQL Server, and Azure Blob Storage.",
-                "Optimised employee share-registry processing through batch execution, increasing efficiency by 1,500%, and developed serverless workflows for automated ATO reporting.",
+                "Built and deployed an Azure document-to-audio workflow using Azure AI Document Intelligence, LLM summarisation, text-to-speech, and WAV chunking for documents hundreds of pages long, including outputs over two hours.",
+                "Prototyped a retrieval-augmented Outlook add-in that retrieves prior email context and drafts replies through an Azure Functions backend.",
+                "Architected a responsive incident-reporting platform for a planned rollout to 2,000+ employees using SharePoint/Plumsail, JavaScript, Azure Functions, SQL Server, and Azure Blob Storage.",
+                "Automated employee share-statement generation, reducing a day-plus manual process to a batch workflow; also built serverless workflows for ATO reporting and operational data capture.",
             ],
         )
     )
@@ -224,27 +211,41 @@ def build_story():
             "Sydney, NSW",
             "Dec 2025 - Feb 2026",
             [
-                "Implemented end-to-end OpenTelemetry instrumentation in Python for the Azure CLI AI-assisted command handler.",
-                "Captured request latency, token consumption, outcomes, errors, and response-quality signals for reliability, performance, and cost analysis.",
-                "Created Grafana dashboards for service health and model-usage trends, supporting bottleneck diagnosis with production telemetry.",
-            ],
-        )
-    )
-    story.append(
-        entry(
-            style,
-            "Word Lawrie",
-            "Lead Developer and Producer",
-            "Adelaide, SA",
-            "Jan 2023 - Feb 2024",
-            [
-                "Led a four-person team to design, build, and release a 2D word game using Unity and C#.",
-                "Negotiated a non-exclusive Coolmath Games licence, resulting in a 7,000% increase in monthly active users.",
+                "Implemented end-to-end telemetry for the Azure CLI Copilot handler with Python and OpenTelemetry, tracing command workflows across multiple AI tool handlers.",
+                "Defined telemetry for latency, token usage, errors, handler outcomes, and response-quality signals, then released the changes to UAT through pull-request review and CI.",
+                "Built a unified, filterable Grafana dashboard across environments and deployments for reliability, performance, and cost analysis; also contributed an Ev2 deployment script fix.",
             ],
         )
     )
 
-    story.append(section_heading("Project", style["section"]))
+    story.append(section_heading("Education", style["section"]))
+    story.append(
+        entry(
+            style,
+            "Adelaide University",
+            "Bachelor of Computer Science (Advanced), Major in Artificial Intelligence",
+            "Adelaide, SA",
+            "In progress",
+            [
+                "GPA: 6.5/7.0. Selected coursework: Data Structures and Algorithms, Systems Programming, Cloud Computing, Computer Systems, Software Design, Operating Systems, and Machine Learning."
+            ],
+        )
+    )
+
+    story.append(section_heading("Projects", style["section"]))
+    story.append(
+        entry(
+            style,
+            "Word Lawrie",
+            "Team project - Unity, C#",
+            "Four-person team",
+            "2023 - 2024",
+            [
+                "Led development and shipped a word game across mobile and web, owning core gameplay, UX iteration, testing, and release.",
+                "Negotiated a paid, non-exclusive Coolmath Games distribution licence; the published game held a 4.2/5 rating from 839 votes.",
+            ],
+        )
+    )
     story.append(
         entry(
             style,
@@ -253,8 +254,8 @@ def build_story():
             "Independent project",
             "2026 - Present",
             [
-                "Building a roguelike word-combat game with staged validation, damage previews, enemy intents, data-driven script effects, and a custom retro-terminal interface.",
-                "Implemented modular combat state, letter-cache and script-process runtimes, RAM-based resources, and reusable UI components for a vertical-slice prototype.",
+                "Building a roguelike word-combat game with persistent letter management, score-based combat, enemy intents, and a custom retro-terminal interface.",
+                "Designed data-driven combat state, script-slot and RAM-resource systems, plus reusable UI components for a vertical-slice build.",
             ],
         )
     )
@@ -273,8 +274,9 @@ def build_story():
     story.extend(
         [
             Paragraph("<b>Languages:</b> Python, C#, C++, JavaScript, SQL, Bash", style["skills"]),
-            Paragraph("<b>Cloud and backend:</b> Azure Functions, REST APIs, OpenTelemetry, SQL Server, Azure Blob Storage, SharePoint, Power Platform", style["skills"]),
-            Paragraph("<b>AI and developer tools:</b> RAG, LLM application workflows, text-to-speech, Grafana, Git, Azure DevOps, Unity", style["skills"]),
+            Paragraph("<b>Cloud and backend:</b> Azure Functions, REST APIs, OpenTelemetry, SQL Server, Azure Blob Storage, Azure AI Document Intelligence", style["skills"]),
+            Paragraph("<b>AI applications:</b> Retrieval-augmented generation (RAG), LLM workflows, text-to-speech", style["skills"]),
+            Paragraph("<b>Tools and platforms:</b> Git, Azure DevOps, Grafana, Unity, SharePoint, Power Platform, Linux (working knowledge)", style["skills"]),
         ]
     )
     return story
@@ -297,6 +299,9 @@ def generate(path):
 
 
 if __name__ == "__main__":
-    for output in OUTPUTS:
-        generate(output)
+    generate(OUTPUTS[0])
+    print(OUTPUTS[0])
+    for output in OUTPUTS[1:]:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        copyfile(OUTPUTS[0], output)
         print(output)

@@ -4,98 +4,102 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMV Incident Reporting — Ethan Lawrie</title>
-  <meta name="description" content="A public-safe case study of an end-to-end incident reporting system built by Ethan Lawrie at CMV Group.">
+  <meta name="description" content="How Ethan Lawrie architected an Azure-backed incident-reporting platform for a planned rollout to 2,000+ CMV Group employees.">
+  <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.ethanlawrie.com/work/cmv-incident-reporting.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="CMV Incident Reporting — Ethan Lawrie">
-  <meta property="og:description" content="Connecting forms, serverless APIs, SQL Server, Blob Storage, and administration workflows.">
+  <meta property="og:description" content="An Azure-backed reporting architecture planned for 2,000+ employees.">
+  <meta property="og:url" content="https://www.ethanlawrie.com/work/cmv-incident-reporting.html">
   <meta property="og:image" content="https://www.ethanlawrie.com/assets/meta/social-preview.png">
-  <meta name="theme-color" content="#1c3d46">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CMV Incident Reporting — Ethan Lawrie">
+  <meta name="twitter:description" content="An Azure-backed reporting architecture planned for 2,000+ employees.">
+  <meta name="twitter:image" content="https://www.ethanlawrie.com/assets/meta/social-preview.png">
+  <meta name="theme-color" content="#fdefd4">
   <link rel="icon" href="../assets/meta/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=20260710-11">
+  <link rel="preload" href="../assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../style.css?v=20260821-03">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Incident reporting across forms, APIs, and data",
+      "description": "An Azure-backed incident-reporting architecture planned for 2,000+ employees.",
+      "url": "https://www.ethanlawrie.com/work/cmv-incident-reporting.html",
+      "image": "https://www.ethanlawrie.com/assets/meta/social-preview.png",
+      "author": {"@type": "Person", "name": "Ethan Lawrie", "url": "https://www.ethanlawrie.com/"},
+      "about": {"@type": "Organization", "name": "CMV Group"}
+    }
+  </script>
 </head>
-<body>
+<body class="case-page case-page--cmv">
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header" data-site-header>
     <div class="shell header-inner">
       <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span></a>
+        <a class="nav-parent" href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#about">About</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="case-main" tabindex="-1">
-    <header class="case-hero shell">
-      <p class="case-kicker">Case study 03 · Production systems</p>
+    <header class="case-hero shell" data-motion-hero>
       <h1>Incident reporting across forms, APIs, and data</h1>
-      <p class="case-deck">An end-to-end operational system connecting a custom reporting interface to serverless APIs, structured data, file storage, and administrative workflows.</p>
+      <p class="case-deck">At CMV Group, I prepared a responsive reporting architecture for a planned rollout to 2,000+ employees across dealerships and workshops.</p>
       <dl class="case-meta">
-        <div><dt>Organization</dt><dd>CMV Group</dd></div>
         <div><dt>Role</dt><dd>Data Solutions Engineer</dd></div>
         <div><dt>Period</dt><dd>Apr 2024 — Present</dd></div>
-        <div><dt>Context</dt><dd>Enterprise operations</dd></div>
+        <div><dt>Planned reach</dt><dd>2,000+ employees</dd></div>
+        <div><dt>Environment</dt><dd>Dealerships + workshops</dd></div>
       </dl>
     </header>
 
-    <div class="case-media case-media-dark">
-      <div class="shell diagram-shell">
-        <svg class="system-diagram" viewBox="0 0 1200 620" role="img" aria-labelledby="cmv-diagram-title cmv-diagram-desc">
-          <title id="cmv-diagram-title">Public-safe incident reporting architecture</title>
-          <desc id="cmv-diagram-desc">Employees use a customized form that communicates with Azure Functions. The functions load and save data in SQL Server and attachments in Blob Storage. Administrators use a dashboard for review and editing.</desc>
-          <defs><marker id="arrow-light" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#fdefd4"/></marker></defs>
-          <text x="40" y="52" class="diagram-label" fill="#91c3ce">INCIDENT REPORTING / SYSTEM ARCHITECTURE</text>
-          <g stroke="#fdefd4" stroke-width="2" fill="#1c3d46">
-            <rect x="40" y="170" width="260" height="180" rx="4"/>
-            <rect x="380" y="170" width="300" height="180" rx="4"/>
-            <rect x="850" y="95" width="270" height="150" rx="4"/>
-            <rect x="850" y="300" width="270" height="150" rx="4"/>
-            <rect x="380" y="445" width="300" height="130" rx="4"/>
-          </g>
-          <g fill="#fdefd4">
-            <text x="70" y="215" class="diagram-title">Employee report</text>
-            <text x="70" y="255" class="diagram-note">Plumsail SharePoint form</text>
-            <text x="70" y="289" class="diagram-note">Custom JavaScript behavior</text>
-            <text x="410" y="215" class="diagram-title">Azure Functions</text>
-            <text x="410" y="255" class="diagram-note">REST API layer</text>
-            <text x="410" y="289" class="diagram-note">Dynamic loading + validation</text>
-            <text x="880" y="140" class="diagram-title">SQL Server</text>
-            <text x="880" y="180" class="diagram-note">Structured incident records</text>
-            <text x="880" y="345" class="diagram-title">Blob Storage</text>
-            <text x="880" y="385" class="diagram-note">Report attachments</text>
-            <text x="410" y="490" class="diagram-title">Administrative dashboard</text>
-            <text x="410" y="530" class="diagram-note">Pagination + secure editing</text>
-          </g>
-          <g stroke="#fdefd4" stroke-width="2.5" fill="none" marker-end="url(#arrow-light)">
-            <line x1="300" y1="260" x2="365" y2="260"/>
-            <path d="M680 220 C748 220, 775 170, 835 170"/>
-            <path d="M680 300 C748 300, 775 375, 835 375"/>
-            <line x1="530" y1="445" x2="530" y2="365"/>
-          </g>
-          <g class="diagram-edge-label" fill="#91c3ce">
-            <text x="306" y="244">SUBMIT</text>
-            <text x="736" y="190">RECORDS</text>
-            <text x="722" y="345">ATTACHMENTS</text>
-            <text x="548" y="411">REVIEW + EDIT</text>
-          </g>
-        </svg>
+    <section class="case-media case-media--architecture" aria-labelledby="cmv-flow-title">
+      <div class="shell architecture-layout">
+        <div class="case-media-heading">
+          <h2 id="cmv-flow-title">A clear boundary between capture and storage.</h2>
+        </div>
+        <ol class="architecture-line">
+          <li><span>Capture</span><strong>SharePoint / Plumsail</strong><small>Custom JavaScript form</small></li>
+          <li><span>API</span><strong>Azure Functions</strong><small>REST boundary</small></li>
+          <li><span>Records</span><strong>SQL Server</strong><small>Structured incident data</small></li>
+          <li><span>Files</span><strong>Blob Storage</strong><small>Report attachments</small></li>
+        </ol>
       </div>
+    </section>
+
+    <div class="shell case-content case-content--narrative">
+      <section class="case-section" aria-labelledby="cmv-problem-title">
+        <h2 id="cmv-problem-title">The reporting problem</h2>
+        <div class="case-section-copy"><p>Employees need a responsive way to submit structured reports and attachments, while operational teams need controlled storage and review across varied dealership and workshop environments.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="cmv-architecture-title">
+        <h2 id="cmv-architecture-title">Architecture and constraints</h2>
+        <div class="case-section-copy"><p>I designed the platform around customised SharePoint and Plumsail forms, Azure Functions as the API boundary, SQL Server for structured records, and Azure Blob Storage for attachments. That keeps interface behaviour separate from persistence and gives each data type an appropriate destination.</p></div>
+      </section>
+      <section class="case-section case-section--closing" aria-labelledby="cmv-status-title">
+        <h2 id="cmv-status-title">Planned rollout</h2>
+        <div class="case-section-copy"><p>The architecture was prepared for a planned rollout to more than 2,000 employees. At the point covered here, implementation and deployment remained ahead.</p></div>
+      </section>
+      <aside class="case-note" aria-label="Confidentiality note">Internal forms, records, identifiers, business rules, and rollout details are omitted.</aside>
     </div>
 
-    <div class="shell case-content">
-      <section class="case-section" aria-labelledby="problem-title"><h2 id="problem-title">Problem</h2><div class="case-section-copy"><p>Incident reporting crosses several kinds of data and several user needs: employees need a clear way to submit reports and attachments, while administrators need reliable records, efficient review, and controlled editing. The surrounding legacy environment also required integration rather than a standalone replacement.</p></div></section>
-      <section class="case-section" aria-labelledby="approach-title"><h2 id="approach-title">Approach</h2><div class="case-section-copy"><p>I architected the system end to end. Plumsail SharePoint forms provide the reporting interface, with custom JavaScript for dynamic behavior. Azure Functions expose REST APIs for data loading and persistence, SQL Server stores structured incident records, and Azure Blob Storage handles attachments. An administrative dashboard supports server-side pagination and secure record editing.</p></div></section>
-      <section class="case-section" aria-labelledby="decisions-title"><h2 id="decisions-title">Key decisions</h2><div class="case-section-copy"><ul class="decision-list"><li>Separate the form experience from persistence through a serverless API layer, keeping data access and business behavior out of the client.</li><li>Use distinct storage suited to each data type: SQL Server for structured records and Blob Storage for attachments.</li><li>Use server-side pagination in the administrative view so review remains manageable as the record set grows.</li></ul></div></section>
-      <section class="case-section" aria-labelledby="result-title"><h2 id="result-title">Result</h2><div class="case-section-copy"><p>The result is a connected reporting workflow spanning submission, dynamic data access, attachment handling, persistence, and administration. It replaced disconnected operational steps with an end-to-end system designed for maintainable integration.</p><p>In separate CMV workflow work, I also introduced a batch-processing strategy for the employee share registry that improved usage efficiency by 1,500%.</p><p>This case study uses an abstract architecture and intentionally excludes internal screens, identifiers, business rules, and sensitive data.</p></div></section>
-      <section class="case-section" aria-labelledby="technology-title"><h2 id="technology-title">Technologies</h2><div class="case-section-copy"><ul class="technology-list" aria-label="Technologies used"><li>JavaScript</li><li>Plumsail</li><li>SharePoint</li><li>Azure Functions</li><li>REST APIs</li><li>SQL Server</li><li>Azure Blob Storage</li></ul></div></section>
-      <nav class="case-next" aria-label="Next case study"><p class="eyebrow">Back to first case study</p><a href="word-lawrie.html">Word Lawrie <span aria-hidden="true">→</span></a></nav>
-    </div>
+    <nav class="case-next" aria-label="Case study navigation">
+      <div class="shell case-next__inner">
+        <a href="../index.html#work">All work <span aria-hidden="true">↖</span></a>
+        <a href="word-lawrie.html">Next project — Word Lawrie <span aria-hidden="true">→</span></a>
+      </div>
+    </nav>
   </main>
-  <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Designed and built in Adelaide.</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
-  <script src="../main.js?v=20260710-4" defer></script>
+  <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Adelaide, Australia</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
+  <script src="../assets/vendor/motion-13.1.0.js" defer></script>
+  <script src="../main.js?v=20260821-03" defer></script>
 </body>
 </html>
