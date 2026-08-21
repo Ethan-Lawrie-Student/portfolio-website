@@ -1,4 +1,5 @@
 from pathlib import Path
+from shutil import copyfile
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT, TA_RIGHT
@@ -45,42 +46,42 @@ def styles():
             "Contact",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.8,
-            leading=11.5,
+            fontSize=9.2,
+            leading=12,
             textColor=CREAM,
         ),
         "section": ParagraphStyle(
             "Section",
             parent=base["Heading2"],
             fontName="Helvetica-Bold",
-            fontSize=13.5,
-            leading=15,
+            fontSize=14,
+            leading=15.5,
             textColor=TEAL,
-            spaceBefore=7,
-            spaceAfter=3,
+            spaceBefore=8,
+            spaceAfter=3.5,
         ),
         "title": ParagraphStyle(
             "Title",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=10,
-            leading=11.2,
+            fontSize=10.4,
+            leading=11.8,
             textColor=CHARCOAL,
         ),
         "subtitle": ParagraphStyle(
             "Subtitle",
             parent=base["Normal"],
             fontName="Helvetica-Oblique",
-            fontSize=8.7,
-            leading=10.2,
+            fontSize=9.1,
+            leading=10.8,
             textColor=MUTED,
         ),
         "date": ParagraphStyle(
             "Date",
             parent=base["Normal"],
             fontName="Helvetica-Bold",
-            fontSize=8.5,
-            leading=10.2,
+            fontSize=8.9,
+            leading=10.8,
             textColor=MUTED,
             alignment=TA_RIGHT,
         ),
@@ -88,29 +89,29 @@ def styles():
             "Body",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.4,
-            leading=10.2,
+            fontSize=8.9,
+            leading=10.8,
             textColor=CHARCOAL,
         ),
         "bullet": ParagraphStyle(
             "Bullet",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.25,
-            leading=10.15,
+            fontSize=8.75,
+            leading=10.8,
             leftIndent=9,
             firstLineIndent=-7,
             textColor=CHARCOAL,
-            spaceBefore=1.8,
+            spaceBefore=2,
         ),
         "skills": ParagraphStyle(
             "Skills",
             parent=base["Normal"],
             fontName="Helvetica",
-            fontSize=8.25,
-            leading=10.2,
+            fontSize=8.7,
+            leading=10.8,
             textColor=CHARCOAL,
-            spaceAfter=1.4,
+            spaceAfter=1.6,
         ),
     }
 
@@ -150,9 +151,9 @@ def entry(style, organization, role, location, period, bullets):
             ]
         )
     )
-    content = [heading, Spacer(1, 2)]
+    content = [heading, Spacer(1, 2.5)]
     content.extend(Paragraph(f"- {bullet}", style["bullet"]) for bullet in bullets)
-    content.append(Spacer(1, 4))
+    content.append(Spacer(1, 5))
     return KeepTogether(content)
 
 
@@ -186,20 +187,6 @@ def build_story():
     )
     story.extend([header, Spacer(1, 5)])
 
-    story.append(section_heading("Education", style["section"]))
-    story.append(
-        entry(
-            style,
-            "Adelaide University",
-            "Bachelor of Computer Science (Advanced), Major in Artificial Intelligence",
-            "Adelaide, SA",
-            "Current",
-            [
-                "GPA: 6.5/7.0. Selected coursework: Data Structures and Algorithms, Systems Programming, Cloud Computing, Computer Systems, Software Design, Operating Systems, and Machine Learning."
-            ],
-        )
-    )
-
     story.append(section_heading("Experience", style["section"]))
     story.append(
         entry(
@@ -231,20 +218,21 @@ def build_story():
         )
     )
 
-    story.append(section_heading("Projects", style["section"]))
+    story.append(section_heading("Education", style["section"]))
     story.append(
         entry(
             style,
-            "Syntactic",
-            "Unity, C#, Azure DevOps",
-            "Independent project",
-            "2026 - Present",
+            "Adelaide University",
+            "Bachelor of Computer Science (Advanced), Major in Artificial Intelligence",
+            "Adelaide, SA",
+            "In progress",
             [
-                "Building a roguelike word-combat game with persistent letter management, score-based combat, enemy intents, and a custom retro-terminal interface.",
-                "Designed data-driven combat state, script-slot and RAM-resource systems, plus reusable UI components for a vertical-slice build.",
+                "GPA: 6.5/7.0. Selected coursework: Data Structures and Algorithms, Systems Programming, Cloud Computing, Computer Systems, Software Design, Operating Systems, and Machine Learning."
             ],
         )
     )
+
+    story.append(section_heading("Projects", style["section"]))
     story.append(
         entry(
             style,
@@ -255,6 +243,19 @@ def build_story():
             [
                 "Led development and shipped a word game across mobile and web, owning core gameplay, UX iteration, testing, and release.",
                 "Negotiated a paid, non-exclusive Coolmath Games distribution licence; the published game held a 4.2/5 rating from 839 votes.",
+            ],
+        )
+    )
+    story.append(
+        entry(
+            style,
+            "Syntactic",
+            "Unity, C#, Azure DevOps",
+            "Independent project",
+            "2026 - Present",
+            [
+                "Building a roguelike word-combat game with persistent letter management, score-based combat, enemy intents, and a custom retro-terminal interface.",
+                "Designed data-driven combat state, script-slot and RAM-resource systems, plus reusable UI components for a vertical-slice build.",
             ],
         )
     )
@@ -298,6 +299,9 @@ def generate(path):
 
 
 if __name__ == "__main__":
-    for output in OUTPUTS:
-        generate(output)
+    generate(OUTPUTS[0])
+    print(OUTPUTS[0])
+    for output in OUTPUTS[1:]:
+        output.parent.mkdir(parents=True, exist_ok=True)
+        copyfile(OUTPUTS[0], output)
         print(output)

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ethan Lawrie — Software Engineer</title>
-  <meta name="description" content="Ethan Lawrie is an Adelaide software engineer building observable AI tools, Azure systems, and shipped Unity products.">
+  <meta name="description" content="Ethan Lawrie is an Adelaide software engineer building cloud systems, developer tooling, and observable AI workflows.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.ethanlawrie.com/">
   <meta property="og:type" content="website">
@@ -23,7 +23,7 @@
   <link rel="preload" href="assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=20260821-01">
+  <link rel="stylesheet" href="style.css?v=20260821-03">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -41,8 +41,6 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
-
   <header class="site-header" data-site-header>
     <div class="shell header-inner">
       <a class="wordmark" href="index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
@@ -51,9 +49,9 @@
         <span class="menu-icon" aria-hidden="true"></span>
       </button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a href="#experience">Experience</a>
         <a href="#work">Work</a>
-        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
         <a href="assets/resume/ethan-lawrie-resume.pdf">Résumé</a>
         <a href="#contact">Contact</a>
         <a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
@@ -62,62 +60,111 @@
   </header>
 
   <main id="main-content" tabindex="-1">
-    <section class="cover-hero" aria-labelledby="hero-title" data-hero>
-      <div class="cover-grid">
-        <div class="shell cover-meta cover-reveal">
-          <p>Data solutions engineer</p>
-          <p>Adelaide, Australia</p>
-          <p class="cover-availability"><span aria-hidden="true"></span>Open to graduate &amp; internship roles</p>
+    <section class="cover-hero" aria-labelledby="hero-title" data-motion-hero>
+      <div class="shell cover-meta">
+        <p>Software engineer</p>
+        <p>Adelaide, Australia</p>
+        <p class="cover-specialism"><span>Cloud systems</span> <span>Developer tooling</span> <span>Observability</span></p>
+      </div>
+
+      <div class="shell cover-body">
+        <div class="cover-name">
+          <h1 id="hero-title">
+            <span class="cover-line"><span>Ethan</span></span>
+            <span class="cover-line"><span>Lawrie<span aria-hidden="true">.</span></span></span>
+          </h1>
         </div>
 
-        <div class="shell cover-body">
-          <div class="cover-name cover-reveal">
-            <p class="cover-folio">Portfolio / 2026</p>
-            <h1 id="hero-title"><span>Ethan</span><span>Lawrie<span aria-hidden="true">.</span></span></h1>
+        <div class="cover-side">
+          <p class="cover-statement">I’m a software engineer in Adelaide. I’ve worked on Azure CLI Copilot telemetry, internal systems at CMV Group, and Unity games released on mobile and web.</p>
+          <div class="cover-actions">
+            <a class="button button-primary" href="#work">Selected work</a>
+            <a class="indexed-link" href="assets/resume/ethan-lawrie-resume.pdf">Résumé <span aria-hidden="true">→</span></a>
           </div>
+        </div>
+      </div>
 
-          <div class="cover-side cover-reveal">
-            <p class="cover-statement">I engineer observable AI tools and cloud systems—from Azure CLI telemetry to enterprise workflows and shipped games.</p>
-            <p class="cover-detail">My best work sits where product judgment, dependable systems, and clear engineering evidence meet.</p>
-            <div class="cover-actions">
-              <a class="button button-primary" href="#work">Explore selected work</a>
-              <a class="indexed-link" href="assets/resume/ethan-lawrie-resume.pdf">View résumé <span aria-hidden="true">→</span></a>
+      <div class="cover-rule" aria-hidden="true"></div>
+    </section>
+
+    <section id="work" class="indexed-section work-section">
+      <header class="shell indexed-heading indexed-heading--split">
+        <h2>Cloud systems, developer tooling, and shipped products.</h2>
+        <p class="section-deck">Selected work across Microsoft, CMV Group, and a licensed game release.</p>
+      </header>
+
+      <div class="project-index">
+        <article class="project-row project-row--microsoft">
+          <div class="shell project-row__grid">
+            <header class="project-row__meta">
+              <strong>Microsoft</strong>
+              <span>Developer tooling</span>
+              <span>Python · OpenTelemetry · Grafana</span>
+            </header>
+            <div class="project-row__copy">
+              <h3>Tracing Azure CLI Copilot end to end</h3>
+              <p>I instrumented multi-handler AI workflows and built one filterable dashboard for latency, token use, errors, outcomes, response quality, reliability, performance, and cost.</p>
+              <a class="indexed-link" href="work/azure-cli-telemetry.html">Read the case study <span aria-hidden="true">→</span></a>
             </div>
+            <dl class="project-row__evidence" aria-label="Microsoft project evidence">
+              <div><dt>Delivery</dt><dd>Released to UAT</dd></div>
+              <div><dt>Path</dt><dd>Pull request + CI</dd></div>
+              <div><dt>Scope</dt><dd>Multiple AI tool handlers</dd></div>
+            </dl>
           </div>
-        </div>
+        </article>
 
-        <div class="cover-proof-band cover-reveal">
-          <dl class="shell cover-proof" aria-label="Selected evidence">
-            <div><dt>Planned scale</dt><dd><strong>2,000+</strong> employees</dd></div>
-            <div><dt>Released product</dt><dd><strong>4.2/5</strong> from 839 votes</dd></div>
-            <div><dt>Academic result</dt><dd><strong>6.5/7</strong> GPA</dd></div>
-          </dl>
-        </div>
+        <article class="project-row project-row--cmv">
+          <div class="shell project-row__grid">
+            <header class="project-row__meta">
+              <strong>CMV Group</strong>
+              <span>Planned platform</span>
+              <span>Azure · JavaScript · Data</span>
+            </header>
+            <div class="project-row__copy">
+              <h3>Incident reporting across forms, APIs, and data</h3>
+              <p>I designed a responsive reporting path from SharePoint and Plumsail through Azure Functions to SQL Server and Blob Storage.</p>
+              <a class="indexed-link" href="work/cmv-incident-reporting.html">Read the case study <span aria-hidden="true">→</span></a>
+            </div>
+            <dl class="project-row__evidence" aria-label="CMV project evidence">
+              <div><dt>Status</dt><dd>Architecture prepared</dd></div>
+              <div><dt>Planned reach</dt><dd>2,000+ employees</dd></div>
+              <div><dt>Environment</dt><dd>Dealerships + workshops</dd></div>
+            </dl>
+          </div>
+        </article>
 
-        <div class="cover-index-band cover-reveal">
-          <nav class="shell cover-index" aria-label="Portfolio contents">
-            <a href="#experience"><span>01</span><strong>Experience</strong></a>
-            <a href="#work"><span>02</span><strong>Selected work</strong></a>
-            <a href="#profile"><span>03</span><strong>Profile</strong></a>
-            <a href="#contact"><span>04</span><strong>Contact</strong></a>
-          </nav>
-        </div>
+        <article class="project-row project-row--word">
+          <div class="shell project-row__grid project-row__grid--media">
+            <header class="project-row__meta">
+              <strong>Word Lawrie</strong>
+              <span>Shipped game</span>
+              <span>Unity · C# · Mobile + Web</span>
+            </header>
+            <div class="project-row__copy">
+              <h3>From student project to licensed release</h3>
+              <p>I led development in a four-person team, shipped on mobile and web, and negotiated a paid, non-exclusive distribution licence with Coolmath Games.</p>
+              <p class="project-row__result"><strong>4.2/5</strong> from 800+ public votes.</p>
+              <a class="indexed-link" href="work/word-lawrie.html">Read the case study <span aria-hidden="true">→</span></a>
+            </div>
+            <figure class="project-row__media">
+              <img src="assets/wordlawrie/oar2.jpg" width="720" height="720" alt="Word Lawrie promotional artwork showing the word game on two phones" loading="lazy" decoding="async">
+            </figure>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="experience" class="indexed-section">
+    <section id="experience" class="indexed-section experience-section">
       <div class="shell">
-        <header class="indexed-heading indexed-heading--split" data-reveal>
-          <div>
-            <p class="section-index">01 / Experience</p>
-            <h2>Systems that have to work.</h2>
-          </div>
-          <p class="section-deck">Production engineering across enterprise operations and developer tooling, with responsibility from instrumentation and architecture through release.</p>
+        <header class="indexed-heading indexed-heading--split">
+          <h2>Engineering experience, from architecture to release.</h2>
+          <p class="section-deck">Enterprise Azure systems and developer tooling, with responsibility from architecture and instrumentation through review and release.</p>
         </header>
 
         <div class="experience-table">
-          <article class="experience-item" data-reveal>
-            <div class="experience-time"><span class="current-marker">Current</span><time datetime="2024-04">Apr 2024 — Present</time></div>
+          <article class="experience-item">
+            <div class="experience-time"><time datetime="2024-04">Apr 2024 — Present</time></div>
             <div class="experience-position">
               <div class="experience-company"><strong>CMV Group</strong><span>Adelaide</span></div>
               <h3>Data Solutions Engineer</h3>
@@ -125,16 +172,15 @@
             <div class="experience-scope">
               <p class="experience-lede">Build and deploy operational software across Azure, AI-assisted workflows, and enterprise data systems.</p>
               <ul class="experience-highlights">
-                <li>Delivered a document-to-audio workflow using Azure AI Document Intelligence, LLM summarisation, text-to-speech, and WAV chunking for source documents hundreds of pages long.</li>
-                <li>Prototyped a retrieval-augmented Outlook add-in that uses prior email context to draft replies through an Azure Functions backend.</li>
+                <li>Delivered a document-to-audio workflow for source documents hundreds of pages long, and prototyped a retrieval-augmented Outlook reply assistant.</li>
                 <li>Architected an incident-reporting platform planned for 2,000+ employees across dealerships and workshops.</li>
                 <li>Converted day-plus share-statement preparation into a batch workflow and built serverless processes for ATO reporting and operational capture.</li>
               </ul>
-              <a class="indexed-link" href="work/cmv-incident-reporting.html">Read the CMV case study <span aria-hidden="true">→</span></a>
+              <a class="indexed-link" href="work/cmv-incident-reporting.html">CMV case study <span aria-hidden="true">→</span></a>
             </div>
           </article>
 
-          <article class="experience-item" data-reveal>
+          <article class="experience-item">
             <div class="experience-time"><time datetime="2025-12">Dec 2025 — Feb 2026</time></div>
             <div class="experience-position">
               <div class="experience-company"><strong>Microsoft</strong><span>Azure Client Tools · Sydney</span></div>
@@ -143,150 +189,58 @@
             <div class="experience-scope">
               <p class="experience-lede">Made AI-assisted Azure CLI workflows observable across handlers, environments, and deployments.</p>
               <ul class="experience-highlights">
-                <li>Implemented end-to-end Python and OpenTelemetry tracing for the Azure CLI Copilot handler across multiple AI tool handlers.</li>
-                <li>Defined latency, token-usage, error, outcome, and response-quality signals, then released the work to UAT through pull-request review and CI.</li>
-                <li>Built a unified, filterable Grafana dashboard for reliability, performance, and cost analysis.</li>
+                <li>Implemented end-to-end Python and OpenTelemetry tracing across multiple AI tool handlers.</li>
+                <li>Defined operational signals, built one filterable Grafana dashboard, and released the work to UAT through pull-request review and CI.</li>
               </ul>
-              <a class="indexed-link" href="work/azure-cli-telemetry.html">Read the Microsoft case study <span aria-hidden="true">→</span></a>
+              <a class="indexed-link" href="work/azure-cli-telemetry.html">Microsoft case study <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="work" class="indexed-section work-section">
-      <header class="shell indexed-heading indexed-heading--split" data-reveal>
-        <div>
-          <p class="section-index">02 / Selected work</p>
-          <h2>Built, measured, shipped.</h2>
-        </div>
-        <p class="section-deck">Four snapshots across observability, enterprise systems, game architecture, and product distribution.</p>
-      </header>
-
-      <div class="shell work-grid">
-        <article class="work-card work-card--microsoft work-card--wide" data-reveal>
-          <header class="work-card__meta"><span>01</span><strong>Microsoft</strong><span>Developer tooling</span></header>
-          <div class="work-card__copy">
-            <p class="project-type">Python / OpenTelemetry / Grafana</p>
-            <h3>Azure CLI Copilot observability</h3>
-            <p>End-to-end telemetry and a unified operational dashboard for understanding latency, token usage, outcomes, response quality, cost, and service health.</p>
-            <p class="work-card__result"><strong>Released to UAT</strong> through pull-request review and CI.</p>
-            <a class="indexed-link" href="work/azure-cli-telemetry.html">Read case study <span aria-hidden="true">→</span></a>
-          </div>
-          <ol class="signal-chain" aria-label="Telemetry signals covered">
-            <li><span>01</span>Latency</li>
-            <li><span>02</span>Token use</li>
-            <li><span>03</span>Errors + outcomes</li>
-            <li><span>04</span>Response quality</li>
-          </ol>
-        </article>
-
-        <article class="work-card work-card--cmv" data-reveal>
-          <header class="work-card__meta"><span>02</span><strong>CMV Group</strong><span>Production system</span></header>
-          <div class="system-lattice" aria-label="Incident-reporting architecture">
-            <span>SharePoint</span><span>Functions</span><span>SQL Server</span><span>Blob Storage</span><span>Controlled admin</span>
-          </div>
-          <div class="work-card__copy">
-            <p class="project-type">Azure / JavaScript / Data</p>
-            <h3>Incident reporting at enterprise scale</h3>
-            <p>A responsive reporting path connecting custom forms, Azure Functions, SQL Server, Blob Storage, and controlled administration.</p>
-            <p class="work-card__result"><strong>Planned reach</strong> 2,000+ employees.</p>
-            <a class="indexed-link" href="work/cmv-incident-reporting.html">Read case study <span aria-hidden="true">→</span></a>
-          </div>
-        </article>
-
-        <article id="syntactic" class="work-card work-card--syntactic" data-reveal>
-          <header class="work-card__meta"><span>03</span><strong>Syntactic</strong><span>In development</span></header>
-          <div class="syntactic-system" aria-label="Syntactic gameplay systems">
-            <img src="assets/syntactic/icon.svg" width="256" height="256" alt="" loading="lazy" decoding="async">
-            <ol>
-              <li>Letter management</li>
-              <li>Script slots + RAM</li>
-              <li>Score-based combat</li>
-              <li>Enemy intents</li>
-            </ol>
-          </div>
-          <div class="work-card__copy">
-            <p class="project-type">Unity / C# / Azure DevOps</p>
-            <h3>A roguelike built from words</h3>
-            <p>Designing a solo word-combat game around persistent letters, data-driven combat state, reusable UI systems, and a custom retro-terminal interface.</p>
-            <p class="work-card__status"><span aria-hidden="true"></span>Vertical slice in progress</p>
-          </div>
-        </article>
-
-        <article class="work-card work-card--word-lawrie work-card--wide" data-reveal>
-          <header class="work-card__meta"><span>04</span><strong>Word Lawrie</strong><span>Shipped product</span></header>
-          <div class="work-card__media">
-            <img src="assets/wordlawrie/oar2.jpg" width="720" height="720" alt="Word Lawrie promotional artwork showing the game on two phones" loading="lazy" decoding="async">
-            <img src="assets/wordlawrie/643x0w.jpg" width="643" height="858" alt="Word Lawrie main menu with Normal, Modes, and Daily options" loading="lazy" decoding="async">
-          </div>
-          <div class="work-card__copy">
-            <p class="project-type">Unity / C# / Mobile + Web</p>
-            <h3>From student project to licensed release</h3>
-            <p>Led development in a four-person team, shipped across mobile and web, and negotiated a paid, non-exclusive distribution licence with Coolmath Games.</p>
-            <p class="work-card__result"><strong>Public response</strong> 4.2/5 from 839 votes.</p>
-            <a class="indexed-link" href="work/word-lawrie.html">Read case study <span aria-hidden="true">→</span></a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="profile" class="indexed-section profile-section">
+    <section id="about" class="indexed-section profile-section">
       <div class="shell">
-        <header class="indexed-heading indexed-heading--split" data-reveal>
-          <div>
-            <p class="section-index">03 / Profile</p>
-            <h2>Range, with a technical centre.</h2>
-          </div>
-          <p class="section-deck">Computer science, cloud engineering, AI applications, competitive programming, and products used beyond the classroom.</p>
+        <header class="indexed-heading indexed-heading--split">
+          <h2>Engineering, games, and competition.</h2>
+          <p class="section-deck">Computer Science (Advanced), Artificial Intelligence major, Adelaide University. GPA 6.5/7.</p>
         </header>
 
         <div class="profile-grid">
-          <div class="profile-identity" data-reveal>
+          <div class="profile-identity">
             <figure class="profile-portrait">
               <img src="assets/images/ethan.jpg" width="200" height="200" alt="Portrait of Ethan Lawrie" loading="lazy" decoding="async">
-              <figcaption>Ethan Lawrie / Adelaide</figcaption>
             </figure>
             <div class="profile-intro">
               <p>I like engineering work that makes complex systems easier to operate, understand, or enjoy.</p>
-              <p>That has meant tracing AI tool handlers, connecting enterprise workflows, and tuning word games until the interaction feels inevitable.</p>
-              <p class="profile-opportunity"><span aria-hidden="true"></span>Australian citizen · Open to graduate and internship software engineering opportunities.</p>
+              <p>Outside work, I build games and compete in programming contests.</p>
             </div>
           </div>
 
-          <dl class="profile-ledger" data-reveal>
+          <dl class="profile-ledger">
             <div>
               <dt>Education</dt>
               <dd>Bachelor of Computer Science (Advanced) · Artificial Intelligence major · Adelaide University · GPA 6.5/7</dd>
             </div>
             <div>
-              <dt>Languages</dt>
-              <dd>Python / C# / C++ / JavaScript / SQL / Bash</dd>
+              <dt>Engineering</dt>
+              <dd>Python, C#, C++, JavaScript, SQL, Bash · REST APIs · OpenTelemetry · Unity</dd>
             </div>
             <div>
-              <dt>Cloud &amp; backend</dt>
-              <dd>Azure Functions / REST APIs / OpenTelemetry / SQL Server / Azure Blob Storage / Azure AI Document Intelligence</dd>
-            </div>
-            <div>
-              <dt>AI applications</dt>
-              <dd>Retrieval-augmented generation / LLM workflows / Text-to-speech</dd>
-            </div>
-            <div>
-              <dt>Tools &amp; platforms</dt>
-              <dd>Git / Azure DevOps / Grafana / Unity / SharePoint / Power Platform / Linux</dd>
+              <dt>Cloud &amp; AI</dt>
+              <dd>Azure Functions, SQL Server, Blob Storage, Grafana · retrieval-augmented generation · LLM and text-to-speech workflows</dd>
             </div>
           </dl>
         </div>
 
-        <section class="achievement-ledger" aria-labelledby="achievement-title" data-reveal>
+        <section class="achievement-ledger" aria-labelledby="achievement-title">
           <header>
-            <p class="section-index">Competition record</p>
-            <h3 id="achievement-title">Results under pressure.</h3>
+            <h3 id="achievement-title">2025 programming competition results</h3>
           </header>
           <ol>
-            <li><span>01</span><strong>2nd of 16 teams</strong><small>Jane Street ETC · 2025</small></li>
-            <li><span>02</span><strong>2nd of 38 teams</strong><small>RSP × CPC · 2025</small></li>
-            <li><span>03</span><strong>6th overall</strong><small>Adelaide University Competitive Programming League · 2025</small></li>
+            <li><strong>2nd of 16 teams</strong><small>Jane Street ETC · 2025</small></li>
+            <li><strong>2nd of 38 teams</strong><small>RSP × CPC · 2025</small></li>
+            <li><strong>6th overall</strong><small>Adelaide University Competitive Programming League · 2025</small></li>
           </ol>
         </section>
       </div>
@@ -294,17 +248,16 @@
 
     <section id="contact" class="contact-chapter" aria-labelledby="contact-title">
       <div class="shell contact-panel">
-        <div class="contact-intro" data-reveal>
-          <p class="section-index">04 / Contact</p>
-          <h2 id="contact-title">Let’s build something useful.</h2>
-          <p>I’m open to graduate and internship software engineering roles, as well as thoughtful technical collaborations.</p>
+        <div class="contact-intro">
+          <h2 id="contact-title">Start a conversation.</h2>
+          <p>For software engineering work or a project worth discussing, send a note.</p>
           <ul class="contact-links">
-            <li><a class="indexed-link" href="assets/resume/ethan-lawrie-resume.pdf">View résumé <span aria-hidden="true">→</span></a></li>
+            <li><a class="indexed-link" href="assets/resume/ethan-lawrie-resume.pdf">Résumé <span aria-hidden="true">→</span></a></li>
             <li><a class="indexed-link" href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></li>
           </ul>
         </div>
 
-        <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwQ0QrSI_4D-vCeGU5IpZ0JWdL6Mo36LG1MYnGNwNGFERnyQA1PnPCxVc_Bk0N0leuI/exec" method="post" data-contact-form data-reveal>
+        <form class="contact-form" action="https://script.google.com/macros/s/AKfycbwQ0QrSI_4D-vCeGU5IpZ0JWdL6Mo36LG1MYnGNwNGFERnyQA1PnPCxVc_Bk0N0leuI/exec" method="post" data-contact-form>
           <div class="field-row">
             <div class="field">
               <label for="contact-name">Name</label>
@@ -340,6 +293,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=20260821-01" defer></script>
+  <script src="assets/vendor/motion-13.1.0.js" defer></script>
+  <script src="main.js?v=20260821-03" defer></script>
 </body>
 </html>

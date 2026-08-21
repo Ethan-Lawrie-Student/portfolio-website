@@ -4,12 +4,12 @@ A framework-free editorial engineering portfolio built with semantic HTML, CSS, 
 
 ## Structure
 
-The homepage follows a recruiter-first sequence: cover, experience, selected work, profile, competition record, and contact. Run `python scripts/generate_public_resume.py` to rebuild the sanitised public résumé after content changes; it intentionally omits private phone and email details.
+The homepage follows an evidence-first sequence: cover, selected work, experience, profile, competition record, and contact. Run `python scripts/generate_public_resume.py` to rebuild the sanitised public résumé after content changes; it intentionally omits private phone and email details.
 
-- `index.html` — recruiter-first homepage and contact form
+- `index.html` — evidence-first homepage and contact form
 - `work/` — three detailed project case studies
 - `style.css` — shared design system and responsive layout
-- `main.js` — accessible mobile navigation, active navigation, reveal/progress enhancement, current year, and contact-form feedback
+- `main.js` — accessible mobile navigation, active navigation, restrained Motion-powered enhancement, current year, and contact-form feedback
 - `assets/fonts/` — self-hosted IBM Plex webfonts and license
 - `assets/resume/ethan-lawrie-resume.pdf` — public résumé with private contact details removed
 - `404.html`, `robots.txt`, and `sitemap.xml` — static-hosting and search-discovery files

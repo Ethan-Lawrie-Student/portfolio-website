@@ -23,7 +23,7 @@
   <link rel="preload" href="../assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20260821-01">
+  <link rel="stylesheet" href="../style.css?v=20260821-03">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,81 +44,62 @@
       <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a href="../index.html#experience">Experience</a><a class="nav-parent" href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="nav-parent" href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#about">About</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="case-main" tabindex="-1">
-    <header class="case-hero shell">
-      <p class="case-kicker">Case study 02 · Enterprise architecture</p>
+    <header class="case-hero shell" data-motion-hero>
       <h1>Incident reporting across forms, APIs, and data</h1>
-      <p class="case-deck">A responsive incident-reporting architecture designed for a planned rollout to 2,000+ employees across dealerships and workshops.</p>
+      <p class="case-deck">At CMV Group, I prepared a responsive reporting architecture for a planned rollout to 2,000+ employees across dealerships and workshops.</p>
       <dl class="case-meta">
-        <div><dt>Organization</dt><dd>CMV Group</dd></div>
         <div><dt>Role</dt><dd>Data Solutions Engineer</dd></div>
         <div><dt>Period</dt><dd>Apr 2024 — Present</dd></div>
-        <div><dt>Planned scale</dt><dd>2,000+ employees</dd></div>
+        <div><dt>Planned reach</dt><dd>2,000+ employees</dd></div>
+        <div><dt>Environment</dt><dd>Dealerships + workshops</dd></div>
       </dl>
     </header>
 
-    <section class="case-media" aria-labelledby="cmv-diagram-title">
-      <figure class="case-diagram shell">
-        <figcaption class="case-diagram__caption">
-          <p class="case-kicker">Incident reporting / System architecture</p>
-          <h2 id="cmv-diagram-title">The reporting architecture at a glance</h2>
-          <p>The proposed reporting path connects a customised employee form to Azure Functions. Structured records and attachments move to purpose-built storage, with controlled administration at the other end.</p>
-        </figcaption>
-
-        <ol class="system-sequence system-sequence--reporting" aria-label="Report submission path">
-          <li class="system-step">
-            <p class="system-step__meta">01 / Capture</p>
-            <h3>Reporting interface</h3>
-            <p>Plumsail SharePoint form with custom JavaScript behavior.</p>
-          </li>
-          <li class="system-step">
-            <p class="system-step__meta">02 / API</p>
-            <h3>Azure Functions</h3>
-            <p>REST endpoints between the interface and data services.</p>
-          </li>
-          <li class="system-step">
-            <p class="system-step__meta">03 / Persist</p>
-            <h3>Purpose-built storage</h3>
-            <dl class="storage-pairs">
-              <div>
-                <dt>SQL Server</dt>
-                <dd>Structured incident records</dd>
-              </div>
-              <div>
-                <dt>Blob Storage</dt>
-                <dd>Report attachments</dd>
-              </div>
-            </dl>
-          </li>
+    <section class="case-media case-media--architecture" aria-labelledby="cmv-flow-title">
+      <div class="shell architecture-layout">
+        <div class="case-media-heading">
+          <h2 id="cmv-flow-title">A clear boundary between capture and storage.</h2>
+        </div>
+        <ol class="architecture-line">
+          <li><span>Capture</span><strong>SharePoint / Plumsail</strong><small>Custom JavaScript form</small></li>
+          <li><span>API</span><strong>Azure Functions</strong><small>REST boundary</small></li>
+          <li><span>Records</span><strong>SQL Server</strong><small>Structured incident data</small></li>
+          <li><span>Files</span><strong>Blob Storage</strong><small>Report attachments</small></li>
         </ol>
-
-        <section class="admin-path" aria-labelledby="admin-path-title">
-          <div>
-            <p class="system-step__meta">04 / Review</p>
-            <h3 id="admin-path-title">Controlled administration</h3>
-            <p>A managed path for operational review and follow-up.</p>
-          </div>
-          <p class="admin-path__connection"><strong>Shared API boundary</strong> Azure Functions keep interface behavior separate from persistence and administrative access.</p>
-        </section>
-      </figure>
+      </div>
     </section>
 
-    <div class="shell case-content">
-      <section class="case-section case-section--problem" aria-labelledby="problem-title"><h2 id="problem-title">Operating context</h2><div class="case-section-copy"><p>Incident reporting crosses several user needs and data types. Employees need a responsive way to submit structured reports and attachments, while the organisation needs a controlled path for storage and administration across dealerships and workshops.</p></div></section>
-      <section class="case-section case-section--approach" aria-labelledby="approach-title"><h2 id="approach-title">Architecture</h2><div class="case-section-copy"><p>I architected the platform around customised SharePoint and Plumsail forms with JavaScript behavior, Azure Functions as the API boundary, SQL Server for structured incident records, and Azure Blob Storage for attachments.</p></div></section>
-      <section class="case-section case-section--decisions" aria-labelledby="decisions-title"><h2 id="decisions-title">Designed around</h2><div class="case-section-copy"><ul class="decision-list"><li>Keep the employee-facing form responsive across the dealership and workshop environments in scope.</li><li>Separate the interface from persistence through Azure Functions rather than expose storage concerns to the client.</li><li>Use SQL Server for structured records and Blob Storage for attachments so each data type has an appropriate home.</li></ul></div></section>
-      <section class="case-section case-section--result" aria-labelledby="result-title"><h2 id="result-title">Planned rollout</h2><div class="case-section-copy"><p>The architecture was prepared for a planned rollout to more than 2,000 employees, connecting capture, APIs, structured data, file storage, and controlled administration in one maintainable path.</p><p class="case-result-note"><strong>Separate workflow</strong> I also automated employee share-statement generation, reducing a day-plus manual process to a batch workflow.</p></div></section>
-      <section class="case-section case-section--technologies" aria-labelledby="technology-title"><h2 id="technology-title">Stack</h2><div class="case-section-copy"><ul class="technology-list" aria-label="Technologies used"><li>JavaScript</li><li>Plumsail</li><li>SharePoint</li><li>Azure Functions</li><li>REST APIs</li><li>SQL Server</li><li>Azure Blob Storage</li></ul></div></section>
-      <section class="case-section case-section--evidence" aria-labelledby="evidence-title"><h2 id="evidence-title">System boundary</h2><div class="case-section-copy"><p>This view shows the public architecture and planned scale. Internal forms, records, identifiers, business rules, and rollout details remain confidential.</p></div></section>
+    <div class="shell case-content case-content--narrative">
+      <section class="case-section" aria-labelledby="cmv-problem-title">
+        <h2 id="cmv-problem-title">The reporting problem</h2>
+        <div class="case-section-copy"><p>Employees need a responsive way to submit structured reports and attachments, while operational teams need controlled storage and review across varied dealership and workshop environments.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="cmv-architecture-title">
+        <h2 id="cmv-architecture-title">Architecture and constraints</h2>
+        <div class="case-section-copy"><p>I designed the platform around customised SharePoint and Plumsail forms, Azure Functions as the API boundary, SQL Server for structured records, and Azure Blob Storage for attachments. That keeps interface behaviour separate from persistence and gives each data type an appropriate destination.</p></div>
+      </section>
+      <section class="case-section case-section--closing" aria-labelledby="cmv-status-title">
+        <h2 id="cmv-status-title">Planned rollout</h2>
+        <div class="case-section-copy"><p>The architecture was prepared for a planned rollout to more than 2,000 employees. At the point covered here, implementation and deployment remained ahead.</p></div>
+      </section>
+      <aside class="case-note" aria-label="Confidentiality note">Internal forms, records, identifiers, business rules, and rollout details are omitted.</aside>
     </div>
-    <nav class="case-next" aria-label="Case study navigation"><div class="shell case-next__inner"><p class="eyebrow">Continue exploring</p><div class="case-next__links"><a href="../index.html#work">All selected work <span aria-hidden="true">↖</span></a><a href="word-lawrie.html">Word Lawrie <span aria-hidden="true">→</span></a></div></div></nav>
+
+    <nav class="case-next" aria-label="Case study navigation">
+      <div class="shell case-next__inner">
+        <a href="../index.html#work">All work <span aria-hidden="true">↖</span></a>
+        <a href="word-lawrie.html">Next project — Word Lawrie <span aria-hidden="true">→</span></a>
+      </div>
+    </nav>
   </main>
   <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Adelaide, Australia</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
-  <script src="../main.js?v=20260821-01" defer></script>
+  <script src="../assets/vendor/motion-13.1.0.js" defer></script>
+  <script src="../main.js?v=20260821-03" defer></script>
 </body>
 </html>

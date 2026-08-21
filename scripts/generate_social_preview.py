@@ -42,9 +42,9 @@ draw.rectangle((988, 286, 1143, 391), fill=SALMON)
 
 label = font("consola.ttf", 16)
 body = font("arialbd.ttf", 26)
-draw.text((120, 475), "EXPERIENCE", fill=TEAL, font=label)
-draw.text((360, 473), "CMV GROUP / MICROSOFT", fill=INK, font=body)
-draw.text((120, 537), "WORK", fill=TEAL, font=label)
+draw.text((120, 475), "CLOUD / TOOLING", fill=TEAL, font=label)
+draw.text((360, 473), "AZURE CLI COPILOT / CMV GROUP", fill=INK, font=body)
+draw.text((120, 537), "SHIPPED PRODUCT", fill=TEAL, font=label)
 draw.text((360, 535), "WORD LAWRIE", fill=INK, font=body)
 
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)

@@ -21,7 +21,7 @@
   <link rel="preload" href="../assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20260821-01">
+  <link rel="stylesheet" href="../style.css?v=20260821-03">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -42,9 +42,9 @@
       <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a href="../index.html#experience">Experience</a>
         <a class="nav-parent" href="../index.html#work">Work</a>
-        <a href="../index.html#profile">Profile</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
         <a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a>
         <a href="../index.html#contact">Contact</a>
         <a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
@@ -53,104 +53,59 @@
   </header>
 
   <main id="main-content" class="case-main" tabindex="-1">
-    <header class="case-hero shell">
-      <p class="case-kicker">Case study 03 · Shipped product</p>
-      <h1>Word Lawrie</h1>
-      <p class="case-deck">A four-person Unity word game shipped across mobile and web, then taken to a paid, non-exclusive Coolmath Games release rated 4.2/5 from 839 votes.</p>
+    <header class="case-hero shell" data-motion-hero>
+      <h1>From student project to licensed release</h1>
+      <p class="case-deck">Word Lawrie is a word-ladder game I led in a four-person team, released on mobile and web, then licensed to Coolmath Games.</p>
       <dl class="case-meta">
-        <div><dt>Role</dt><dd>Led development</dd></div>
+        <div><dt>Contribution</dt><dd>Led a four-person team</dd></div>
         <div><dt>Period</dt><dd>2023 — 2024</dd></div>
-        <div><dt>Team</dt><dd>Four people</dd></div>
         <div><dt>Stack</dt><dd>Unity, C#</dd></div>
+        <div><dt>Public rating</dt><dd>4.2/5 from 800+ votes</dd></div>
       </dl>
       <div class="case-actions">
-        <a class="button button-primary" href="https://www.coolmathgames.com/0-word-lawrie" target="_blank" rel="noopener noreferrer">Play on Coolmath Games <span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
-        <a class="button button-secondary" href="https://apps.apple.com/bw/app/word-lawrie/id6449741943" target="_blank" rel="noopener noreferrer">View App Store listing <span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="button button-primary" href="https://www.coolmathgames.com/0-word-lawrie" target="_blank" rel="noopener noreferrer">Play on Coolmath<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="indexed-link" href="https://apps.apple.com/au/app/word-lawrie/id1671741453" target="_blank" rel="noopener noreferrer">App Store <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
       </div>
     </header>
 
-    <div class="case-media">
-      <header class="shell case-gallery-heading">
-        <p class="case-kicker">Public release / Product artwork</p>
-        <h2>A recognisable game across mobile and web</h2>
-        <p>The release material shows the visual language used for the menu, word-combat interaction, and mobile distribution.</p>
-      </header>
+    <section class="case-media case-media--word" aria-label="Word Lawrie release imagery">
       <div class="shell case-screens case-screens--two">
         <figure>
-          <img src="../assets/wordlawrie/oar2.jpg" width="720" height="720" alt="Word Lawrie promotional artwork showing the word-ladder game on two phones" loading="lazy" decoding="async">
-          <figcaption>App Store campaign artwork</figcaption>
+          <img src="../assets/wordlawrie/oar2.jpg" width="720" height="720" alt="Word Lawrie promotional artwork with the game shown on angled phone mockups" loading="eager" decoding="async">
+          <figcaption>Mobile release artwork</figcaption>
         </figure>
         <figure>
-          <img src="../assets/wordlawrie/643x0w.jpg" width="643" height="858" alt="Word Lawrie main menu with Normal, Modes, and Daily options" loading="lazy" decoding="async">
-          <figcaption>Mobile main menu</figcaption>
+          <img src="../assets/wordlawrie/643x0w.jpg" width="643" height="858" alt="Word Lawrie main menu showing Normal, Modes, and Daily play options" loading="lazy" decoding="async">
+          <figcaption>Main menu</figcaption>
         </figure>
       </div>
+    </section>
+
+    <div class="shell case-content case-content--word">
+      <section class="case-section" aria-labelledby="word-interaction-title">
+        <h2 id="word-interaction-title">The interaction</h2>
+        <div class="case-section-copy"><p>Players change one letter at a time to move between words. The challenge was making that rule immediately legible while keeping input, feedback, and progression quick enough for repeated play.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="word-led-title">
+        <h2 id="word-led-title">What I led</h2>
+        <div class="case-section-copy"><p>I led a four-person team across core gameplay, user experience, testing, and release. The game shipped on mobile and web with Normal, Modes, and Daily play options.</p></div>
+      </section>
+      <section class="case-section case-section--closing" aria-labelledby="word-distribution-title">
+        <h2 id="word-distribution-title">Distribution</h2>
+        <div class="case-section-copy"><p>I negotiated a paid, non-exclusive licence with Coolmath Games. The release holds a 4.2/5 public rating from more than 800 votes.</p></div>
+      </section>
     </div>
 
-    <div class="shell case-content">
-      <section class="case-section case-section--problem" aria-labelledby="problem-title">
-        <h2 id="problem-title">Design challenge</h2>
-        <div class="case-section-copy">
-          <p>Word ladders are compact on paper but harder to make legible, responsive, and replayable on a phone. The product needed a clear interaction model and enough variation to support repeated play without diluting the core rule.</p>
-        </div>
-      </section>
-
-      <section class="case-section case-section--approach" aria-labelledby="approach-title">
-        <h2 id="approach-title">What I owned</h2>
-        <div class="case-section-copy">
-          <p>I led development in a four-person student team and worked across core gameplay, UX iteration, testing, and release. Difficulty settings change word length, while Detour, Timed, and Mastermind modes vary the transformation rule without replacing it.</p>
-        </div>
-      </section>
-
-      <section class="case-section case-section--decisions" aria-labelledby="decisions-title">
-        <h2 id="decisions-title">Product choices</h2>
-        <div class="case-section-copy">
-          <ul class="decision-list">
-            <li>Keep the current and target words visually distinct so the puzzle state remains understandable on a small screen.</li>
-            <li>Build multiple modes around one recognisable mechanic rather than add unrelated minigames.</li>
-            <li>Use a non-exclusive license to reach a browser audience while retaining the existing mobile release.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="case-section case-section--result" aria-labelledby="result-title">
-        <h2 id="result-title">Public release</h2>
-        <div class="case-section-copy">
-          <p>Word Lawrie shipped across mobile and web. I negotiated a paid, non-exclusive distribution licence with Coolmath Games, where the published game held a 4.2/5 rating from 839 votes when recorded for the résumé.</p>
-        </div>
-      </section>
-
-      <section class="case-section case-section--technologies" aria-labelledby="technology-title">
-        <h2 id="technology-title">Stack</h2>
-        <div class="case-section-copy">
-          <ul class="technology-list" aria-label="Technologies used"><li>Unity</li><li>C#</li><li>Mobile</li><li>WebGL distribution</li></ul>
-        </div>
-      </section>
-
-      <section class="case-section case-section--evidence" aria-labelledby="evidence-title">
-        <h2 id="evidence-title">Release links</h2>
-        <div class="case-section-copy">
-          <p>The public listings show the browser and mobile releases. Ratings can change as more players vote.</p>
-          <ul class="evidence-list">
-            <li><a href="https://www.coolmathgames.com/0-word-lawrie" target="_blank" rel="noopener noreferrer">Coolmath Games release<span class="sr-only"> (opens in a new tab)</span></a></li>
-            <li><a href="https://apps.apple.com/bw/app/word-lawrie/id6449741943" target="_blank" rel="noopener noreferrer">App Store listing<span class="sr-only"> (opens in a new tab)</span></a></li>
-          </ul>
-        </div>
-      </section>
-
-    </div>
     <nav class="case-next" aria-label="Case study navigation">
       <div class="shell case-next__inner">
-        <p class="eyebrow">Continue exploring</p>
-        <div class="case-next__links">
-          <a href="../index.html#work">All selected work <span aria-hidden="true">↖</span></a>
-          <a href="azure-cli-telemetry.html">Observability for AI-assisted CLI workflows <span aria-hidden="true">→</span></a>
-        </div>
+        <a href="../index.html#work">All work <span aria-hidden="true">↖</span></a>
+        <a href="azure-cli-telemetry.html">Next project — Microsoft <span aria-hidden="true">→</span></a>
       </div>
     </nav>
   </main>
 
   <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Adelaide, Australia</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
-  <script src="../main.js?v=20260821-01" defer></script>
+  <script src="../assets/vendor/motion-13.1.0.js" defer></script>
+  <script src="../main.js?v=20260821-03" defer></script>
 </body>
 </html>

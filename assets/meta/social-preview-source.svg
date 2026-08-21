@@ -13,8 +13,8 @@
   <rect x="988" y="112" width="156" height="156" fill="#1c3d46"/>
   <rect x="988" y="286" width="156" height="106" fill="#fc967d"/>
 
-  <text x="120" y="496" fill="#1c3d46" font-family="'IBM Plex Mono', Consolas, monospace" font-size="16" letter-spacing="2">EXPERIENCE</text>
-  <text x="360" y="498" fill="#242322" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="26" font-weight="600">CMV GROUP / MICROSOFT</text>
-  <text x="120" y="558" fill="#1c3d46" font-family="'IBM Plex Mono', Consolas, monospace" font-size="16" letter-spacing="2">WORK</text>
+  <text x="120" y="496" fill="#1c3d46" font-family="'IBM Plex Mono', Consolas, monospace" font-size="16" letter-spacing="2">CLOUD / TOOLING</text>
+  <text x="360" y="498" fill="#242322" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="26" font-weight="600">AZURE CLI COPILOT / CMV GROUP</text>
+  <text x="120" y="558" fill="#1c3d46" font-family="'IBM Plex Mono', Consolas, monospace" font-size="16" letter-spacing="2">SHIPPED PRODUCT</text>
   <text x="360" y="560" fill="#242322" font-family="'IBM Plex Sans', Arial, sans-serif" font-size="26" font-weight="600">WORD LAWRIE</text>
 </svg>

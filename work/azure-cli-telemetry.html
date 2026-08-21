@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Azure CLI Telemetry — Ethan Lawrie</title>
+  <title>Tracing Azure CLI Copilot — Ethan Lawrie</title>
   <meta name="description" content="How Ethan Lawrie instrumented Azure CLI Copilot workflows with Python and OpenTelemetry and built a unified Grafana dashboard.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://www.ethanlawrie.com/work/azure-cli-telemetry.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Azure CLI Telemetry — Ethan Lawrie">
+  <meta property="og:title" content="Tracing Azure CLI Copilot — Ethan Lawrie">
   <meta property="og:description" content="Multi-handler telemetry and a unified Grafana dashboard for Azure CLI Copilot workflows.">
   <meta property="og:url" content="https://www.ethanlawrie.com/work/azure-cli-telemetry.html">
   <meta property="og:image" content="https://www.ethanlawrie.com/assets/meta/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Azure CLI Telemetry — Ethan Lawrie">
+  <meta name="twitter:title" content="Tracing Azure CLI Copilot — Ethan Lawrie">
   <meta name="twitter:description" content="Multi-handler telemetry and a unified Grafana dashboard for Azure CLI Copilot workflows.">
   <meta name="twitter:image" content="https://www.ethanlawrie.com/assets/meta/social-preview.png">
   <meta name="theme-color" content="#fdefd4">
@@ -23,12 +23,12 @@
   <link rel="preload" href="../assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20260821-01">
+  <link rel="stylesheet" href="../style.css?v=20260821-03">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Observability for AI-assisted CLI workflows",
+      "headline": "Tracing Azure CLI Copilot end to end",
       "description": "Multi-handler telemetry and a unified Grafana dashboard for Azure CLI Copilot workflows.",
       "url": "https://www.ethanlawrie.com/work/azure-cli-telemetry.html",
       "image": "https://www.ethanlawrie.com/assets/meta/social-preview.png",
@@ -44,83 +44,63 @@
       <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a href="../index.html#experience">Experience</a><a class="nav-parent" href="../index.html#work">Work</a><a href="../index.html#profile">Profile</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="nav-parent" href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#about">About</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="case-main" tabindex="-1">
-    <header class="case-hero shell">
-      <p class="case-kicker">Case study 01 · Developer tooling</p>
-      <h1>Observability for AI-assisted CLI workflows</h1>
-      <p class="case-deck">End-to-end telemetry across multiple AI tool handlers, released to UAT and paired with one filterable dashboard across environments and deployments.</p>
+    <header class="case-hero shell" data-motion-hero>
+      <h1>Tracing Azure CLI Copilot end to end</h1>
+      <p class="case-deck">At Microsoft, I built multi-handler telemetry and one filterable dashboard for investigating reliability, performance, and cost across environments and deployments.</p>
       <dl class="case-meta">
-        <div><dt>Organization</dt><dd>Microsoft</dd></div>
         <div><dt>Role</dt><dd>Software Engineering Intern</dd></div>
         <div><dt>Period</dt><dd>Dec 2025 — Feb 2026</dd></div>
         <div><dt>Stack</dt><dd>Python, OpenTelemetry, Grafana</dd></div>
+        <div><dt>Delivery</dt><dd>Released to UAT</dd></div>
       </dl>
     </header>
 
-    <section class="case-media" aria-labelledby="azure-diagram-title">
-      <figure class="case-diagram shell">
-        <figcaption class="case-diagram__caption">
-          <p class="case-kicker">Telemetry flow / Public-safe view</p>
-          <h2 id="azure-diagram-title">From command execution to engineering decisions</h2>
-          <p>AI-assisted command-line requests emit consistent signals for latency, token use, errors, outcomes, and response quality before appearing in a unified operational view.</p>
-        </figcaption>
-
-        <ol class="system-sequence system-sequence--telemetry">
-          <li class="system-step">
-            <p class="system-step__meta">01 / Input</p>
-            <h3>AI-assisted workflow</h3>
-            <p>Command and response lifecycle across the user-facing execution path.</p>
-          </li>
-          <li class="system-step">
-            <p class="system-step__meta">02 / Instrument</p>
-            <h3>Python instrumentation</h3>
-            <ul class="system-step__list">
-              <li>Request latency</li>
-              <li>LLM token usage</li>
-              <li>Errors and outcomes</li>
-              <li>Response quality</li>
-            </ul>
-          </li>
-          <li class="system-step">
-            <p class="system-step__meta">03 / Collect</p>
-            <h3>OpenTelemetry</h3>
-            <p>Structured signals move through a consistent collection pipeline.</p>
-          </li>
-          <li class="system-step">
-            <p class="system-step__meta">04 / Investigate</p>
-            <h3>Unified Grafana dashboard</h3>
-            <p>Filtering across environments and deployments for reliability, performance, and cost analysis.</p>
-          </li>
-        </ol>
-
-        <section class="system-outcomes" aria-labelledby="azure-outcomes-title">
-          <h3 id="azure-outcomes-title">Analysis supported</h3>
-          <ul>
-            <li>Reliability</li>
-            <li>Performance</li>
-            <li>Cost</li>
-            <li>Release comparison</li>
-          </ul>
-        </section>
-      </figure>
+    <section class="case-media case-media--signals" aria-labelledby="azure-signals-title">
+      <div class="shell case-signal-layout">
+        <div class="case-media-heading">
+          <h2 id="azure-signals-title">One trace across the workflow.</h2>
+          <p>Consistent signals follow AI-assisted commands across multiple tool handlers before they reach a unified operational view.</p>
+        </div>
+        <dl class="signal-ledger">
+          <div><dt>Latency</dt><dd>Where the workflow spends time</dd></div>
+          <div><dt>Token use</dt><dd>Model usage and cost signals</dd></div>
+          <div><dt>Errors + outcomes</dt><dd>Failure and completion states</dd></div>
+          <div><dt>Response quality</dt><dd>Whether the result remains useful</dd></div>
+        </dl>
+      </div>
     </section>
 
-    <div class="shell case-content">
-      <section class="case-section case-section--problem" aria-labelledby="problem-title"><h2 id="problem-title">Operational gap</h2><div class="case-section-copy"><p>AI-assisted command-line workflows create questions that ordinary logs cannot answer cleanly: where time is spent, how model use affects cost, whether responses remain useful, and how behavior changes across handlers and releases.</p></div></section>
-      <section class="case-section case-section--approach" aria-labelledby="approach-title"><h2 id="approach-title">What I built</h2><div class="case-section-copy"><p>I implemented end-to-end Python and OpenTelemetry instrumentation for the Azure CLI Copilot handler, tracing command workflows across multiple AI tool handlers. One unified, filterable Grafana dashboard brought the resulting signals together across environments and deployments.</p></div></section>
-      <section class="case-section case-section--decisions" aria-labelledby="decisions-title"><h2 id="decisions-title">Signals covered</h2><div class="case-section-copy"><ul class="decision-list"><li>Trace command workflows across multiple handlers instead of observing only the outer request.</li><li>Capture latency, token use, errors, handler outcomes, and response-quality signals in one consistent model.</li><li>Filter the operational view by environment and deployment so comparisons stay useful during investigation.</li></ul></div></section>
-      <section class="case-section case-section--result" aria-labelledby="result-title"><h2 id="result-title">Release</h2><div class="case-section-copy"><p>The instrumentation was released to UAT through pull-request review and CI. The dashboard supported reliability, performance, and cost analysis across the instrumented workflows.</p><p class="case-result-note"><strong>Supporting contribution</strong> I also contributed a fix to an Ev2 deployment script while collaborating with a co-intern and the wider engineering team.</p></div></section>
-      <section class="case-section case-section--technologies" aria-labelledby="technology-title"><h2 id="technology-title">Stack</h2><div class="case-section-copy"><ul class="technology-list" aria-label="Technologies used"><li>Python</li><li>OpenTelemetry</li><li>Grafana</li><li>Azure CLI</li><li>CI</li></ul></div></section>
-      <section class="case-section case-section--evidence" aria-labelledby="evidence-title"><h2 id="evidence-title">System boundary</h2><div class="case-section-copy"><p>This public account covers the workflow, signal categories, release stage, and tools. Internal identifiers, source code, screenshots, and deployment data remain confidential.</p></div></section>
+    <div class="shell case-content case-content--narrative">
+      <section class="case-section" aria-labelledby="azure-gap-title">
+        <h2 id="azure-gap-title">The operational gap</h2>
+        <div class="case-section-copy"><p>Ordinary logs could not cleanly answer where time was spent, how model use affected cost, whether responses remained useful, or how behaviour changed across handlers and deployments.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="azure-built-title">
+        <h2 id="azure-built-title">What was instrumented</h2>
+        <div class="case-section-copy"><p>I implemented end-to-end Python and OpenTelemetry tracing for the Azure CLI Copilot handler across multiple AI tool handlers. Latency, token use, errors, outcomes, and response-quality signals fed one Grafana dashboard that could be filtered by environment and deployment.</p></div>
+      </section>
+      <section class="case-section case-section--closing" aria-labelledby="azure-release-title">
+        <h2 id="azure-release-title">UAT release</h2>
+        <div class="case-section-copy"><p>The instrumentation reached UAT through pull-request review and CI. The dashboard brought reliability, performance, and cost analysis into one operational view.</p></div>
+      </section>
+      <aside class="case-note" aria-label="Confidentiality note">Internal identifiers, source code, screenshots, and deployment data are omitted.</aside>
     </div>
-    <nav class="case-next" aria-label="Case study navigation"><div class="shell case-next__inner"><p class="eyebrow">Continue exploring</p><div class="case-next__links"><a href="../index.html#work">All selected work <span aria-hidden="true">↖</span></a><a href="cmv-incident-reporting.html">Incident reporting across forms, APIs, and data <span aria-hidden="true">→</span></a></div></div></nav>
+
+    <nav class="case-next" aria-label="Case study navigation">
+      <div class="shell case-next__inner">
+        <a href="../index.html#work">All work <span aria-hidden="true">↖</span></a>
+        <a href="cmv-incident-reporting.html">Next project — CMV Group <span aria-hidden="true">→</span></a>
+      </div>
+    </nav>
   </main>
   <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Adelaide, Australia</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
-  <script src="../main.js?v=20260821-01" defer></script>
+  <script src="../assets/vendor/motion-13.1.0.js" defer></script>
+  <script src="../main.js?v=20260821-03" defer></script>
 </body>
 </html>
