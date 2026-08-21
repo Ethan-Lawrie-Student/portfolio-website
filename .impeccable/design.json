@@ -117,28 +117,28 @@
       },
       {
         "name": "header-enter",
-        "value": "280ms",
-        "purpose": "Once-only 4px header entrance."
+        "value": "360ms",
+        "purpose": "Once-only 6px header entrance."
       },
       {
         "name": "hero-title-enter",
-        "value": "560ms",
-        "purpose": "Once-only 24px homepage title and 18px case-title entrance."
+        "value": "640ms",
+        "purpose": "Once-only masked homepage name entrance; case titles resolve over 620ms."
       },
       {
         "name": "hero-step-enter",
-        "value": "320ms with 35ms stagger",
-        "purpose": "Grouped five-stage path entrance."
+        "value": "340ms with 115ms stagger",
+        "purpose": "Five-stage trace handoff synchronized to the workflow rail."
       },
       {
         "name": "hero-rail-draw",
-        "value": "580ms",
+        "value": "620ms",
         "purpose": "Once-only workflow rail draw using the active orientation."
       },
       {
         "name": "in-view-reveal",
-        "value": "400ms–480ms",
-        "purpose": "Once-only section, project, media, and group reveals using 6–10px movement."
+        "value": "420ms–520ms",
+        "purpose": "Once-only section and project group reveals using 8–14px movement."
       },
       {
         "name": "menu-enter",
@@ -152,8 +152,8 @@
       },
       {
         "name": "reduced-motion-duration",
-        "value": "0.01ms",
-        "purpose": "CSS fallback duration while JavaScript skips and cancels authored motion."
+        "value": "280ms–420ms",
+        "purpose": "Opacity-only entrance feedback; spatial and scroll-linked motion remain disabled."
       }
     ],
     "breakpoints": [

@@ -342,6 +342,12 @@ main:focus,
   transition: background-color 160ms ease, color 160ms ease;
 }
 
+.button-primary > span,
+.text-link > span {
+  display: inline-block;
+  transition: transform 160ms var(--ease-enter);
+}
+
 .button-primary {
   background: var(--salmon);
   color: var(--ink);
@@ -379,8 +385,13 @@ button.button-primary:disabled {
   transition: width 180ms var(--ease-enter);
 }
 
-.text-link:hover::before {
+.text-link:is(:hover, :focus-visible)::before {
   width: 2.25rem;
+}
+
+.button-primary:is(:hover, :focus-visible) > span,
+.text-link:is(:hover, :focus-visible) > span {
+  transform: translate3d(3px, 0, 0);
 }
 
 .text-link--light {
@@ -539,6 +550,15 @@ button.button-primary:disabled {
   border: 2px solid var(--teal);
   outline: 1px solid var(--salmon);
   content: "";
+}
+
+.hero-system.is-sequencing [data-hero-step]::before {
+  background: var(--paper);
+}
+
+.hero-system.is-sequencing [data-hero-step].is-reached::before {
+  background: var(--salmon);
+  transition: background-color 120ms linear;
 }
 
 .hero-system__label {
@@ -1068,6 +1088,11 @@ button.button-primary:disabled {
   font-size: 0.7rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  transition: color 120ms linear;
+}
+
+.field:focus-within label {
+  color: var(--salmon);
 }
 
 .field input,
@@ -2131,9 +2156,21 @@ button.button-primary:disabled {
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  }
+
+  .skip-link,
+  .menu-icon,
+  .menu-icon::before,
+  .primary-nav a::after,
+  .button-primary > span,
+  .text-link::before,
+  .text-link > span {
+    transition-duration: 0ms !important;
+  }
+
+  .button-primary:is(:hover, :focus-visible) > span,
+  .text-link:is(:hover, :focus-visible) > span {
+    transform: none;
   }
 
   .project-index__rail,
@@ -2141,6 +2178,10 @@ button.button-primary:disabled {
   .trace-anatomy__rail,
   .architecture-map__rail {
     transform: none !important;
+  }
+
+  .hero-system.is-sequencing [data-hero-step]::before {
+    background: var(--salmon);
   }
 }
 
