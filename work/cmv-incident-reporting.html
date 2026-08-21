@@ -23,7 +23,7 @@
   <link rel="preload" href="../assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20260821-03">
+  <link rel="stylesheet" href="../style.css?v=20260821-05">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,68 +38,95 @@
   </script>
 </head>
 <body class="case-page case-page--cmv">
+  <!--
+    THESIS: Architecture is shown as a set of deliberate boundaries, not a generic technology diagram.
+    OWN-WORLD: Warm paper, charcoal rules, salmon flow, deep-teal type, and square editorial cells drawn from the Word Lawrie palette.
+    STORY: The reader understands the reporting problem, follows capture into separate record and file stores, and leaves with the planned status intact.
+    FIRST VIEWPORT: The title and planned scope lead into a wide four-stage architecture whose boundary choices are visible before the narrative.
+    FORM: Operational Field case extension; seed key pinned-operational-field-20260821.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+  -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header" data-site-header>
-    <div class="shell header-inner">
+    <div class="shell header-inner" data-header-inner>
       <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a class="nav-parent" href="../index.html#work">Work</a><a href="../index.html#experience">Experience</a><a href="../index.html#about">About</a><a href="../assets/resume/ethan-lawrie-resume.pdf">Résumé</a><a href="../index.html#contact">Contact</a><a href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="external-mark" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="nav-parent" href="../index.html#work">Work</a>
+        <a href="../index.html#experience">Experience</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+        <a class="nav-linkedin" href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="nav-resume" href="../assets/resume/ethan-lawrie-resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="case-main" tabindex="-1">
-    <header class="case-hero shell" data-motion-hero>
-      <h1>Incident reporting across forms, APIs, and data</h1>
-      <p class="case-deck">At CMV Group, I prepared a responsive reporting architecture for a planned rollout to 2,000+ employees across dealerships and workshops.</p>
-      <dl class="case-meta">
-        <div><dt>Role</dt><dd>Data Solutions Engineer</dd></div>
+    <header class="case-hero shell" data-motion-case>
+      <div class="case-hero__title">
+        <h1 data-case-title>Incident reporting across forms, APIs, and data</h1>
+      </div>
+      <p class="case-deck" data-case-copy>At CMV Group, I prepared a responsive reporting architecture for a planned rollout to 2,000+ employees across dealerships and workshops.</p>
+      <dl class="case-meta" data-case-meta>
+        <div><dt>Contribution</dt><dd>CMV Group · System architecture</dd></div>
         <div><dt>Period</dt><dd>Apr 2024 — Present</dd></div>
+        <div><dt>Status</dt><dd>Architecture prepared</dd></div>
         <div><dt>Planned reach</dt><dd>2,000+ employees</dd></div>
-        <div><dt>Environment</dt><dd>Dealerships + workshops</dd></div>
       </dl>
     </header>
 
-    <section class="case-media case-media--architecture" aria-labelledby="cmv-flow-title">
-      <div class="shell architecture-layout">
-        <div class="case-media-heading">
-          <h2 id="cmv-flow-title">A clear boundary between capture and storage.</h2>
+    <section class="case-system case-system--cmv" aria-labelledby="cmv-system-title" data-scroll-flow>
+      <div class="shell case-system__grid case-system__grid--cmv">
+        <div class="case-system__intro" data-reveal="group">
+          <h2 id="cmv-system-title">A clear boundary between capture and storage.</h2>
+          <p>Structured records and report attachments move through the same API boundary, then separate into the storage designed for each data type.</p>
         </div>
-        <ol class="architecture-line">
-          <li><span>Capture</span><strong>SharePoint / Plumsail</strong><small>Custom JavaScript form</small></li>
-          <li><span>API</span><strong>Azure Functions</strong><small>REST boundary</small></li>
-          <li><span>Records</span><strong>SQL Server</strong><small>Structured incident data</small></li>
-          <li><span>Files</span><strong>Blob Storage</strong><small>Report attachments</small></li>
-        </ol>
+
+        <div class="architecture-map" aria-label="Planned incident-reporting architecture">
+          <span class="architecture-map__rail" aria-hidden="true" data-flow-rail></span>
+          <ol>
+            <li data-reveal="flow"><span>Capture</span><strong>SharePoint / Plumsail</strong><small>Custom JavaScript form</small></li>
+            <li data-reveal="flow"><span>API boundary</span><strong>Azure Functions</strong><small>REST interface</small></li>
+            <li data-reveal="flow"><span>Records</span><strong>SQL Server</strong><small>Structured incident data</small></li>
+            <li data-reveal="flow"><span>Files</span><strong>Blob Storage</strong><small>Report attachments</small></li>
+          </ol>
+        </div>
+
+        <dl class="architecture-proof" aria-label="Architecture status" data-reveal="group">
+          <div><dt>Interface</dt><dd>Responsive reporting path</dd></div>
+          <div><dt>Environment</dt><dd>Dealerships + workshops</dd></div>
+          <div><dt>Rollout</dt><dd>Planned, not yet deployed</dd></div>
+        </dl>
       </div>
     </section>
 
-    <div class="shell case-content case-content--narrative">
-      <section class="case-section" aria-labelledby="cmv-problem-title">
+    <div class="shell case-story">
+      <section class="case-story__row" aria-labelledby="cmv-problem-title" data-reveal="row">
         <h2 id="cmv-problem-title">The reporting problem</h2>
-        <div class="case-section-copy"><p>Employees need a responsive way to submit structured reports and attachments, while operational teams need controlled storage and review across varied dealership and workshop environments.</p></div>
+        <p>Employees need a responsive way to submit structured reports and attachments, while operational teams need controlled storage and review across varied dealership and workshop environments.</p>
       </section>
-      <section class="case-section" aria-labelledby="cmv-architecture-title">
+      <section class="case-story__row" aria-labelledby="cmv-architecture-title" data-reveal="row">
         <h2 id="cmv-architecture-title">Architecture and constraints</h2>
-        <div class="case-section-copy"><p>I designed the platform around customised SharePoint and Plumsail forms, Azure Functions as the API boundary, SQL Server for structured records, and Azure Blob Storage for attachments. That keeps interface behaviour separate from persistence and gives each data type an appropriate destination.</p></div>
+        <p>I designed the platform around customised SharePoint and Plumsail forms, Azure Functions as the API boundary, SQL Server for structured records, and Azure Blob Storage for attachments. That keeps interface behaviour separate from persistence and gives each data type an appropriate destination.</p>
       </section>
-      <section class="case-section case-section--closing" aria-labelledby="cmv-status-title">
+      <section class="case-story__row" aria-labelledby="cmv-status-title" data-reveal="row">
         <h2 id="cmv-status-title">Planned rollout</h2>
-        <div class="case-section-copy"><p>The architecture was prepared for a planned rollout to more than 2,000 employees. At the point covered here, implementation and deployment remained ahead.</p></div>
+        <p>The architecture was prepared for a planned rollout to more than 2,000 employees. At the point covered here, implementation and deployment remained ahead.</p>
       </section>
-      <aside class="case-note" aria-label="Confidentiality note">Internal forms, records, identifiers, business rules, and rollout details are omitted.</aside>
+      <aside class="case-note" aria-label="Confidentiality note" data-reveal="group">Internal forms, records, identifiers, business rules, and rollout details are omitted.</aside>
     </div>
 
     <nav class="case-next" aria-label="Case study navigation">
-      <div class="shell case-next__inner">
+      <div class="shell case-next__inner" data-reveal="group">
         <a href="../index.html#work">All work <span aria-hidden="true">↖</span></a>
         <a href="word-lawrie.html">Next project — Word Lawrie <span aria-hidden="true">→</span></a>
       </div>
     </nav>
   </main>
+
   <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Adelaide, Australia</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
   <script src="../assets/vendor/motion-13.1.0.js" defer></script>
-  <script src="../main.js?v=20260821-03" defer></script>
+  <script src="../main.js?v=20260821-05" defer></script>
 </body>
 </html>

@@ -10,6 +10,7 @@ The homepage follows an evidence-first sequence: cover, selected work, experienc
 - `work/` — three detailed project case studies
 - `style.css` — shared design system and responsive layout
 - `main.js` — accessible mobile navigation, active navigation, restrained Motion-powered enhancement, current year, and contact-form feedback
+- `assets/vendor/motion-13.1.0.js` — pinned, locally served Motion runtime; no third-party animation request at runtime
 - `assets/fonts/` — self-hosted IBM Plex webfonts and license
 - `assets/resume/ethan-lawrie-resume.pdf` — public résumé with private contact details removed
 - `404.html`, `robots.txt`, and `sitemap.xml` — static-hosting and search-discovery files
@@ -26,5 +27,7 @@ python -m http.server 4173
 Then open `http://localhost:4173/`.
 
 Run `python scripts/build_site.py` to create the static Worker build used for hosted previews.
+
+Run `python scripts/validate_site.py` to check route metadata, heading structure, local links, fragments, protected external links, and JSON-LD.
 
 The contact form posts to the existing Google Apps Script endpoint. Use a clearly labelled test message when validating production submissions.
