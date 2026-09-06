@@ -1,0 +1,12 @@
+Create a high-fidelity desktop website design comp at approximately 1440×1000 for Ethan Lawrie's recruiter-facing software engineering portfolio. This must be a functional contemporary website, not a poster, dashboard, or SaaS page.
+
+COMPOSITION OPTION C — “Signal Spine”.
+Use a compact sticky header on warm cream with EL. at left and four primary links: Work, Experience, Résumé, Contact. The hero is a bold split composition occupying about 62% of the viewport without empty space: a deep-teal vertical field spanning roughly 42% width contains the huge stacked cream name “ETHAN / LAWRIE.” and small metadata “Software engineer · Adelaide”. The cream field to its right carries the thesis “Observable cloud systems. Developer tools. Operational clarity.” followed by a concise factual sentence mentioning Azure CLI Copilot telemetry, internal systems at CMV Group, and shipped Unity games. Place a salmon “View selected work” action and a quiet résumé link below.
+
+A single salmon-and-blue “signal spine” crosses the split and continues down into the next chapter, visually connecting the hero to selected work. It should feel like a trace through the page, with 3 small factual waypoints only: “UAT”, “2,000+ planned”, “4.2/5 · 800+ votes”. It is an authored navigation/story device, not a fake telemetry dashboard.
+
+The lower 35–40% shows the start of selected work as one wide Microsoft composition: left project number and metadata, large title “Tracing Azure CLI Copilot end to end”, one short contribution line, and a right-side typographic signal matrix labelled “Latency / Token use / Errors + outcomes / Response quality”. No logo, no fake screenshot, no fake code.
+
+Use the reference only for the established palette and typographic character: warm cream #FDEFD4, deep teal #1C3D46, salmon #FC967D, pale blue #91C3CE, charcoal #242322; squared geometry; IBM Plex Sans/Condensed/Mono feel. Do not copy its layout.
+
+Art direction: high-end editorial interaction design, asymmetric, tightly aligned, strong scale, crisp rules, full-bleed color fields, purposeful density. Avoid all rounded floating cards, card grids, gradients, glow, glass, pills, blobs, decorative graph paper, stock logos, fake metrics, and invented implementation details. Every visible phrase must come from the facts above. Show usable navigation, actions, and section continuity.

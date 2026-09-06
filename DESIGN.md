@@ -35,10 +35,10 @@ typography:
     letterSpacing: "-0.035em"
   body-large:
     fontFamily: "\"IBM Plex Sans\", Arial, sans-serif"
-    fontSize: "clamp(1.35rem, 3.1vw, 2.15rem)"
+    fontSize: "clamp(1.125rem, 1.6vw, 1.3rem)"
     fontWeight: 400
-    lineHeight: 1.18
-    letterSpacing: "-0.025em"
+    lineHeight: 1.42
+    letterSpacing: "-0.02em"
   body:
     fontFamily: "\"IBM Plex Sans\", Arial, sans-serif"
     fontSize: "1rem"
@@ -46,10 +46,10 @@ typography:
     lineHeight: 1.56
   label:
     fontFamily: "\"IBM Plex Mono\", Consolas, monospace"
-    fontSize: "0.7rem"
+    fontSize: "0.8125rem"
     fontWeight: 400
     lineHeight: 1.5
-    letterSpacing: "0.05em"
+    letterSpacing: "0.04em"
 rounded:
   square: "0"
 spacing:
@@ -92,7 +92,7 @@ components:
     textColor: "{colors.ink}"
     rounded: "{rounded.square}"
     padding: "0 0.75rem"
-    height: "2.15rem"
+    height: "2.75rem"
   field-contact:
     backgroundColor: "transparent"
     textColor: "{colors.paper-raised}"
@@ -181,12 +181,12 @@ The palette combines warm paper, charcoal ink, an operational teal field, salmon
 
 ### Hierarchy
 
-- **Display** (700, clamp(3.8rem, 16vw, 6rem), 0.83, -0.04em): Uppercase homepage name. Case-study H1s use the same family and weight at clamp(3rem, 10vw, 6rem) with 0.9 line-height.
-- **Headline** (700, clamp(2.65rem, 8.5vw, 4.75rem), 0.94, -0.04em): Uppercase section statements; compact work headings use clamp(2.5rem, 5vw, 3.5rem).
+- **Display** (700, clamp(3.8rem, 16vw, 6rem), 0.84, -0.04em): Uppercase homepage name and the Word Lawrie release title only.
+- **Headline** (400/700, clamp(2.5rem, 6vw, 4rem), 0.94–1, -0.04em): Sentence-case sans headings carry Experience, About, contact, and technical case chapters; condensed uppercase remains reserved for Selected Work and the strongest product statement.
 - **Title** (400, clamp(2rem, 5vw, 3.4rem), 1.01, -0.035em): Project titles and major system statements in IBM Plex Sans.
-- **Body Large** (400, clamp(1.35rem, 3.1vw, 2.15rem), 1.18, -0.025em): Homepage thesis and short editorial ledes.
+- **Body Large** (400, clamp(1.125rem, 1.6vw, 1.3rem), 1.42, -0.02em): Short editorial ledes, role outcomes, and contact copy.
 - **Body** (400, 1rem, 1.56): Reading text, generally constrained to the 68ch measure; case narrative rises to 1.08rem on wide screens.
-- **Label** (400, 0.7rem, 1.5, 0.05em): Uppercase roles, stacks, dates, statuses, evidence labels, captions, and system metadata.
+- **Label** (400, 0.8125rem, 1.5, 0.04em): Short data labels, dates, statuses, captions, and system metadata. Narrative and important evidence never drop to this role.
 
 **The Three-Voice Rule.** Condensed type makes major statements, sans type carries reading, and mono type labels evidence.
 
@@ -196,9 +196,9 @@ The palette combines warm paper, charcoal ink, an operational teal field, salmon
 
 The shared shell is min(100% - 2 × clamp(1rem, 4vw, 4rem), 88rem). A sticky, one-rule header is exactly 3.75rem high. Major sections use clamp(5.5rem, 9vw, 9rem) vertical space, while the reusable spacing scale runs from 0.375rem to 6rem.
 
-The homepage starts with a 12-column cover at desktop: the name and thesis occupy columns 1–7 and the workflow occupies columns 8–12. Selected work follows as full-width editorial rows, then a three-column experience ledger, a split profile field, and a two-column teal contact close. At 64rem and above, project rows use the same 12-column discipline: metadata begins in the first two columns, the narrative begins at column four, and evidence or media occupies the closing columns.
+The homepage starts with a 12-column cover at desktop: the name and thesis occupy columns 1–7 and the workflow occupies columns 8–12. Selected work follows as full-width editorial rows, then a three-column experience register, an asymmetric portrait/story/skills composition, a vertical competition leaderboard, and a compact two-column teal contact close. At 64rem and above, project rows use the same 12-column discipline: metadata begins in the first two columns, the narrative begins at column four, and evidence or media occupies the closing columns.
 
-Case studies share one composition: a title/deck/meta hero, a full-width evidence field, three ruled narrative rows, and a two-link next-project cycle. At 64rem and above, the title spans eight columns, the deck spans the final four, the metadata ledger spans nine, and actions close the final three. Azure uses a five-stage trace and signal matrix; CMV uses a four-stage planned architecture and status proof; Word Lawrie uses a real-image release field and public distribution evidence.
+Case studies share only navigation, concise title/deck/facts, public-safe disclosure language, and the two-link next-project cycle. Their bodies follow the engineering story: Azure is a trace investigation from operational questions through signals and UAT; CMV is a constraints brief with an explicit capture/API branch into records and files, then a clearly planned rollout; Word Lawrie is a real-image release dossier with interaction, leadership, and distribution chapters. At 64rem and above, each uses the shared 12-column shell without sharing a body template.
 
 Responsive breakpoints are exact: 22rem enables a two-column case metadata grid; 36rem enables paired evidence/form grids and the two-link case footer; 48rem opens two-column editorial intros and tablet project layouts; 56rem replaces the overlay menu with inline navigation; 64rem activates the 12-column cover, project, case-hero, and system grids; 72rem makes the final reading-size adjustment. A short-desktop query at max-height 46rem and min-width 64rem compresses the cover without removing evidence.
 
@@ -208,7 +208,7 @@ The homepage workflow has three authored states. Below 48rem it is a vertical fi
 
 ## Elevation & Depth
 
-There are no shadows, glows, gradients, blurs, or ornamental depth effects. Depth comes from tonal field changes, one-pixel borders, two-pixel signal rails, cropping, and real imagery. Hover state changes color or line length without lifting a surface.
+There are no shadows, glows, gradients, or ornamental depth effects. Depth comes from tonal field changes, one-pixel borders, two-pixel signal rails, cropping, and real imagery. A bounded three-pixel blur belongs only to the once-only Word Lawrie image entrance and never exists at rest. Hover state changes color or line length without lifting a surface.
 
 **The Flat-by-Construction Rule.** Surfaces remain flat at rest and in interaction; structure comes from rules, fields, and content hierarchy.
 
@@ -225,7 +225,7 @@ The form language is square and infrastructural. Controls, fields, images, panel
 - **Shape:** Square, one-pixel current-color border, 2.75rem minimum target height, and 0.75rem × 1rem padding.
 - **Primary:** Action Salmon on Charcoal Ink; hover changes to Raised Paper, and active changes to Strong Action Salmon with Raised Paper text.
 - **Focus:** A three-pixel Strong Action Salmon outline with a four-pixel offset on light grounds; teal and salmon fields switch to the context-safe accent.
-- **Text link:** A 1.5rem leading rule expands to 2.25rem on hover; the link itself keeps a 2.75rem minimum target height.
+- **Text link:** A fixed 2.25rem leading-rule slot scales from two-thirds to full length on hover, avoiding layout movement; the link itself keeps a 2.75rem minimum target height.
 
 ### Cards / Containers
 
@@ -242,7 +242,7 @@ The form language is square and infrastructural. Controls, fields, images, panel
 
 ### Navigation
 
-The header is a sticky 3.75rem paper strip with a one-pixel ink rule. Below 56rem, the menu opens as a full-height teal panel beneath the header, traps focus, makes the page inert, closes on Escape, and presents ruled display-type links. At 56rem and above, links become compact IBM Plex Sans items with an animated underline; the résumé utility remains a square salmon control.
+The header is a sticky 3.75rem paper strip with a one-pixel ink rule. Below 56rem, the menu opens as a full-height teal panel beneath the header, traps focus, makes the page inert, closes on Escape, and presents ruled display-type section links with compact LinkedIn and résumé utilities at the bottom. At 56rem and above, every link keeps a 2.75rem target in both dimensions, uses IBM Plex Sans, and gains an animated underline; the résumé utility remains a square salmon control.
 
 ### Operational Workflow
 
@@ -250,13 +250,13 @@ The five-stage homepage path and the case-study trace/architecture paths are sem
 
 ### Case-Study Composition
 
-Every case begins with a large title, concise deck, ruled four-cell metadata ledger, and optional actions. It then moves through one public-safe evidence field, three ruled narrative rows, an explicit confidentiality note where required, and a next-project navigation cycle. Conceptual Microsoft and CMV systems never masquerade as screenshots; Word Lawrie uses the available real release imagery.
+Every case begins with a large title, concise deck, an unboxed four-fact register, and optional actions. Azure then behaves like an investigation, CMV like a branching architecture and planned rollout, and Word Lawrie like a release dossier. Conceptual Microsoft and CMV systems never masquerade as screenshots; Word Lawrie uses the available real release imagery. The shared system stops before it can flatten the project-specific reasoning.
 
 ### Motion and Accessibility
 
-Motion uses the vendored Motion 13.1.0 runtime as progressive enhancement. Content is visible before JavaScript takes ownership. The enter easing is cubic-bezier(0.22, 1, 0.36, 1). The homepage opens as a single authored trace handoff: the two masked name lines resolve first, copy follows, the workflow rail draws over 0.62 seconds, and five stages register at 115ms intervals as the signal reaches them. The complete composition resolves in roughly 1.1 seconds without any individual movement exceeding 0.64 seconds. Later section and project groups reveal once with 8–14px movement over 0.42–0.52 seconds; items already visible with the opening hero stay still so they do not compete with it. Scroll-linked motion draws rails linearly; mobile navigation enters over 0.18 seconds and exits over 0.12 seconds. Link arrows move by only three pixels and form labels change color to acknowledge intent.
+Motion uses the vendored Motion 13.1.0 runtime as progressive enhancement. Content is visible before JavaScript takes ownership. The enter easing is cubic-bezier(0.22, 1, 0.36, 1). The homepage opens as a single authored trace handoff: two masked name lines resolve, copy follows, the workflow rail draws over 0.62 seconds, and five stages register as the signal reaches them. Ordinary homepage sections remain still. Azure draws its trace and resolves the operational signals once; CMV carries the line through capture and API, then reaches records and files together; Word Lawrie uses one cropped, lightly blurred image reveal. There is no page-edge progress garnish, blanket section reveal, or scroll-scrubbed motion. Mobile navigation enters over 0.18 seconds and exits over 0.12 seconds; form labels and control colors acknowledge intent.
 
-When prefers-reduced-motion is active, spatial, staged-node, in-view project, and scroll-linked motion are removed. The opening composition and major section changes retain gentle 0.28–0.42 second opacity-only transitions, mobile navigation uses a 0.08–0.12 second opacity transition, and rails remain complete. Smooth scrolling and decorative transform feedback are disabled while color, focus, validation, and form feedback remain available. Skip links, semantic landmarks, logical headings, descriptive image alternatives, 2.75rem interactive targets, aria-current, live form status, focus trapping, and visible focus are part of the component contract.
+When prefers-reduced-motion is active, spatial movement, staged nodes, system sequences, clipping, and blur are removed. The opening composition retains gentle opacity-only transitions, mobile navigation uses a 0.08–0.12 second opacity transition, and rails remain complete. A live preference change completes or cancels transient motion without replaying the focal entrance. Smooth scrolling and decorative transform feedback are disabled while color, focus, validation, and form feedback remain available. Skip links, semantic landmarks, logical headings, descriptive image alternatives, 2.75rem interactive targets, aria-current, live form status, focus trapping, and visible focus are part of the component contract.
 
 **The Visible-by-Default Rule.** Motion may reveal relationships, but it must never hide content when Motion fails, JavaScript is absent, or reduced motion is requested.
 

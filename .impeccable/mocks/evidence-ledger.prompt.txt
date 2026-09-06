@@ -1,0 +1,13 @@
+Create a high-fidelity desktop website design comp at approximately 1440×1000 for Ethan Lawrie's software engineering portfolio. It must read unmistakably as a usable recruiter-facing website, not a poster, dashboard, or SaaS landing page.
+
+COMPOSITION OPTION B — “Evidence Ledger”.
+Use a compact sticky navigation at the top. The opening 45% is a disciplined asymmetric editorial cover on warm cream: a narrow left rail with “SOFTWARE ENGINEER / ADELAIDE, AUSTRALIA”; the center carries the large two-line condensed name “ETHAN LAWRIE.”; the right contains a concise thesis “Cloud systems, developer tooling, and observable workflows.” and two actions “Selected work” and “Résumé”. There is no giant empty hero.
+
+The remaining 55% begins selected work immediately as a full-width evidence ledger, not cards. Three horizontal project entries should be visibly continuous and varied:
+1) Microsoft is dominant, with a deep teal field occupying about half the visible work area. Real title: “Tracing Azure CLI Copilot end to end”. Factual labels only: “Python · OpenTelemetry · Grafana”, “Released to UAT”, “Pull request + CI”, “Multiple AI tool handlers”.
+2) CMV Group begins below on raised cream with title “Incident reporting across forms, APIs, and data” and “Architecture prepared / Planned reach 2,000+ employees”.
+3) A narrow glimpse of Word Lawrie uses the supplied real product imagery as supporting proof, not the focal project.
+
+Use the references ONLY for palette and identity: warm cream #FDEFD4, deep teal #1C3D46, salmon #FC967D, pale blue #91C3CE, charcoal #242322; squared geometry; IBM Plex Sans, Condensed, and Mono character. Do not copy the reference layouts.
+
+Art direction: award-level Swiss/editorial rigor with bolder scale contrast, tight optical alignment, strong foreground/background fields, crisp rules, meaningful density, and no generic feature-card grid. No rounded floating cards, gradients, glass, pills, blobs, decorative graph paper, fake metrics, fake code, fake screenshots, or invented technical details. Use only the factual phrases provided. Buttons and links must look usable.

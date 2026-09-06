@@ -23,7 +23,7 @@
   <link rel="preload" href="../assets/fonts/IBMPlexSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css?v=20260821-06">
+  <link rel="stylesheet" href="../style.css?v=20260821-07">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,37 +38,29 @@
   </script>
 </head>
 <body class="case-page case-page--cmv">
-  <!--
-    THESIS: Architecture is shown as a set of deliberate boundaries, not a generic technology diagram.
-    OWN-WORLD: Warm paper, charcoal rules, salmon flow, deep-teal type, and square editorial cells drawn from the Word Lawrie palette.
-    STORY: The reader understands the reporting problem, follows capture into separate record and file stores, and leaves with the planned status intact.
-    FIRST VIEWPORT: The title and planned scope lead into a wide four-stage architecture whose boundary choices are visible before the narrative.
-    FORM: Operational Field case extension; seed key pinned-operational-field-20260821.
-    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
-  -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header" data-site-header>
     <div class="shell header-inner" data-header-inner>
       <a class="wordmark" href="../index.html" aria-label="Ethan Lawrie, home">EL<span aria-hidden="true">.</span></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle><span>Menu</span><span class="menu-icon" aria-hidden="true"></span></button>
       <nav id="primary-navigation" class="primary-nav" aria-label="Primary" data-navigation>
-        <a class="nav-parent" href="../index.html#work">Work</a>
+        <a class="nav-parent" href="../index.html#work" aria-current="location">Work</a>
         <a href="../index.html#experience">Experience</a>
         <a href="../index.html#about">About</a>
         <a href="../index.html#contact">Contact</a>
-        <a class="nav-linkedin" href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="nav-linkedin" href="https://www.linkedin.com/in/ethan-lawrie" target="_blank" rel="noopener noreferrer">LinkedIn <span class="nav-utility-icon" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
         <a class="nav-resume" href="../assets/resume/ethan-lawrie-resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="case-main" tabindex="-1">
-    <header class="case-hero shell" data-motion-case>
+    <header class="case-hero case-hero--cmv shell" data-motion-case>
       <div class="case-hero__title">
         <h1 data-case-title>Incident reporting across forms, APIs, and data</h1>
       </div>
       <p class="case-deck" data-case-copy>At CMV Group, I prepared a responsive reporting architecture for a planned rollout to 2,000+ employees across dealerships and workshops.</p>
-      <dl class="case-meta" data-case-meta>
+      <dl class="case-facts" data-case-meta>
         <div><dt>Contribution</dt><dd>CMV Group · System architecture</dd></div>
         <div><dt>Period</dt><dd>Apr 2024 — Present</dd></div>
         <div><dt>Status</dt><dd>Architecture prepared</dd></div>
@@ -76,49 +68,71 @@
       </dl>
     </header>
 
-    <section class="case-system case-system--cmv" aria-labelledby="cmv-system-title" data-scroll-flow>
-      <div class="shell case-system__grid case-system__grid--cmv">
-        <div class="case-system__intro" data-reveal="group">
-          <h2 id="cmv-system-title">A clear boundary between capture and storage.</h2>
-          <p>Structured records and report attachments move through the same API boundary, then separate into the storage designed for each data type.</p>
-        </div>
+    <section class="cmv-context shell" aria-labelledby="cmv-problem-title">
+      <header class="cmv-context__intro">
+        <h2 id="cmv-problem-title">Designed around the operating environment.</h2>
+        <p>Employees need a responsive reporting path; operational teams need controlled records, attachments, and review across dealerships and workshops.</p>
+      </header>
+      <ul class="constraint-list">
+        <li><strong>Planned reach</strong><span>More than 2,000 employees</span></li>
+        <li><strong>Environment</strong><span>Dealerships and workshops</span></li>
+        <li><strong>Input</strong><span>Structured reports and attachments</span></li>
+      </ul>
+    </section>
 
-        <div class="architecture-map" aria-label="Planned incident-reporting architecture">
-          <span class="architecture-map__rail" aria-hidden="true" data-flow-rail></span>
-          <ol>
-            <li data-reveal="flow"><span>Capture</span><strong>SharePoint / Plumsail</strong><small>Custom JavaScript form</small></li>
-            <li data-reveal="flow"><span>API boundary</span><strong>Azure Functions</strong><small>REST interface</small></li>
-            <li data-reveal="flow"><span>Records</span><strong>SQL Server</strong><small>Structured incident data</small></li>
-            <li data-reveal="flow"><span>Files</span><strong>Blob Storage</strong><small>Report attachments</small></li>
+    <section class="cmv-blueprint" aria-labelledby="cmv-system-title" data-motion-system="cmv">
+      <div class="shell cmv-blueprint__inner">
+        <header class="cmv-blueprint__intro">
+          <h2 id="cmv-system-title">Capture once. Store each thing where it belongs.</h2>
+          <p>Structured records and report attachments cross the same API boundary, then branch into the storage designed for each data type.</p>
+        </header>
+
+        <div class="architecture-branch" aria-label="Planned incident-reporting architecture">
+          <ol class="architecture-branch__spine">
+            <li data-motion-step><span>Capture</span><strong>SharePoint / Plumsail</strong><small>Responsive custom JavaScript form</small></li>
+            <li data-motion-step><span>API boundary</span><strong>Azure Functions</strong><small>REST interface</small></li>
           </ol>
+          <span class="architecture-branch__rail" aria-hidden="true" data-motion-rail></span>
+          <span class="architecture-branch__fork" aria-hidden="true" data-motion-fork></span>
+          <ul class="architecture-branch__stores" aria-label="Storage destinations">
+            <li data-motion-step><span>Records</span><strong>SQL Server</strong><small>Structured incident data</small></li>
+            <li data-motion-step><span>Files</span><strong>Blob Storage</strong><small>Report attachments</small></li>
+          </ul>
         </div>
 
-        <dl class="architecture-proof" aria-label="Architecture status" data-reveal="group">
-          <div><dt>Interface</dt><dd>Responsive reporting path</dd></div>
-          <div><dt>Environment</dt><dd>Dealerships + workshops</dd></div>
-          <div><dt>Rollout</dt><dd>Planned, not yet deployed</dd></div>
-        </dl>
+        <p class="cmv-blueprint__status"><strong>Architecture prepared.</strong><span>Planned, not yet deployed.</span></p>
       </div>
     </section>
 
-    <div class="shell case-story">
-      <section class="case-story__row" aria-labelledby="cmv-problem-title" data-reveal="row">
-        <h2 id="cmv-problem-title">The reporting problem</h2>
-        <p>Employees need a responsive way to submit structured reports and attachments, while operational teams need controlled storage and review across varied dealership and workshop environments.</p>
-      </section>
-      <section class="case-story__row" aria-labelledby="cmv-architecture-title" data-reveal="row">
-        <h2 id="cmv-architecture-title">Architecture and constraints</h2>
-        <p>I designed the platform around customised SharePoint and Plumsail forms, Azure Functions as the API boundary, SQL Server for structured records, and Azure Blob Storage for attachments. That keeps interface behaviour separate from persistence and gives each data type an appropriate destination.</p>
-      </section>
-      <section class="case-story__row" aria-labelledby="cmv-status-title" data-reveal="row">
-        <h2 id="cmv-status-title">Planned rollout</h2>
+    <section class="cmv-boundaries" aria-labelledby="cmv-boundaries-title">
+      <div class="shell cmv-boundaries__inner">
+        <header>
+          <h2 id="cmv-boundaries-title">The boundary is the design decision.</h2>
+          <p>Azure Functions separates interface behaviour from persistence, while each kind of data keeps an appropriate destination.</p>
+        </header>
+        <div class="boundary-comparison">
+          <section aria-labelledby="cmv-records-title">
+            <h3 id="cmv-records-title">Records</h3>
+            <p>SQL Server holds the structured incident data needed for controlled operational review.</p>
+          </section>
+          <section aria-labelledby="cmv-files-title">
+            <h3 id="cmv-files-title">Files</h3>
+            <p>Azure Blob Storage holds report attachments without forcing them into the record model.</p>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="cmv-rollout" aria-labelledby="cmv-status-title">
+      <div class="shell cmv-rollout__inner">
+        <h2 id="cmv-status-title">Architecture prepared. Implementation ahead.</h2>
         <p>The architecture was prepared for a planned rollout to more than 2,000 employees. At the point covered here, implementation and deployment remained ahead.</p>
-      </section>
-      <aside class="case-note" aria-label="Confidentiality note" data-reveal="group">Internal forms, records, identifiers, business rules, and rollout details are omitted.</aside>
-    </div>
+        <aside class="case-disclosure" aria-label="Confidentiality note">This case describes the architecture at a public level. Internal forms, records, identifiers, business rules, and rollout details remain private.</aside>
+      </div>
+    </section>
 
     <nav class="case-next" aria-label="Case study navigation">
-      <div class="shell case-next__inner" data-reveal="group">
+      <div class="shell case-next__inner">
         <a href="../index.html#work">All work <span aria-hidden="true">↖</span></a>
         <a href="word-lawrie.html">Next project — Word Lawrie <span aria-hidden="true">→</span></a>
       </div>
@@ -127,6 +141,6 @@
 
   <footer class="site-footer"><div class="shell footer-inner"><p>© <span data-current-year>2026</span> Ethan Lawrie</p><p>Adelaide, Australia</p><a href="#main-content">Back to top <span aria-hidden="true">↑</span></a></div></footer>
   <script src="../assets/vendor/motion-13.1.0.js" defer></script>
-  <script src="../main.js?v=20260821-06" defer></script>
+  <script src="../main.js?v=20260821-07" defer></script>
 </body>
 </html>

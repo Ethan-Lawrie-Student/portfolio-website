@@ -9,8 +9,8 @@
   const EXIT_EASE = [0.4, 0, 1, 1];
   const activeAnimations = new Set();
   const motionTimers = new Set();
-  let scrollCleanups = [];
-  let inViewCleanup = null;
+  const playedSystems = new WeakSet();
+  let systemMotionCleanup = null;
   let heroPlayed = false;
 
   root.classList.add('js');
@@ -52,6 +52,7 @@
       clearAnimatedStyles(elements);
       return null;
     }
+
     activeAnimations.add(controls);
     controls.finished
       .catch(() => {})
@@ -88,217 +89,195 @@
     clearSequencingState();
   };
 
-  const runEntranceMotion = () => {
-    if (heroPlayed || !Motion?.animate) return;
-    heroPlayed = true;
+  const runHeroEntrance = (cover) => {
+    const heroSystem = cover.querySelector('[data-hero-flow]');
+    const heroSteps = cover.querySelectorAll('[data-hero-step]');
 
-    animateAndClear(document.querySelector('[data-header-inner]'), {
+    animateAndClear(cover.querySelectorAll('[data-hero-line]'), {
       opacity: [0, 1],
-      transform: ['translate3d(0,-6px,0)', 'translate3d(0,0,0)']
-    }, { duration: 0.36, ease: ENTER_EASE }, {
-      keyframes: { opacity: [0.55, 1] },
-      options: { duration: 0.28, ease: 'linear' }
-    });
-
-    const cover = document.querySelector('[data-motion-hero]');
-    if (cover) {
-      const heroSystem = cover.querySelector('[data-hero-flow]');
-      const heroSteps = cover.querySelectorAll('[data-hero-step]');
-
-      animateAndClear(cover.querySelectorAll('[data-hero-line]'), {
-        opacity: [0, 1],
-        transform: ['translate3d(0,105%,0)', 'translate3d(0,0,0)']
-      }, {
-        duration: 0.64,
-        delay: Motion.stagger(0.075, { startDelay: 0.04 }),
-        ease: ENTER_EASE
-      }, {
-        keyframes: { opacity: [0.42, 1] },
-        options: {
-          duration: 0.42,
-          delay: Motion.stagger(0.065, { startDelay: 0.02 }),
-          ease: 'linear'
-        }
-      });
-
-      animateAndClear(cover.querySelectorAll('.cover-thesis, .cover-context, .cover-actions'), {
-        opacity: [0, 1],
-        transform: ['translate3d(0,12px,0)', 'translate3d(0,0,0)']
-      }, {
-        duration: 0.46,
-        delay: Motion.stagger(0.06, { startDelay: 0.18 }),
-        ease: ENTER_EASE
-      }, {
-        keyframes: { opacity: [0.52, 1] },
-        options: {
-          duration: 0.36,
-          delay: Motion.stagger(0.045, { startDelay: 0.18 }),
-          ease: 'linear'
-        }
-      });
-
-      animateAndClear(heroSystem?.querySelector('.hero-system__head'), {
-        opacity: [0.25, 1],
-        transform: ['translate3d(0,6px,0)', 'translate3d(0,0,0)']
-      }, { duration: 0.38, delay: 0.22, ease: ENTER_EASE }, {
-        keyframes: { opacity: [0.55, 1] },
-        options: { duration: 0.3, delay: 0.15, ease: 'linear' }
-      });
-
-      animateAndClear(heroSteps, {
-        opacity: [0.12, 1],
-        transform: ['translate3d(0,9px,0)', 'translate3d(0,0,0)']
-      }, {
-        duration: 0.34,
-        delay: Motion.stagger(0.115, { startDelay: 0.39 }),
-        ease: ENTER_EASE
-      }, {
-        keyframes: { opacity: [0.46, 1] },
-        options: {
-          duration: 0.32,
-          delay: Motion.stagger(0.055, { startDelay: 0.27 }),
-          ease: 'linear'
-        }
-      });
-
-      animateAndClear(cover.querySelector('[data-hero-rail]'), {
-        transform: tabletHeroFlow.matches ? ['scaleX(0)', 'scaleX(1)'] : ['scaleY(0)', 'scaleY(1)']
-      }, { duration: 0.62, delay: 0.29, ease: 'linear' });
-
-      if (!reducedMotion.matches && heroSystem) {
-        heroSystem.classList.add('is-sequencing');
-        heroSteps.forEach((step, index) => {
-          scheduleMotion(() => step.classList.add('is-reached'), 410 + (index * 115));
-        });
-        scheduleMotion(clearSequencingState, 1120);
-      }
-      return;
-    }
-
-    const caseHero = document.querySelector('[data-motion-case]');
-    if (!caseHero) return;
-
-    animateAndClear(caseHero.querySelectorAll('[data-case-meta]'), {
-      opacity: [0, 1],
-      transform: ['translate3d(0,-5px,0)', 'translate3d(0,0,0)']
+      transform: ['translate3d(0,105%,0)', 'translate3d(0,0,0)'],
+      clipPath: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)']
     }, {
-      duration: 0.3,
-      delay: Motion.stagger(0.045, { startDelay: 0.02 }),
+      duration: 0.64,
+      delay: Motion.stagger(0.075, { startDelay: 0.04 }),
       ease: ENTER_EASE
     }, {
-      keyframes: { opacity: [0.55, 1] },
-      options: { duration: 0.3, delay: Motion.stagger(0.04), ease: 'linear' }
+      keyframes: { opacity: [0.5, 1] },
+      options: {
+        duration: 0.38,
+        delay: Motion.stagger(0.055, { startDelay: 0.02 }),
+        ease: 'linear'
+      }
     });
 
-    animateAndClear(caseHero.querySelector('[data-case-title]'), {
+    animateAndClear(cover.querySelector('[data-hero-copy]'), {
       opacity: [0, 1],
-      transform: ['translate3d(0,18px,0)', 'translate3d(0,0,0)']
-    }, { duration: 0.62, delay: 0.05, ease: ENTER_EASE }, {
-      keyframes: { opacity: [0.42, 1] },
-      options: { duration: 0.42, delay: 0.03, ease: 'linear' }
-    });
-
-    animateAndClear(caseHero.querySelector('[data-case-copy]'), {
-      opacity: [0, 1],
-      transform: ['translate3d(0,8px,0)', 'translate3d(0,0,0)']
-    }, { duration: 0.42, delay: 0.16, ease: ENTER_EASE }, {
+      transform: ['translate3d(0,10px,0)', 'translate3d(0,0,0)']
+    }, { duration: 0.48, delay: 0.2, ease: ENTER_EASE }, {
       keyframes: { opacity: [0.55, 1] },
       options: { duration: 0.34, delay: 0.16, ease: 'linear' }
     });
 
+    animateAndClear(heroSystem?.querySelector('.hero-system__head'), {
+      opacity: [0.35, 1],
+      clipPath: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)']
+    }, { duration: 0.42, delay: 0.24, ease: ENTER_EASE }, {
+      keyframes: { opacity: [0.6, 1] },
+      options: { duration: 0.28, delay: 0.14, ease: 'linear' }
+    });
+
+    animateAndClear(heroSteps, {
+      opacity: [0.18, 1],
+      transform: ['translate3d(0,7px,0)', 'translate3d(0,0,0)']
+    }, {
+      duration: 0.34,
+      delay: Motion.stagger(0.105, { startDelay: 0.39 }),
+      ease: ENTER_EASE
+    }, {
+      keyframes: { opacity: [0.52, 1] },
+      options: {
+        duration: 0.3,
+        delay: Motion.stagger(0.045, { startDelay: 0.22 }),
+        ease: 'linear'
+      }
+    });
+
+    animateAndClear(cover.querySelector('[data-hero-rail]'), {
+      transform: tabletHeroFlow.matches ? ['scaleX(0)', 'scaleX(1)'] : ['scaleY(0)', 'scaleY(1)']
+    }, { duration: 0.62, delay: 0.3, ease: 'linear' });
+
+    if (!reducedMotion.matches && heroSystem) {
+      heroSystem.classList.add('is-sequencing');
+      heroSteps.forEach((step, index) => {
+        scheduleMotion(() => step.classList.add('is-reached'), 420 + (index * 105));
+      });
+      scheduleMotion(clearSequencingState, 1080);
+    }
+  };
+
+  const runCaseEntrance = (caseHero) => {
+    animateAndClear(caseHero.querySelector('[data-case-title]'), {
+      opacity: [0, 1],
+      transform: ['translate3d(0,14px,0)', 'translate3d(0,0,0)'],
+      clipPath: ['inset(0 0 18% 0)', 'inset(0 0 0% 0)']
+    }, { duration: 0.58, delay: 0.04, ease: ENTER_EASE }, {
+      keyframes: { opacity: [0.48, 1] },
+      options: { duration: 0.4, delay: 0.02, ease: 'linear' }
+    });
+
+    animateAndClear(caseHero.querySelector('[data-case-copy]'), {
+      opacity: [0, 1],
+      transform: ['translate3d(0,7px,0)', 'translate3d(0,0,0)']
+    }, { duration: 0.4, delay: 0.16, ease: ENTER_EASE }, {
+      keyframes: { opacity: [0.6, 1] },
+      options: { duration: 0.3, delay: 0.12, ease: 'linear' }
+    });
+
+    animateAndClear(caseHero.querySelector('[data-case-meta]'), {
+      opacity: [0.35, 1],
+      clipPath: ['inset(0 100% 0 0)', 'inset(0 0% 0 0)']
+    }, { duration: 0.5, delay: 0.2, ease: ENTER_EASE }, {
+      keyframes: { opacity: [0.65, 1] },
+      options: { duration: 0.28, delay: 0.16, ease: 'linear' }
+    });
+
     animateAndClear(caseHero.querySelector('[data-case-actions]'), {
       opacity: [0, 1],
-      transform: ['translate3d(0,6px,0)', 'translate3d(0,0,0)']
-    }, { duration: 0.36, delay: 0.24, ease: ENTER_EASE }, {
-      keyframes: { opacity: [0.6, 1] },
-      options: { duration: 0.28, delay: 0.24, ease: 'linear' }
+      transform: ['translate3d(0,5px,0)', 'translate3d(0,0,0)']
+    }, { duration: 0.34, delay: 0.26, ease: ENTER_EASE }, {
+      keyframes: { opacity: [0.65, 1] },
+      options: { duration: 0.26, delay: 0.2, ease: 'linear' }
+    });
+
+    animateAndClear(caseHero.querySelector('[data-case-media]'), {
+      opacity: [0.35, 1],
+      clipPath: ['inset(0 0 18% 0)', 'inset(0 0 0% 0)'],
+      filter: ['blur(3px)', 'blur(0px)']
+    }, { duration: 0.62, delay: 0.14, ease: ENTER_EASE }, {
+      keyframes: { opacity: [0.62, 1] },
+      options: { duration: 0.34, delay: 0.12, ease: 'linear' }
     });
   };
 
-  const setupInViewMotion = () => {
-    inViewCleanup?.();
-    inViewCleanup = null;
-    if (!Motion?.inView) return;
+  const runEntranceMotion = () => {
+    if (heroPlayed || !Motion?.animate) return;
+    heroPlayed = true;
 
-    const revealed = new WeakSet();
-    if (document.querySelector('[data-motion-hero]')) {
-      document.querySelectorAll('[data-reveal]').forEach((element) => {
-        const bounds = element.getBoundingClientRect();
-        if (bounds.top < window.innerHeight * 0.92 && bounds.bottom > 0) {
-          revealed.add(element);
-        }
-      });
+    const cover = document.querySelector('[data-motion-hero]');
+    if (cover) {
+      runHeroEntrance(cover);
+      return;
     }
 
-    inViewCleanup = Motion.inView('[data-reveal]', (element) => {
-      if (revealed.has(element)) return;
-      revealed.add(element);
-
-      const type = element.dataset.reveal;
-      if (reducedMotion.matches && !['section', 'contact', 'case'].includes(type)) return;
-      const distance = type === 'project' ? 14 : type === 'section' || type === 'contact' ? 12 : 8;
-      const duration = type === 'project' ? 0.52 : type === 'media' ? 0.46 : 0.42;
-
-      animateAndClear(element, {
-        opacity: [0.28, 1],
-        transform: [`translate3d(0,${distance}px,0)`, 'translate3d(0,0,0)']
-      }, { duration, ease: ENTER_EASE }, {
-        keyframes: { opacity: [0.7, 1] },
-        options: { duration: 0.28, ease: 'linear' }
-      });
-    }, { amount: 0.12, margin: '0px 0px -8% 0px' });
+    const caseHero = document.querySelector('[data-motion-case]');
+    if (caseHero) runCaseEntrance(caseHero);
   };
 
-  const clearScrollMotion = () => {
-    scrollCleanups.forEach((cleanup) => cleanup?.());
-    scrollCleanups = [];
-    document.querySelectorAll('[data-scroll-rail], [data-flow-rail]').forEach((rail) => {
-      rail.style.removeProperty('transform');
-      rail.style.removeProperty('will-change');
-    });
+  const animateSystemStep = (step, delay) => {
+    animateAndClear(step, {
+      opacity: [0.38, 1],
+      transform: ['translate3d(0,6px,0)', 'translate3d(0,0,0)']
+    }, { duration: 0.34, delay, ease: ENTER_EASE });
   };
 
-  const attachScrollAnimation = (animation, options) => {
-    if (!animation || !Motion?.scroll) return;
-    const cleanup = Motion.scroll(animation, options);
-    if (typeof cleanup === 'function') scrollCleanups.push(cleanup);
-  };
+  const runAzureSystem = (system) => {
+    const rail = system.querySelector('[data-motion-rail]');
+    const steps = [...system.querySelectorAll('[data-motion-step]')];
+    const proof = document.querySelector('[data-motion-proof]');
 
-  const setupScrollMotion = () => {
-    clearScrollMotion();
-    if (!Motion?.animate || !Motion?.scroll || reducedMotion.matches) return;
+    system.classList.add('is-sequencing');
+    animateAndClear(rail, {
+      transform: desktopFlow.matches ? ['scaleX(0)', 'scaleX(1)'] : ['scaleY(0)', 'scaleY(1)']
+    }, { duration: 0.72, ease: 'linear' });
 
-    document.querySelectorAll('[data-scroll-container]').forEach((container) => {
-      const rail = container.querySelector('[data-scroll-rail]');
-      if (!rail) return;
-      const animation = Motion.animate(rail, {
-        transform: ['scaleY(0)', 'scaleY(1)']
-      }, { ease: 'linear' });
-      attachScrollAnimation(animation, {
-        target: container,
-        offset: ['start 78%', 'end 78%']
-      });
+    steps.forEach((step, index) => {
+      const delay = 0.08 + (index * 0.11);
+      animateSystemStep(step, delay);
+      scheduleMotion(() => step.classList.add('is-reached'), (delay * 1000) + 80);
     });
 
-    document.querySelectorAll('[data-scroll-flow]').forEach((container) => {
-      const rail = container.querySelector('[data-flow-rail]');
-      if (!rail) return;
-      const horizontal = desktopFlow.matches;
-      const animation = Motion.animate(rail, {
-        transform: horizontal ? ['scaleX(0)', 'scaleX(1)'] : ['scaleY(0)', 'scaleY(1)']
-      }, { ease: 'linear' });
-      attachScrollAnimation(animation, {
-        target: container,
-        offset: ['start 82%', 'end 62%']
-      });
-    });
+    animateAndClear(proof, {
+      opacity: [0.35, 1],
+      clipPath: ['inset(0 0 100% 0)', 'inset(0 0 0% 0)']
+    }, { duration: 0.46, delay: 0.62, ease: ENTER_EASE });
+    scheduleMotion(clearSequencingState, 1050);
   };
 
-  const setupMotion = ({ initial = false } = {}) => {
-    cancelTransientMotion();
-    if (initial) runEntranceMotion();
-    setupInViewMotion();
-    setupScrollMotion();
+  const runCmvSystem = (system) => {
+    const rail = system.querySelector('[data-motion-rail]');
+    const fork = system.querySelector('[data-motion-fork]');
+    const steps = [...system.querySelectorAll('[data-motion-step]')];
+    const delays = [0.04, 0.16, 0.36, 0.36];
+
+    system.classList.add('is-sequencing');
+    animateAndClear(rail, {
+      transform: desktopFlow.matches ? ['scaleX(0)', 'scaleX(1)'] : ['scaleY(0)', 'scaleY(1)']
+    }, { duration: 0.5, ease: 'linear' });
+
+    animateAndClear(fork, {
+      clipPath: desktopFlow.matches
+        ? ['inset(0 100% 0 0)', 'inset(0 0% 0 0)']
+        : ['inset(0 0 100% 0)', 'inset(0 0 0% 0)']
+    }, { duration: 0.4, delay: 0.27, ease: ENTER_EASE });
+
+    steps.forEach((step, index) => {
+      animateSystemStep(step, delays[index]);
+      scheduleMotion(() => step.classList.add('is-reached'), (delays[index] * 1000) + 90);
+    });
+    scheduleMotion(clearSequencingState, 900);
+  };
+
+  const setupSystemMotion = () => {
+    systemMotionCleanup?.();
+    systemMotionCleanup = null;
+    if (!Motion?.inView) return;
+
+    systemMotionCleanup = Motion.inView('[data-motion-system]', (system) => {
+      if (reducedMotion.matches || playedSystems.has(system)) return;
+      playedSystems.add(system);
+      if (system.dataset.motionSystem === 'azure') runAzureSystem(system);
+      if (system.dataset.motionSystem === 'cmv') runCmvSystem(system);
+    }, { amount: 0.18, margin: '0px 0px -10% 0px' });
   };
 
   /* Mobile navigation keeps focus and assistive technology inside the open panel. */
@@ -370,10 +349,11 @@
         delay: Motion.stagger(0.025, { startDelay: 0.03 }),
         ease: ENTER_EASE
       }, {
-        keyframes: { opacity: [0.55, 1] },
+        keyframes: { opacity: [0.58, 1] },
         options: {
           duration: 0.12,
-          delay: Motion.stagger(0.018, { startDelay: 0.015 })
+          delay: Motion.stagger(0.018, { startDelay: 0.015 }),
+          ease: 'linear'
         }
       });
     }
@@ -460,7 +440,7 @@
     });
   });
 
-  /* Preserve native form submission while exposing useful validation and loading state. */
+  /* Preserve native form submission while exposing specific validation and loading state. */
   const form = document.querySelector('[data-contact-form]');
   if (form) {
     const submitButton = form.querySelector('[data-submit-button]');
@@ -476,9 +456,13 @@
     });
 
     form.addEventListener('invalid', (event) => {
-      event.target.setAttribute('aria-invalid', 'true');
+      const field = event.target;
+      const label = form.querySelector(`label[for="${field.id}"]`)?.textContent?.trim() || 'This field';
+      field.setAttribute('aria-invalid', 'true');
       if (status) {
-        status.textContent = 'Check the highlighted field and try again.';
+        status.textContent = field.validity.typeMismatch
+          ? `Enter a valid ${label.toLowerCase()}.`
+          : `${label} is required.`;
         status.classList.add('is-error');
       }
     }, true);
@@ -491,7 +475,7 @@
       if (submitLabel) submitLabel.textContent = 'Sending…';
       if (status) {
         status.classList.remove('is-error');
-        status.textContent = 'Submitting securely…';
+        status.textContent = 'Sending your message…';
       }
     });
 
@@ -505,13 +489,12 @@
     });
   }
 
-  setupMotion({ initial: true });
+  runEntranceMotion();
+  setupSystemMotion();
 
   reducedMotion.addEventListener('change', () => {
+    menuAnimation?.complete?.();
     cancelTransientMotion();
-    if (!reducedMotion.matches) heroPlayed = false;
-    setupMotion({ initial: !reducedMotion.matches });
+    if (!reducedMotion.matches) setupSystemMotion();
   });
-
-  desktopFlow.addEventListener('change', setupScrollMotion);
 })();
