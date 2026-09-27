@@ -1,3 +1,5 @@
+> Historical August 2026 brief. Superseded by `surfaces/index-html.md`, PRODUCT.md, and DESIGN.md following the user-approved September refinement. Retained as design history only.
+
 # Portfolio redesign brief
 
 ## Scope and mode

@@ -1,320 +1,161 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-21T05:02:32.862Z",
-  "title": "Design System: Operational Field",
+  "generatedAt": "2026-09-06T10:14:42.014473+00:00",
+  "title": "Design System: Ethan Lawrie",
   "extensions": {
-    "colorMeta": {
-      "paper": {
-        "role": "neutral",
-        "displayName": "Warm Paper",
-        "canonical": "#fdefd4",
-        "tonalRamp": ["oklch(15% 0.038 83.8)", "oklch(26.4% 0.038 83.8)", "oklch(37.9% 0.038 83.8)", "oklch(49.3% 0.038 83.8)", "oklch(60.7% 0.038 83.8)", "oklch(72.1% 0.038 83.8)", "oklch(83.6% 0.038 83.8)", "oklch(95% 0.038 83.8)"]
-      },
-      "paper-raised": {
-        "role": "neutral",
-        "displayName": "Raised Paper",
-        "canonical": "#fff8e9",
-        "tonalRamp": ["oklch(15% 0.021 85.9)", "oklch(26.4% 0.021 85.9)", "oklch(37.9% 0.021 85.9)", "oklch(49.3% 0.021 85.9)", "oklch(60.7% 0.021 85.9)", "oklch(72.1% 0.021 85.9)", "oklch(83.6% 0.021 85.9)", "oklch(95% 0.021 85.9)"]
-      },
-      "ink": {
-        "role": "neutral",
-        "displayName": "Charcoal Ink",
-        "canonical": "#242322",
-        "tonalRamp": ["oklch(15% 0.002 67.7)", "oklch(26.4% 0.002 67.7)", "oklch(37.9% 0.002 67.7)", "oklch(49.3% 0.002 67.7)", "oklch(60.7% 0.002 67.7)", "oklch(72.1% 0.002 67.7)", "oklch(83.6% 0.002 67.7)", "oklch(95% 0.002 67.7)"]
-      },
-      "ink-muted": {
-        "role": "neutral",
-        "displayName": "Muted Ink",
-        "canonical": "#5d574d",
-        "tonalRamp": ["oklch(15% 0.018 80.6)", "oklch(26.4% 0.018 80.6)", "oklch(37.9% 0.018 80.6)", "oklch(49.3% 0.018 80.6)", "oklch(60.7% 0.018 80.6)", "oklch(72.1% 0.018 80.6)", "oklch(83.6% 0.018 80.6)", "oklch(95% 0.018 80.6)"]
-      },
-      "operational-teal": {
-        "role": "primary",
-        "displayName": "Operational Teal",
-        "canonical": "#1c3d46",
-        "tonalRamp": ["oklch(15% 0.042 217.8)", "oklch(26.4% 0.042 217.8)", "oklch(37.9% 0.042 217.8)", "oklch(49.3% 0.042 217.8)", "oklch(60.7% 0.042 217.8)", "oklch(72.1% 0.042 217.8)", "oklch(83.6% 0.042 217.8)", "oklch(95% 0.042 217.8)"]
-      },
-      "operational-teal-raised": {
-        "role": "primary",
-        "displayName": "Raised Operational Teal",
-        "canonical": "#28505a",
-        "tonalRamp": ["oklch(15% 0.048 216.0)", "oklch(26.4% 0.048 216.0)", "oklch(37.9% 0.048 216.0)", "oklch(49.3% 0.048 216.0)", "oklch(60.7% 0.048 216.0)", "oklch(72.1% 0.048 216.0)", "oklch(83.6% 0.048 216.0)", "oklch(95% 0.048 216.0)"]
-      },
-      "action-salmon": {
-        "role": "secondary",
-        "displayName": "Action Salmon",
-        "canonical": "#fc967d",
-        "tonalRamp": ["oklch(15% 0.129 34.6)", "oklch(26.4% 0.129 34.6)", "oklch(37.9% 0.129 34.6)", "oklch(49.3% 0.129 34.6)", "oklch(60.7% 0.129 34.6)", "oklch(72.1% 0.129 34.6)", "oklch(83.6% 0.129 34.6)", "oklch(95% 0.129 34.6)"]
-      },
-      "action-salmon-strong": {
-        "role": "secondary",
-        "displayName": "Strong Action Salmon",
-        "canonical": "#b4473d",
-        "tonalRamp": ["oklch(15% 0.144 28.0)", "oklch(26.4% 0.144 28.0)", "oklch(37.9% 0.144 28.0)", "oklch(49.3% 0.144 28.0)", "oklch(60.7% 0.144 28.0)", "oklch(72.1% 0.144 28.0)", "oklch(83.6% 0.144 28.0)", "oklch(95% 0.144 28.0)"]
-      },
-      "signal-blue": {
-        "role": "tertiary",
-        "displayName": "Signal Blue",
-        "canonical": "#91c3ce",
-        "tonalRamp": ["oklch(15% 0.055 212.7)", "oklch(26.4% 0.055 212.7)", "oklch(37.9% 0.055 212.7)", "oklch(49.3% 0.055 212.7)", "oklch(60.7% 0.055 212.7)", "oklch(72.1% 0.055 212.7)", "oklch(83.6% 0.055 212.7)", "oklch(95% 0.055 212.7)"]
-      },
-      "signal-blue-ink": {
-        "role": "tertiary",
-        "displayName": "Signal Blue Ink",
-        "canonical": "#12363e",
-        "tonalRamp": ["oklch(15% 0.043 214.8)", "oklch(26.4% 0.043 214.8)", "oklch(37.9% 0.043 214.8)", "oklch(49.3% 0.043 214.8)", "oklch(60.7% 0.043 214.8)", "oklch(72.1% 0.043 214.8)", "oklch(83.6% 0.043 214.8)", "oklch(95% 0.043 214.8)"]
-      },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Ink Rule",
-        "canonical": "rgba(36, 35, 34, 0.31)",
-        "tonalRamp": ["oklch(15% 0.002 67.7 / 0.31)", "oklch(26.4% 0.002 67.7 / 0.31)", "oklch(37.9% 0.002 67.7 / 0.31)", "oklch(49.3% 0.002 67.7 / 0.31)", "oklch(60.7% 0.002 67.7 / 0.31)", "oklch(72.1% 0.002 67.7 / 0.31)", "oklch(83.6% 0.002 67.7 / 0.31)", "oklch(95% 0.002 67.7 / 0.31)"]
-      },
-      "rule-light": {
-        "role": "neutral",
-        "displayName": "Light Rule",
-        "canonical": "rgba(253, 239, 212, 0.32)",
-        "tonalRamp": ["oklch(15% 0.038 83.8 / 0.32)", "oklch(26.4% 0.038 83.8 / 0.32)", "oklch(37.9% 0.038 83.8 / 0.32)", "oklch(49.3% 0.038 83.8 / 0.32)", "oklch(60.7% 0.038 83.8 / 0.32)", "oklch(72.1% 0.038 83.8 / 0.32)", "oklch(83.6% 0.038 83.8 / 0.32)", "oklch(95% 0.038 83.8 / 0.32)"]
-      }
-    },
     "typographyMeta": {
       "display": {
-        "displayName": "Display",
-        "purpose": "Uppercase homepage name and highest-impact statements."
-      },
-      "headline": {
-        "displayName": "Headline",
-        "purpose": "Uppercase section-level editorial statements."
+        "displayName": "IBM Plex Sans Condensed",
+        "purpose": "Name and major page titles; oversized by the user-approved brutalist brief."
       },
       "title": {
-        "displayName": "Title",
-        "purpose": "Project titles and operational-system statements."
-      },
-      "body-large": {
-        "displayName": "Body Large",
-        "purpose": "Homepage thesis and concise editorial ledes."
+        "displayName": "IBM Plex Sans Condensed",
+        "purpose": "Bold selected-work headlines; quiet editorial headings remain IBM Plex Sans."
       },
       "body": {
-        "displayName": "Body",
-        "purpose": "Technical narratives at a 68ch maximum reading measure."
+        "displayName": "IBM Plex Sans",
+        "purpose": "Public-safe engineering narratives."
       },
       "label": {
-        "displayName": "Evidence Label",
-        "purpose": "Roles, stacks, dates, statuses, captions, and system metadata only."
+        "displayName": "IBM Plex Mono",
+        "purpose": "Short context and project index numbers."
       }
     },
     "shadows": [],
     "motion": [
       {
-        "name": "ease-enter",
-        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Primary easing for entrances, line expansion, and grouped reveals."
+        "name": "shared-easing",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Precise, decelerating registration across the site."
       },
       {
-        "name": "ease-exit",
-        "value": "cubic-bezier(0.4, 0, 1, 1)",
-        "purpose": "Mobile navigation exit."
+        "name": "poster-entrance",
+        "value": "760ms / 900ms",
+        "purpose": "Single authored name sequence."
       },
       {
-        "name": "header-enter",
-        "value": "360ms",
-        "purpose": "Once-only 6px header entrance."
+        "name": "poster-band",
+        "value": "420ms",
+        "purpose": "Project index hover and focus continuity."
       },
       {
-        "name": "hero-title-enter",
-        "value": "640ms",
-        "purpose": "Once-only masked homepage name entrance; case titles resolve over 620ms."
-      },
-      {
-        "name": "hero-step-enter",
-        "value": "340ms with 115ms stagger",
-        "purpose": "Five-stage trace handoff synchronized to the workflow rail."
-      },
-      {
-        "name": "hero-rail-draw",
-        "value": "620ms",
-        "purpose": "Once-only workflow rail draw using the active orientation."
-      },
-      {
-        "name": "in-view-reveal",
-        "value": "420ms–520ms",
-        "purpose": "Once-only section and project group reveals using 8–14px movement."
-      },
-      {
-        "name": "menu-enter",
+        "name": "feedback",
         "value": "180ms",
-        "purpose": "Mobile menu and link choreography."
+        "purpose": "Directional link arrows, button feedback and menu icon."
       },
       {
-        "name": "menu-exit",
-        "value": "120ms",
-        "purpose": "Mobile menu close before its hidden state is restored."
+        "name": "menu",
+        "value": "300ms in / 160ms out",
+        "purpose": "Interruptible panel with immediate semantic state."
       },
       {
-        "name": "reduced-motion-duration",
-        "value": "280ms–420ms",
-        "purpose": "Opacity-only entrance feedback; spatial and scroll-linked motion remain disabled."
+        "name": "route",
+        "value": "480ms",
+        "purpose": "Native shared titles/artwork with stable header; normal-navigation fallback."
+      },
+      {
+        "name": "case-entrance",
+        "value": "620ms title / 480ms details",
+        "purpose": "Bounded registration sequence, suppressed during native route transitions."
+      },
+      {
+        "name": "rule",
+        "value": "560ms",
+        "purpose": "One-time structural line registration; body text remains visible."
+      },
+      {
+        "name": "image",
+        "value": "680ms",
+        "purpose": "Bounded clip-path framing of genuine imagery."
       }
     ],
     "breakpoints": [
       {
-        "name": "metadata-two-column",
-        "value": "22rem"
-      },
-      {
-        "name": "compact-grid",
-        "value": "36rem"
-      },
-      {
-        "name": "tablet",
-        "value": "48rem"
+        "name": "stacked",
+        "value": "44rem"
       },
       {
         "name": "inline-navigation",
         "value": "56rem"
       },
       {
-        "name": "desktop",
+        "name": "wide-work",
         "value": "64rem"
-      },
-      {
-        "name": "wide",
-        "value": "72rem"
-      },
-      {
-        "name": "short-desktop-height",
-        "value": "46rem max-height, paired with 64rem min-width"
       }
-    ]
+    ],
+    "delight": {
+      "principle": "Useful discovery and contextual human copy, preserving the Swiss visual world.",
+      "wordExample": "Illustrative COLD → CORD → CARD → WARD → WARM. Static path, native step/reset button, polite status, salmon changed-letter feedback and shared 300ms motion; reduced-motion fallback.",
+      "navigation": "Next-case descriptions and résumé PDF labels; contact links show the verified one-page format.",
+      "recovery": "Warm, direct 404 recovery without assuming a previous visit."
+    },
+    "colorRoles": {
+      "source": "Existing Word Lawrie release artwork and approved palette",
+      "canvas": "#fdefd4",
+      "ink": "#1c3d46",
+      "secondaryText": "#405f63",
+      "inverseSurface": "#1c3d46",
+      "inverseText": "#fdefd4",
+      "actionAndWord": "#fc967d",
+      "cmvAndSecondaryAccent": "#91c3ce",
+      "focus": "Deep teal on light surfaces; cream or salmon within teal surfaces",
+      "print": "Dark ink on white"
+    },
+    "selectedWork": {
+      "sectionHeading": "clamp(3rem,8vw,7.5rem), with a 6px entrance rule",
+      "projectHeading": "Condensed Bold, uppercase, clamp(3rem,6.8vw,7rem), .98 leading",
+      "projectIndex": "Plex Mono 1.25rem; compact provenance beside the dominant title",
+      "wordArtwork": "Larger genuine artwork column; full aspect ratio, stacks beneath copy below 64rem",
+      "scope": "Homepage Selected Work only; hero, case pages, Experience and About retain their existing hierarchy."
+    }
   },
   "components": [
     {
-      "name": "Primary Button",
+      "name": "Primary link",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The square salmon action used for the Microsoft case, résumé utility, release link, and form submit.",
-      "html": "<a class=\"ds-button-primary\" href=\"#\">View Microsoft case <span aria-hidden=\"true\">→</span></a>",
-      "css": ".ds-button-primary { display:inline-flex; align-items:center; justify-content:center; gap:.65rem; min-height:2.75rem; padding:.75rem 1rem; border:1px solid currentColor; border-radius:0; background:var(--salmon); color:var(--ink); font-family:var(--font-body); font-weight:600; text-decoration:none; transition:background-color 160ms ease,color 160ms ease; } .ds-button-primary:hover { background:var(--paper-raised); } .ds-button-primary:focus-visible { outline:3px solid var(--salmon-strong); outline-offset:4px; } .ds-button-primary:active { background:var(--salmon-strong); color:var(--paper-raised); }"
+      "description": "Square salmon action used for the public game release.",
+      "html": "<a class=\"ds-button\" href=\"#\">Play on Coolmath</a>",
+      "css": ".ds-button{display:inline-flex;align-items:center;min-height:3rem;padding:.75rem 1rem;background:var(--salmon);color:var(--ink);border:2px solid var(--ink);font-weight:600;text-decoration:none}.ds-button:is(:hover,:focus-visible){background:var(--teal);color:var(--paper)}.ds-button:focus-visible{outline:3px solid var(--ink);outline-offset:5px}.ds-button:active{opacity:.8}"
     },
     {
-      "name": "Ruled Text Link",
-      "kind": "custom",
-      "refersTo": "text-link",
-      "description": "A quiet secondary action whose leading rule lengthens on hover.",
-      "html": "<a class=\"ds-text-link\" href=\"#\">Read the case <span aria-hidden=\"true\">↗</span></a>",
-      "css": ".ds-text-link { display:inline-flex; align-items:center; justify-content:center; gap:.45rem; min-height:2.75rem; padding:.25rem 0; color:var(--ink); font-family:var(--font-body); font-weight:600; text-decoration:none; } .ds-text-link::before { width:1.5rem; height:1px; background:currentColor; content:\"\"; transition:width 180ms var(--ease-enter); } .ds-text-link:hover::before { width:2.25rem; } .ds-text-link:focus-visible { outline:3px solid var(--salmon-strong); outline-offset:4px; }"
-    },
-    {
-      "name": "Header Navigation",
+      "name": "Contact link",
       "kind": "nav",
-      "refersTo": "navigation",
-      "description": "The ruled paper header with compact anchors and a square salmon résumé utility.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Design system navigation\"><a class=\"ds-wordmark\" href=\"#\">EL<span aria-hidden=\"true\">.</span></a><div class=\"ds-nav-links\"><a href=\"#\">Work</a><a href=\"#\">Experience</a><a class=\"ds-nav-resume\" href=\"#\">Résumé ↗</a></div></nav>",
-      "css": ".ds-nav { display:flex; align-items:center; justify-content:space-between; min-height:3.75rem; padding:0 1rem; border-bottom:1px solid var(--ink); background:var(--paper); color:var(--ink); font-family:var(--font-body); } .ds-wordmark { font-family:var(--font-display); font-size:1.25rem; font-weight:700; letter-spacing:-.03em; text-decoration:none; } .ds-wordmark span { color:var(--salmon-strong); } .ds-nav-links { display:flex; align-items:center; gap:1rem; } .ds-nav-links a { min-height:2.75rem; display:inline-flex; align-items:center; color:inherit; font-size:.77rem; text-decoration:none; } .ds-nav-links a:hover { text-decoration:underline; text-underline-offset:.35rem; } .ds-nav-links a:focus-visible { outline:3px solid var(--salmon-strong); outline-offset:4px; } .ds-nav-links .ds-nav-resume { min-height:2.15rem; padding:0 .75rem; border:1px solid var(--ink); background:var(--salmon); }"
-    },
-    {
-      "name": "Operational Project Row",
-      "kind": "card",
-      "refersTo": "project-microsoft",
-      "description": "A full-width editorial project surface for operational-system evidence, not a floating card.",
-      "html": "<article class=\"ds-project\"><p class=\"ds-project-meta\">01 · Microsoft<br><strong>Observability + telemetry</strong></p><div class=\"ds-project-body\"><h3>Tracing Azure CLI Copilot end to end</h3><p>One public-safe view connects implementation, review, CI, and UAT delivery.</p><a href=\"#\">Open case →</a></div><dl class=\"ds-project-proof\"><div><dt>Delivery</dt><dd>Released to UAT</dd></div><div><dt>Review</dt><dd>Pull request + CI</dd></div></dl></article>",
-      "css": ".ds-project { display:grid; gap:2rem; padding:3.5rem 1rem; border-block:1px solid var(--ink); border-radius:0; background:var(--teal); color:var(--paper-raised); font-family:var(--font-body); } .ds-project-meta { padding-left:1rem; border-left:1px solid currentColor; font-family:var(--font-mono); font-size:.72rem; line-height:1.45; } .ds-project-meta strong { font-family:var(--font-body); font-size:1rem; } .ds-project-body { display:grid; align-content:start; gap:1.5rem; } .ds-project-body h3 { margin:0; max-width:19ch; font-size:clamp(2rem,5vw,3.4rem); font-weight:400; line-height:1.01; letter-spacing:-.035em; } .ds-project-body p { margin:0; max-width:53ch; } .ds-project-body a { color:inherit; font-weight:600; } .ds-project-body a:focus-visible { outline:3px solid var(--salmon); outline-offset:4px; } .ds-project-proof { display:grid; margin:0; } .ds-project-proof div { padding:.85rem 0; border-top:1px solid var(--rule-light); } .ds-project-proof dt { color:var(--blue); font-family:var(--font-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; } .ds-project-proof dd { margin:0; font-size:.95rem; } @media (min-width:48rem) { .ds-project { grid-template-columns:minmax(8rem,.75fr) minmax(0,2fr); } .ds-project-body,.ds-project-proof { grid-column:2; } }"
-    },
-    {
-      "name": "Contact Field",
-      "kind": "input",
-      "refersTo": "field-contact",
-      "description": "The transparent, bottom-ruled input used on the closing teal contact field.",
-      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Email</label><input id=\"ds-email\" type=\"email\" placeholder=\"name@example.com\"></div>",
-      "css": ".ds-field { display:grid; gap:.4rem; padding:1rem; background:var(--teal); color:var(--paper-raised); font-family:var(--font-body); } .ds-field label { color:var(--blue); font-family:var(--font-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; } .ds-field input { width:100%; min-height:3rem; padding:.65rem 0; border:0; border-bottom:1px solid var(--paper-raised); border-radius:0; outline:0; background:transparent; color:var(--paper-raised); font:inherit; } .ds-field input:focus { border-bottom:3px solid var(--salmon); } .ds-field input[aria-invalid=\"true\"] { border-bottom:3px solid var(--salmon); } .ds-field input:focus-visible { outline:3px solid var(--salmon); outline-offset:4px; }"
-    },
-    {
-      "name": "Operational Workflow",
-      "kind": "custom",
-      "refersTo": "workflow-field",
-      "description": "The public-safe five-stage path that becomes vertical, horizontal, or crosshair-shaped with the viewport.",
-      "html": "<div class=\"ds-flow\"><span class=\"ds-flow-rail\" aria-hidden=\"true\"></span><ol><li><span>Command</span><strong>AI-assisted CLI workflow</strong></li><li><span>Handlers</span><strong>Multiple AI tool handlers</strong></li><li><span>Trace</span><strong>Python + OpenTelemetry</strong></li><li><span>Operational view</span><strong>Filterable dashboard</strong></li><li><span>Delivery</span><strong>Pull request + CI → UAT</strong></li></ol></div>",
-      "css": ".ds-flow { position:relative; padding:1.5rem; border:1px solid var(--ink); border-radius:0; background:var(--teal); color:var(--paper-raised); font-family:var(--font-body); } .ds-flow-rail { position:absolute; top:1.95rem; bottom:1.95rem; left:1.75rem; width:2px; background:var(--salmon); } .ds-flow ol { display:grid; gap:1.5rem; margin:0; padding:0; list-style:none; } .ds-flow li { position:relative; display:grid; gap:.2rem; padding-left:1.5rem; } .ds-flow li::before { position:absolute; top:.25rem; left:0; width:.6rem; height:.6rem; border:2px solid var(--teal); outline:1px solid var(--salmon); background:var(--salmon); content:\"\"; } .ds-flow li span { color:var(--blue); font-family:var(--font-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; } .ds-flow li strong { font-size:.9rem; font-weight:400; line-height:1.3; } @media (min-width:48rem) and (max-width:63.999rem) { .ds-flow { padding:0; border:0; background:var(--paper); color:var(--ink); } .ds-flow-rail { top:.29rem; right:10%; bottom:auto; left:10%; width:auto; height:2px; } .ds-flow ol { grid-template-columns:repeat(5,minmax(0,1fr)); gap:.75rem; } .ds-flow li { min-height:6rem; padding:1.35rem 0 0; border-top:1px solid var(--ink); } .ds-flow li::before { top:-.32rem; left:calc(50% - .3rem); border-color:var(--paper); outline-color:var(--teal); } .ds-flow li span { color:var(--ink-muted); } } @media (min-width:64rem) { .ds-flow { padding:0; border:0; border-top:1px solid var(--ink); background:var(--paper); color:var(--ink); } .ds-flow-rail { top:0; right:auto; bottom:0; left:35%; width:1px; height:auto; background:var(--teal); } .ds-flow ol { display:block; } .ds-flow li { grid-template-columns:35% 65%; min-height:4.1rem; padding:0; border-bottom:1px solid var(--ink); } .ds-flow li::before { top:auto; bottom:-.31rem; left:calc(35% - .3rem); border-color:var(--paper); outline-color:var(--teal); } .ds-flow li span { align-self:center; padding-right:.75rem; color:var(--ink-muted); } .ds-flow li strong { align-self:center; padding:.75rem 0 .75rem 1.1rem; } }"
-    },
-    {
-      "name": "Case Metadata Ledger",
-      "kind": "custom",
-      "refersTo": "project-cmv",
-      "description": "A square ruled ledger that makes contribution, period, stack or status, and delivery scannable.",
-      "html": "<dl class=\"ds-meta\"><div><dt>Contribution</dt><dd>Observability + telemetry</dd></div><div><dt>Period</dt><dd>Dec 2025 — Feb 2026</dd></div><div><dt>Stack</dt><dd>Python, OpenTelemetry, Grafana</dd></div><div><dt>Delivery</dt><dd>Released to UAT</dd></div></dl>",
-      "css": ".ds-meta { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); margin:0; border-top:1px solid var(--ink); border-left:1px solid var(--ink); background:var(--paper); color:var(--ink); font-family:var(--font-body); } .ds-meta div { display:grid; align-content:space-between; gap:.75rem; min-height:6.25rem; padding:.85rem; border-right:1px solid var(--ink); border-bottom:1px solid var(--ink); } .ds-meta dt { color:var(--ink-muted); font-family:var(--font-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; } .ds-meta dd { margin:0; font-size:.93rem; line-height:1.3; } @media (min-width:48rem) { .ds-meta { grid-template-columns:repeat(4,minmax(0,1fr)); } }"
+      "description": "A simple ruled link, without a contact form.",
+      "html": "<a class=\"ds-contact\" href=\"#\">LinkedIn <span aria-hidden=\"true\">↗</span></a>",
+      "css": ".ds-contact{display:flex;justify-content:space-between;align-items:center;min-height:3.25rem;font-size:1.5rem;color:var(--paper);background:var(--teal);border-bottom:1px solid var(--paper);text-decoration:none}.ds-contact:hover{color:var(--salmon)}.ds-contact:focus-visible{outline:3px solid currentColor;outline-offset:5px}"
     }
   ],
   "narrative": {
-    "northStar": "Operational Field",
-    "overview": "Operational Field turns Ethan Lawrie's portfolio into a working editorial diagram: warm paper holds the narrative, ruled geometry exposes structure, and deep-teal fields make operational systems tangible without imitating private software. The world is direct, technical, and evidence-led; its originating seed is pinned-operational-field-20260821.\n\nThe interface behaves like one continuous field rather than a stack of interchangeable cards. Condensed statements establish hierarchy, system paths connect claims to proof, and restrained salmon and pale-blue signals create orientation without ornamental noise. The engineering work leads while navigation and motion remain quiet.",
+    "northStar": "Bold typography, clear engineering stories",
+    "overview": "Pronounced brutalism with Swiss typographic discipline, keeping the existing palette and IBM Plex identity.",
     "keyCharacteristics": [
-      "Warm paper and deep-teal fields divided by one-pixel ink rules.",
-      "Condensed, uppercase statements paired with workhorse body copy and monospace evidence labels.",
-      "Open workflow paths that change orientation instead of collapsing into generic cards.",
-      "Factual project proof, with real imagery only where public-safe assets exist.",
-      "Quiet, once-only motion that never gates content."
+      "Asymmetric typographic opening",
+      "Full-width project fields",
+      "Real product imagery",
+      "Compact contact links"
     ],
     "rules": [
       {
-        "name": "The Evidence Signal Rule",
-        "body": "Salmon marks action and paths; pale blue marks system labels and supporting information. Neither becomes ambient decoration.",
-        "section": "colors"
-      },
-      {
-        "name": "The Paper and Field Rule",
-        "body": "Warm paper is the default canvas. Deep teal appears where operational proof, navigation closure, or contact intent warrants a field change.",
-        "section": "colors"
-      },
-      {
-        "name": "The Three-Voice Rule",
-        "body": "Condensed type makes major statements, sans type carries reading, and mono type labels evidence.",
-        "section": "typography"
-      },
-      {
-        "name": "The Mono Is Data Rule",
-        "body": "Do not set narrative paragraphs, invented commands, or decorative pseudo-technical copy in IBM Plex Mono.",
-        "section": "typography"
-      },
-      {
-        "name": "The First-Viewport Rule",
-        "body": "Lead with engineering evidence, not an oversized empty name field; the workflow and the start of selected work share the opening viewport.",
-        "section": "layout"
-      },
-      {
-        "name": "The Flat-by-Construction Rule",
-        "body": "Surfaces remain flat at rest and in interaction; structure comes from rules, fields, and content hierarchy.",
-        "section": "elevation"
-      },
-      {
-        "name": "The Square-and-Ruled Rule",
-        "body": "Use square corners and one-pixel structural borders; never soften this system into rounded cards, floating pills, or detached bubbles.",
-        "section": "shapes"
-      },
-      {
-        "name": "The Visible-by-Default Rule",
-        "body": "Motion may reveal relationships, but it must never hide content when Motion fails, JavaScript is absent, or reduced motion is requested.",
+        "name": "Public-safe work",
+        "body": "Employer narratives describe personal contribution and known UAT milestones; never infer production status or expose internal details.",
         "section": "components"
+      },
+      {
+        "name": "Visible by default",
+        "body": "No content depends on animation or JavaScript. Enlarged text reflows within grid tracks.",
+        "section": "typography"
       }
     ],
     "dos": [
-      "Do use the exact warm-paper, teal-field, salmon-action, pale-blue-signal, and charcoal-rule roles.",
-      "Do keep engineering evidence and the Microsoft case primary, with games as supporting proof of range.",
-      "Do use semantic ordered lists and definition lists for workflow and evidence structures.",
-      "Do keep Microsoft and CMV diagrams conceptual and public-safe, without private identifiers or screenshot styling.",
-      "Do label the CMV 2,000+ employee reach as planned and the architecture as prepared rather than deployed.",
-      "Do use real Word Lawrie imagery only where its source and provenance remain available.",
-      "Do preserve skip navigation, visible focus, minimum target sizes, focus trapping, reduced-motion behavior, and live form status.",
-      "Do keep claims factual, role-agnostic, résumé-supported, and understandable without confidential material."
+      "Keep the original palette and fonts.",
+      "Use high-level project-specific writing.",
+      "Respect portrait, landscape, keyboard and enlarged-text use."
     ],
     "donts": [
-      "Don't introduce bento grids, floating pills, rounded cards, gradients, glows, blurs, shadows, card lifts, or ornamental depth.",
-      "Don't add fake terminal chrome, invented commands, internal dashboards, fabricated metrics, deployment data, or confidential identifiers.",
-      "Don't use parallax, scroll hijacking, looping animation, pulses, cursor effects, card scaling, or paragraph-by-paragraph fade sequences.",
-      "Don't let IBM Plex Mono become a decorative technology trope or use it for narrative reading.",
-      "Don't create an oversized empty hero or push selected work out of the opening viewport.",
-      "Don't expose a private phone number or email address in public résumé or portfolio artifacts.",
-      "Don't turn Word Lawrie into the portfolio's primary identity or imply that planned work has shipped."
+      "Do not restore employer workflow diagrams or contact forms.",
+      "Do not reintroduce confidential metrics or licensing terms.",
+      "Do not rely on old Operational Field comps for current requirements."
     ]
   }
 }

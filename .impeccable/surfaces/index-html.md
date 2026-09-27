@@ -2,61 +2,25 @@
 version: 1
 slug: "index-html"
 primary_target: "index.html"
-related_targets: ["work/azure-cli-telemetry.html","work/cmv-incident-reporting.html","work/word-lawrie.html"]
+related_targets: ["work/azure-cli-telemetry.html", "work/cmv-incident-reporting.html", "work/word-lawrie.html", "404.html"]
 ---
 
-# Portfolio redesign brief
+# Portfolio refinement — September 2026
 
-## Scope and mode
+Visitor mode: Experience. Audience: software engineering recruiters and hiring managers.
 
-- Scope: homepage plus the shared visual and motion system used by all three case studies and the 404 page.
-- Visitor mode: Experience. The engineering work leads; interface chrome remains quiet.
-- Audience: recruiters and engineering hiring managers making a fast interview decision.
-- Primary action: inspect the Microsoft case study, then open the public résumé or contact Ethan.
+User-approved direction: pronounced brutalism and Swiss minimalism, preserving the existing palette and self-hosted IBM Plex fonts. The typography-led opening replaces the old operational workflow. A three-project directory introduces Microsoft, CMV, and Word Lawrie, in that order. Project titles and strong section rules provide hierarchy; minimize repeated tables, labels, and diagrams.
 
-## Direction
+Contact becomes compact LinkedIn and résumé links. Employer cases retain named contributions and broad technologies but no internal implementation, metrics, architecture diagrams, or rollout plans. Microsoft reached UAT at internship end in February 2026; CMV has reached UAT as of September 2026. See PRODUCT.md for factual constraints and DESIGN.md for current layout rules.
 
-- Chosen direction: **Operational Field**.
-- Approved comp: `.impeccable/mocks/operational-field.png`.
-- Memorable moment: an authored Azure workflow path occupies the first viewport beside Ethan's name, using only public-safe concepts and connecting directly into selected work.
-- The generated comp is compositional authority only. Its invented command text, handler names, metrics, Azure Monitor references, and rollout language are explicitly rejected.
+The historical briefs, comps, and August review remain archival references only. They do not authorize reintroducing the contact form, diagram-heavy hero, confidential metrics, or obsolete CMV status.
 
-## Visual system inventory
+Approved overdrive direction: kinetic Swiss poster. Two name lines settle from opposing directions, with a flat color band linked to project hover and keyboard focus. Keep the palette, fonts, factual copy and three ordinary project links. Use a static salmon composition without JavaScript and instant state changes with reduced motion. No continuous animation, scroll capture, shaders, dependencies or hidden content. The duplicate lettering used for band contrast must remain aria-hidden.
 
-| Ingredient | Record | Medium |
-|---|---|---|
-| Page ground | Existing Word Lawrie paper `#FDEFD4`; comp samples near `#FCECD4` | CSS token |
-| Raised ground | `#FFF8E9` | CSS token |
-| Ink | `#242322` | CSS token |
-| Operational field | Existing deep teal `#1C3D46`; comp samples near `#153C46` | CSS token |
-| Primary action | Salmon `#FC967D`; square corners, 1px ink border | Semantic link/button |
-| Secondary signal | Pale blue `#91C3CE` | CSS token |
-| Display type | IBM Plex Sans Condensed Bold, capped at 6rem | Existing self-hosted font |
-| Body type | IBM Plex Sans, 65–75ch measure | Existing self-hosted font |
-| Data type | IBM Plex Mono only for roles, stacks, statuses, and system labels | Existing self-hosted font |
-| Header | 3.75rem sticky ruled strip, four primary anchors plus résumé/LinkedIn utilities | Semantic HTML/CSS |
-| Hero composition | 7/5 asymmetric grid: name and thesis left; public-safe Azure workflow right | Semantic HTML/CSS |
-| Azure workflow | Command → handlers → trace → signals/dashboard → review/CI/UAT, no internal names or values | Ordered list + CSS lines |
-| Selected work | Full-width editorial rows; Microsoft teal, CMV raised paper, Word real-image field | Semantic articles/CSS grid |
-| Microsoft evidence | Released to UAT; pull request + CI; multiple AI tool handlers | Definition list |
-| CMV evidence | Architecture prepared; planned 2,000+ reach; dealerships + workshops | Definition list |
-| Word evidence | 4.2/5 from 800+ votes; four-person team; licensed release | Definition list + existing raster |
-| Word imagery | Existing product artwork and app menu image | Existing raster with origin provenance |
-| Contact | Teal closing field with bottom-rule inputs and designed inline status | Semantic form/CSS |
+Acceptance: five routes; 320/390 phone portrait, 844×390 landscape, 768×1024 and 1024×768 tablet, 1440×900 desktop; intermediate widths; keyboard, 200% text enlargement, reduced motion and no-JavaScript access. Complete preview for review before public publication.
 
-## Responsive and motion contract
+Delight refinement: contextual contact copy, résumé format labels, useful next-case previews, and a small illustrative word ladder on Word Lawrie. Keep it optional and accessible; no extra motion on employer narratives or ornamental rewards.
 
-- Desktop/laptop: hero remains a true asymmetric two-column composition and selected work enters the first viewport.
-- Tablet: hero becomes one dominant name block followed by a compact horizontal workflow; no overlap between display and proof.
-- Mobile: the workflow becomes a five-step vertical index below the thesis, with the primary action visible before the fold when height allows.
-- Motion uses vendored Motion 13.1.0 with visible-by-default progressive enhancement.
-- Authored moments: quick header/name/workflow entrance; workflow line draw; grouped first-entry reveals; restrained section transitions; precise mobile-menu choreography.
-- No parallax, scroll hijacking, looping animation, pulsing status, cursor effects, card scaling, or repeated paragraph-by-paragraph fades.
-- Reduced motion disables transforms, clipping, and scroll-linked behavior without disabling navigation, focus, or form logic.
+Colour refinement: use the Word Lawrie palette throughout. Cream reading surfaces, teal text/rules, subdued teal secondary text, salmon actions and Word sections, and blue CMV sections. Match the homepage project colours to their case pages. See DESIGN.md for the definitive colour roles.
 
-## Constraints
-
-- Preserve all factual claims, routes, SEO, accessibility hooks, form field names/action, and the case-study navigation cycle.
-- Microsoft and CMV visuals are conceptual public-safe diagrams, never represented as screenshots or internal telemetry.
-- CMV scope remains explicitly planned.
-- Games remain supporting evidence rather than the primary identity.
+Bolder refinement: Selected Work is the second visual peak after the kinetic hero. Use condensed uppercase project headlines, a stronger entrance rule, compact provenance/index numbers, and a larger share of the row for genuine Word Lawrie artwork. Preserve the quieter Experience/About rhythm and existing case-page composition.

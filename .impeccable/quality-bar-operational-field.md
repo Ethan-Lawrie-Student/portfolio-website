@@ -1,3 +1,5 @@
+> Historical August quality bar; superseded by the September brief in surfaces/index-html.md and current DESIGN.md.
+
 # Operational Field — Quality Bar
 
 This is the visual and interaction ceiling for the selected portfolio world.

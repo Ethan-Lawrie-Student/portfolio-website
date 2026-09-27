@@ -3,3 +3,4 @@ dist/
 tmp/
 __pycache__/
 *.py[cod]
+.agents/skills/impeccable/scripts/bin/

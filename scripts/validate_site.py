@@ -82,6 +82,18 @@ def main() -> int:
 
     for page, parser in parsed_pages.items():
         label = page.relative_to(ROOT)
+        # Public copy includes metadata/JSON-LD, not only rendered paragraphs.
+        source = page.read_text(encoding="utf-8")
+        private_details = (
+            "script.google.com/macros/", "multi-handler", "2,000+", "day-plus",
+            "non-exclusive", "paid distribution", "deployment filters",
+            "Architecture prepared", "Implementation ahead", "4.2/5",
+        )
+        for detail in private_details:
+            if detail.casefold() in source.casefold():
+                errors.append(f"{label}: obsolete or restricted public detail: {detail}")
+        if re.search(r"<form\b", source, re.IGNORECASE):
+            errors.append(f"{label}: contact must use links, not a submission form")
         duplicate_ids = [item for item, count in Counter(parser.ids).items() if count > 1]
         if duplicate_ids:
             errors.append(f"{label}: duplicate IDs: {', '.join(duplicate_ids)}")

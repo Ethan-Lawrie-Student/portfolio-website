@@ -25,9 +25,9 @@ OUTPUTS = (
 TEAL = colors.HexColor("#1C3D46")
 CREAM = colors.HexColor("#FDEFD4")
 CORAL = colors.HexColor("#FC967D")
-CHARCOAL = colors.HexColor("#242322")
-MUTED = colors.HexColor("#52666A")
-RULE = colors.HexColor("#B9AA91")
+INK = TEAL
+MUTED = colors.HexColor("#405F63")
+RULE = colors.HexColor("#91C3CE")
 
 
 def styles():
@@ -66,7 +66,7 @@ def styles():
             fontName="Helvetica-Bold",
             fontSize=10.4,
             leading=11.8,
-            textColor=CHARCOAL,
+            textColor=INK,
         ),
         "subtitle": ParagraphStyle(
             "Subtitle",
@@ -91,7 +91,7 @@ def styles():
             fontName="Helvetica",
             fontSize=8.9,
             leading=10.8,
-            textColor=CHARCOAL,
+            textColor=INK,
         ),
         "bullet": ParagraphStyle(
             "Bullet",
@@ -101,7 +101,7 @@ def styles():
             leading=10.8,
             leftIndent=9,
             firstLineIndent=-7,
-            textColor=CHARCOAL,
+            textColor=INK,
             spaceBefore=2,
         ),
         "skills": ParagraphStyle(
@@ -110,7 +110,7 @@ def styles():
             fontName="Helvetica",
             fontSize=8.7,
             leading=10.8,
-            textColor=CHARCOAL,
+            textColor=INK,
             spaceAfter=1.6,
         ),
     }
@@ -196,10 +196,9 @@ def build_story():
             "Adelaide, SA",
             "Apr 2024 - Present",
             [
-                "Built and deployed an Azure document-to-audio workflow using Azure AI Document Intelligence, LLM summarisation, text-to-speech, and WAV chunking for documents hundreds of pages long, including outputs over two hours.",
-                "Prototyped a retrieval-augmented Outlook add-in that retrieves prior email context and drafts replies through an Azure Functions backend.",
-                "Architected a responsive incident-reporting platform for a planned rollout to 2,000+ employees using SharePoint/Plumsail, JavaScript, Azure Functions, SQL Server, and Azure Blob Storage.",
-                "Automated employee share-statement generation, reducing a day-plus manual process to a batch workflow; also built serverless workflows for ATO reporting and operational data capture.",
+                "Design and build operational software, cloud applications, and data workflows using Azure and web technologies.",
+                "Designed the architecture for an incident-reporting platform. The platform has reached user acceptance testing as of September 2026.",
+                "Developed AI-assisted tools and business workflow automation, with a focus on useful interfaces and reliable data handling.",
             ],
         )
     )
@@ -211,9 +210,8 @@ def build_story():
             "Sydney, NSW",
             "Dec 2025 - Feb 2026",
             [
-                "Implemented end-to-end telemetry for the Azure CLI Copilot handler with Python and OpenTelemetry, tracing command workflows across multiple AI tool handlers.",
-                "Defined telemetry for latency, token usage, errors, handler outcomes, and response-quality signals, then released the changes to UAT through pull-request review and CI.",
-                "Built a unified, filterable Grafana dashboard across environments and deployments for reliability, performance, and cost analysis; also contributed an Ev2 deployment script fix.",
+                "Implemented telemetry for Azure CLI Copilot using Python and OpenTelemetry, and built dashboards in Grafana.",
+                "Contributed implementation, review, and testing for observability tooling. The work reached user acceptance testing by the end of my internship in February 2026.",
             ],
         )
     )
@@ -242,7 +240,7 @@ def build_story():
             "2023 - 2024",
             [
                 "Led development and shipped a word game across mobile and web, owning core gameplay, UX iteration, testing, and release.",
-                "Negotiated a paid, non-exclusive Coolmath Games distribution licence; the published game held a 4.2/5 rating from 839 votes.",
+                "Secured distribution through Coolmath Games, bringing the game to browser players alongside its mobile release.",
             ],
         )
     )

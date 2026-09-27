@@ -11,7 +11,7 @@ OUTPUT = ROOT / "assets" / "meta" / "social-preview.png"
 TEAL = "#1c3d46"
 CREAM = "#fdefd4"
 SALMON = "#fc967d"
-INK = "#242322"
+INK = "#1c3d46"
 
 
 def font(name: str, size: int) -> ImageFont.FreeTypeFont:
